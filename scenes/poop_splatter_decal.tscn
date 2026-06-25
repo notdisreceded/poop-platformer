@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://chgoalunblbnv"]
+
+[ext_resource type="Texture2D" uid="uid://l1vl2ixostjh" path="res://assets/sprites/PoopSplatter.png" id="1_13bsd"]
+
+[node name="PoopSplatterDecal" type="Sprite2D" unique_id=1259636031]
+texture_filter = 1
+scale = Vector2(2.9890988, 1.6823237)
+texture = ExtResource("1_13bsd")

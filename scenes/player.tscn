@@ -1,0 +1,77 @@
+[gd_scene load_steps=7 format=3 uid="uid://c3r0yi1teipmv"]
+
+[ext_resource type="Script" uid="uid://dhcoqjfg367wn" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://bfbp1l1hpb334" path="res://assets/sprites/Player.png" id="2_qhqgy"]
+[ext_resource type="PackedScene" uid="uid://dwvpmqqyane44" path="res://scenes/poop_splatter.tscn" id="3_qhqgy"]
+[ext_resource type="Script" uid="uid://bi3bf6c87aqst" path="res://scripts/void_behavior.gd" id="4_dqkch"]
+[ext_resource type="AudioStream" uid="uid://cgru4dtj132oo" path="res://assets/audio/bowserfart.wav" id="5_qlg0r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
+size = Vector2(82, 240)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_g2els")
+speed = 500.0
+jumpVelocity = 750.0
+gravity = 3250.0
+acceleration = 13.0
+deceleration = 15.0
+metadata/_custom_type_script = "uid://dhcoqjfg367wn"
+
+[node name="Sprite" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(-1, -3)
+texture = ExtResource("2_qhqgy")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(-2, -3)
+shape = SubResource("RectangleShape2D_g2els")
+
+[node name="VoidBehavior" type="Node2D" parent="."]
+script = ExtResource("4_dqkch")
+metadata/_custom_type_script = "uid://bi3bf6c87aqst"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(36, -77)
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+rotation_smoothing_enabled = true
+
+[node name="PoopLine" type="Line2D" parent="."]
+z_index = -1
+position = Vector2(-1, -3)
+points = PackedVector2Array(0, 39, 0, 800)
+width = 50.0
+default_color = Color(0.360784, 0.113725, 0.0352941, 1)
+begin_cap_mode = 2
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(0, 42)
+target_position = Vector2(0, 510)
+hit_from_inside = true
+
+[node name="PoopRay" type="CPUParticles2D" parent="."]
+z_index = -1
+position = Vector2(1, 97)
+emitting = false
+amount = 400
+speed_scale = 2.0
+explosiveness = 0.24
+randomness = 0.23
+local_coords = true
+emission_shape = 3
+emission_rect_extents = Vector2(2.655, 1.305)
+gravity = Vector2(0, 1281.46)
+angle_min = -580.3
+angle_max = 720.0
+scale_amount_min = 6.0
+scale_amount_max = 67.39
+color = Color(0.359542, 0.112756, 0.0357044, 1)
+
+[node name="PoopSplatter" parent="." instance=ExtResource("3_qhqgy")]
+position = Vector2(-1, -3)
+scale = Vector2(0.4, 0.4)
+emitting = false
+
+[node name="Noise" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_qlg0r")
