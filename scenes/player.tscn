@@ -1,15 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://c3r0yi1teipmv"]
+[gd_scene format=3 uid="uid://c3r0yi1teipmv"]
 
 [ext_resource type="Script" uid="uid://dhcoqjfg367wn" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://bfbp1l1hpb334" path="res://assets/sprites/Player.png" id="2_qhqgy"]
 [ext_resource type="PackedScene" uid="uid://dwvpmqqyane44" path="res://scenes/poop_splatter.tscn" id="3_qhqgy"]
 [ext_resource type="Script" uid="uid://bi3bf6c87aqst" path="res://scripts/void_behavior.gd" id="4_dqkch"]
 [ext_resource type="AudioStream" uid="uid://cgru4dtj132oo" path="res://assets/audio/bowserfart.wav" id="5_qlg0r"]
+[ext_resource type="AudioStream" uid="uid://bbnvyu6wvx4sh" path="res://assets/sprites/Shit.wav" id="6_tuyoq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
 size = Vector2(82, 240)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" unique_id=1050360423]
 script = ExtResource("1_g2els")
 speed = 500.0
 jumpVelocity = 750.0
@@ -18,39 +19,39 @@ acceleration = 13.0
 deceleration = 15.0
 metadata/_custom_type_script = "uid://dhcoqjfg367wn"
 
-[node name="Sprite" type="Sprite2D" parent="."]
+[node name="Sprite" type="Sprite2D" parent="." unique_id=646518278]
 z_index = 2
 position = Vector2(-1, -3)
 texture = ExtResource("2_qhqgy")
 
-[node name="Collision" type="CollisionShape2D" parent="."]
+[node name="Collision" type="CollisionShape2D" parent="." unique_id=1957585004]
 position = Vector2(-2, -3)
 shape = SubResource("RectangleShape2D_g2els")
 
-[node name="VoidBehavior" type="Node2D" parent="."]
+[node name="VoidBehavior" type="Node2D" parent="." unique_id=1194938788]
 script = ExtResource("4_dqkch")
 metadata/_custom_type_script = "uid://bi3bf6c87aqst"
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1604538894]
 position = Vector2(36, -77)
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 rotation_smoothing_enabled = true
 
-[node name="PoopLine" type="Line2D" parent="."]
+[node name="PoopLine" type="Line2D" parent="." unique_id=691023597]
 z_index = -1
-position = Vector2(-1, -3)
+position = Vector2(0, -3)
 points = PackedVector2Array(0, 39, 0, 800)
 width = 50.0
 default_color = Color(0.360784, 0.113725, 0.0352941, 1)
 begin_cap_mode = 2
 
-[node name="RayCast2D" type="RayCast2D" parent="."]
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=450528667]
 position = Vector2(0, 42)
-target_position = Vector2(0, 510)
+target_position = Vector2(3, -447)
 hit_from_inside = true
 
-[node name="PoopRay" type="CPUParticles2D" parent="."]
+[node name="PoopRay" type="CPUParticles2D" parent="." unique_id=615364422]
 z_index = -1
 position = Vector2(1, 97)
 emitting = false
@@ -68,10 +69,13 @@ scale_amount_min = 6.0
 scale_amount_max = 67.39
 color = Color(0.359542, 0.112756, 0.0357044, 1)
 
-[node name="PoopSplatter" parent="." instance=ExtResource("3_qhqgy")]
+[node name="PoopSplatter" parent="." unique_id=2128380486 instance=ExtResource("3_qhqgy")]
 position = Vector2(-1, -3)
 scale = Vector2(0.4, 0.4)
 emitting = false
 
-[node name="Noise" type="AudioStreamPlayer" parent="."]
+[node name="Noise" type="AudioStreamPlayer" parent="." unique_id=1734083912]
 stream = ExtResource("5_qlg0r")
+
+[node name="Noise2" type="AudioStreamPlayer" parent="." unique_id=612133186]
+stream = ExtResource("6_tuyoq")

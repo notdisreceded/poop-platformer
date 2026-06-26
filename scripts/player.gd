@@ -12,7 +12,7 @@ class_name Player
 @export var generatePlayerCamera := true
 
 var isHoldingJump := false
-var horizontalDirection := 0
+var horizontalDirection := 0.0
 var health = 100
 
 func damage (amount : float):
@@ -28,6 +28,7 @@ func _ready() -> void:
 
 func onJump ():
 	$Noise.play ()
+	$Noise2.play ()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process (_delta : float):
@@ -41,8 +42,8 @@ func _physics_process (_delta : float):
 	var xVelocity = targetVelocity.x
 	var yVelocity = targetVelocity.y
 	
-	var line2d := $PoopLine
 	var raycast2d : RayCast2D = $RayCast2D
+	var line2d := $PoopLine
 	var poopRay := $PoopRay
 	var poopSplatter = $PoopSplatter
 		
@@ -52,55 +53,44 @@ func _physics_process (_delta : float):
 	# If we are decelerating then
 	elif velocity.x > targetVelocity.x:
 		xVelocity = maxf (velocity.x - deceleration, -speed)
-	
-	var collisionPoint = Vector2.ZERO
-	print ("IS collidng: ", raycast2d.is_colliding ())
-	
-	line2d.points[1] = raycast2d.target_position
 
-	if raycast2d.is_colliding () == false:
-		collisionPoint.x = global_position.x
-		collisionPoint.y = raycast2d.target_position.y
-		
-	
-		
-		
-	else:
-		collisionPoint = raycast2d.get_collision_point ()
-
-		
 	if isHoldingJump:
-		targetVelocity.y = -jumpVelocity
-
-		print (collisionPoint.y)
-
-		raycast2d.target_position += Vector2 (0, poopFallRate * _delta)
-
-		line2d.points[1] = to_local (Vector2 (collisionPoint.x, collisionPoint.y + 10))
-		poopRay.gravity = Vector2 (0, 5  * line2d.get_point_position (1).y)
+		targetVelocity.y -= jumpVelocity
+		raycast2d.target_position.y += poopFallRate *  _delta
 	else:
-		targetVelocity.y += gravity
-		
+		$Noise2.stop ()
 		raycast2d.target_position.y = 0
 		
-		line2d.points[1] = to_local (Vector2.ZERO)
-		poopRay.gravity = Vector2 (0, 0)
+		targetVelocity.y += gravity
+	var isRaycastColliding := raycast2d.is_colliding ()
+	print ("IS collidng: ", isRaycastColliding)
 
-		collisionPoint = Vector2.ZERO
-		
+	if isRaycastColliding:
+		raycast2d.target_position.y = raycast2d.to_local (raycast2d.get_collision_point ()).y
+	else:
+		# positive y is down and negative y is up
+
+		raycast2d.target_position.y += poopFallRate * _delta
+
+	# Jump
 	yVelocity = lerp (velocity.y, targetVelocity.y, .8 * _delta)
-		
 	velocity = Vector2 (xVelocity, yVelocity)
 	
 	# -- visuals --
 
 	poopRay.emitting = isHoldingJump
 	line2d.visible = isHoldingJump
-	
+	line2d.points[1].y = raycast2d.target_position.y + 150
+
+	print ("Y: ", line2d.points[1].y)
+	print ("RAYCAST Y: ", raycast2d.target_position.y)
+
 	poopSplatter.emitting = raycast2d.is_colliding () and isHoldingJump
+
 	if raycast2d.is_colliding () and isHoldingJump:
 		var point = raycast2d.get_collision_point ()
 
 		poopSplatter.global_position = point
+
 	move_and_slide ()
 	
