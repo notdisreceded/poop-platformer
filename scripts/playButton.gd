@@ -1,8 +1,15 @@
 extends Button
 
-@onready var scene = "res://scenes/level.tscn"
+@onready var scene = "res://scenes/level_select.tscn"
+
+var pressedButton = false
 
 func onPressed ():
+	if pressedButton:
+		return
+
+	pressedButton = true
+	
 	var gameManager : GameManager = get_node ("/root/GameManager")
 	gameManager.switch_scene (scene)
 

@@ -8,12 +8,17 @@ class_name Player
 @export var acceleration : float
 @export var deceleration : float
 @export var poopFallRate : float = 1000
-
 @export var generatePlayerCamera := true
+
+
+@onready
+var playerDataComponent : PlayerDataComponent = $PlayerDataComponent 
 
 var isHoldingJump := false
 var horizontalDirection := 0.0
 var health = 100
+
+
 
 func damage (amount : float):
 	health -= amount
@@ -63,7 +68,7 @@ func _physics_process (_delta : float):
 		
 		targetVelocity.y += gravity
 	var isRaycastColliding := raycast2d.is_colliding ()
-	print ("IS collidng: ", isRaycastColliding)
+	# print ("IS collidng: ", isRaycastColliding)
 
 	if isRaycastColliding:
 		raycast2d.target_position.y = raycast2d.to_local (raycast2d.get_collision_point ()).y
@@ -82,10 +87,13 @@ func _physics_process (_delta : float):
 	line2d.visible = isHoldingJump
 	line2d.points[1].y = raycast2d.target_position.y + 150
 
-	print ("Y: ", line2d.points[1].y)
-	print ("RAYCAST Y: ", raycast2d.target_position.y)
+	# print ("Y: ", line2d.points[1].y)
+	# print ("RAYCAST Y: ", raycast2d.target_position.y)
 
 	poopSplatter.emitting = raycast2d.is_colliding () and isHoldingJump
+	poopSplatter.color = playerDataComponent.dataResource.poopColor
+	line2d.default_color = playerDataComponent.dataResource.poopColor
+	poopRay.color = playerDataComponent.dataResource.poopColor
 
 	if raycast2d.is_colliding () and isHoldingJump:
 		var point = raycast2d.get_collision_point ()

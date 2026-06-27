@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dl4nwxxv5qvvt"]
+
+[ext_resource type="Texture2D" uid="uid://cmfgy7quinbbq" path="res://assets/sprites/Checkpoint.png" id="1_13s36"]
+[ext_resource type="Script" uid="uid://cnwolo8dxe6av" path="res://scripts/checkpoint.gd" id="1_ywqth"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yyywg"]
+size = Vector2(281.81818, 761.36365)
+
+[node name="Checkpoint" type="Node2D" unique_id=1399950714 node_paths=PackedStringArray("area2D")]
+script = ExtResource("1_ywqth")
+nextLevelPath = "res://scenes/main.tscn"
+area2D = NodePath("Area2D")
+metadata/_custom_type_script = "uid://cnwolo8dxe6av"
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=427432872]
+modulate = Color(0, 0, 0, 1)
+scale = Vector2(0.44, 0.44)
+texture = ExtResource("1_13s36")
+offset = Vector2(119, -361)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1544757656]
+scale = Vector2(0.44, 0.44)
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1734174034]
+position = Vector2(97.72727, -326.13635)
+shape = SubResource("RectangleShape2D_yyywg")

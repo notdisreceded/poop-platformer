@@ -1,8 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dw8uwdpr2nbbb"]
+[gd_scene format=3 uid="uid://dw8uwdpr2nbbb"]
 
 [ext_resource type="Script" uid="uid://bagjwf3ndfcod" path="res://scripts/game_manager.gd" id="1_2q6dc"]
 [ext_resource type="Texture2D" uid="uid://bulk6srumsqlj" path="res://assets/sprites/White.png" id="2_w7c3h"]
-[ext_resource type="Texture2D" uid="uid://cmfgy7quinbbq" path="res://assets/sprites/Checkpoint.png" id="3_w8frs"]
+[ext_resource type="PackedScene" uid="uid://dl4nwxxv5qvvt" path="res://scenes/checkpoint.tscn" id="3_b2cq8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w8frs"]
 size = Vector2(1007, 107)
@@ -16,71 +16,68 @@ size = Vector2(1007, 1708)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_w8frs"]
 normal = Vector2(0, 1)
 
-[node name="GameManager" type="Node2D"]
+[node name="GameManager" type="Node2D" unique_id=1704484248]
 script = ExtResource("1_2q6dc")
 voidHeight = 716.0
 playerSpawnPoint = Vector2(575, 405)
+destroyVoidedObjects = false
 teleportVoidedObjects = true
 voidedObjectTeleportPoint = Vector2(0, 405)
 showLoadingScreen = true
 generatePlayerCamera = false
 metadata/_custom_type_script = "uid://bagjwf3ndfcod"
 
-[node name="Platform" type="StaticBody2D" parent="."]
+[node name="Platform" type="StaticBody2D" parent="." unique_id=1858096964]
 position = Vector2(606, 401)
 
-[node name="Sprite2D" type="Sprite2D" parent="Platform"]
+[node name="Sprite2D" type="Sprite2D" parent="Platform" unique_id=2141458184]
 modulate = Color(0, 0, 0, 1)
 z_index = 3
 position = Vector2(-34, 216.75)
 scale = Vector2(3.79057, 0.390909)
 texture = ExtResource("2_w7c3h")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform" unique_id=1968816149]
 position = Vector2(-33.5, 216.5)
 shape = SubResource("RectangleShape2D_w8frs")
 
-[node name="Platform2" type="StaticBody2D" parent="."]
+[node name="Platform2" type="StaticBody2D" parent="." unique_id=2125237053]
 position = Vector2(1844, -191)
 
-[node name="Sprite2D" type="Sprite2D" parent="Platform2"]
+[node name="Sprite2D" type="Sprite2D" parent="Platform2" unique_id=2071397448]
 modulate = Color(0, 0, 0, 1)
 z_index = 3
 position = Vector2(-34, 553)
 scale = Vector2(3.79057, 2.83636)
 texture = ExtResource("2_w7c3h")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2" unique_id=1543549558]
 position = Vector2(-33.5, 542)
 shape = SubResource("RectangleShape2D_mx8sn")
 
-[node name="Platform3" type="StaticBody2D" parent="."]
+[node name="Platform3" type="StaticBody2D" parent="." unique_id=850195221]
 position = Vector2(3208, -919)
 
-[node name="Sprite2D" type="Sprite2D" parent="Platform3"]
+[node name="Sprite2D" type="Sprite2D" parent="Platform3" unique_id=739803889]
 modulate = Color(0, 0, 0, 1)
 z_index = 3
 position = Vector2(-34, 942.5)
 scale = Vector2(3.79057, 5.66909)
 texture = ExtResource("2_w7c3h")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform3" unique_id=2038072948]
 position = Vector2(-33.5, 1017)
 shape = SubResource("RectangleShape2D_ppgk2")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=749729867]
 position = Vector2(1872, -371)
 zoom = Vector2(0.32, 0.32)
 
-[node name="Checkpoint" type="Sprite2D" parent="."]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(2694, -708)
-scale = Vector2(0.44, 0.44)
-texture = ExtResource("3_w8frs")
-offset = Vector2(119, -361)
-
-[node name="WorldBoundary" type="StaticBody2D" parent="."]
+[node name="WorldBoundary" type="StaticBody2D" parent="." unique_id=110959077]
 position = Vector2(1847, -1932)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundary"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundary" unique_id=1407379125]
 shape = SubResource("WorldBoundaryShape2D_w8frs")
+
+[node name="Checkpoint" parent="." unique_id=427432872 instance=ExtResource("3_b2cq8")]
+position = Vector2(3320, -767.99994)

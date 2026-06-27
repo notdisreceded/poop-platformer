@@ -5,7 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://dwvpmqqyane44" path="res://scenes/poop_splatter.tscn" id="3_qhqgy"]
 [ext_resource type="Script" uid="uid://bi3bf6c87aqst" path="res://scripts/void_behavior.gd" id="4_dqkch"]
 [ext_resource type="AudioStream" uid="uid://cgru4dtj132oo" path="res://assets/audio/bowserfart.wav" id="5_qlg0r"]
-[ext_resource type="AudioStream" uid="uid://bbnvyu6wvx4sh" path="res://assets/sprites/Shit.wav" id="6_tuyoq"]
+[ext_resource type="AudioStream" uid="uid://bbnvyu6wvx4sh" path="res://assets/audio/Shit.wav" id="6_tuyoq"]
+[ext_resource type="Script" uid="uid://c8i2wroo7scc7" path="res://scripts/playerDataComponent.gd" id="7_fjrip"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
 size = Vector2(82, 240)
@@ -79,3 +80,7 @@ stream = ExtResource("5_qlg0r")
 
 [node name="Noise2" type="AudioStreamPlayer" parent="." unique_id=612133186]
 stream = ExtResource("6_tuyoq")
+
+[node name="PlayerDataComponent" type="Node" parent="." unique_id=1834918001]
+script = ExtResource("7_fjrip")
+metadata/_custom_type_script = "uid://c8i2wroo7scc7"

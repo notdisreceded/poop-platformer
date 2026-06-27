@@ -9,6 +9,7 @@ class_name GameManager
 @export var voidedObjectTeleportPoint : Vector2 = Vector2 (0, 0)
 @export var showLoadingScreen := false
 @export var generatePlayerCamera := true
+@export var generatePlayer := true
 @onready var playerResource := preload ("res://scenes/player.tscn")
 @onready var loadingScreenResource := preload ("res://scenes/loading_screen.tscn")
 
@@ -20,7 +21,7 @@ func _ready() -> void:
 		var loadingScreenScene : CanvasLayer = loadingScreenResource.instantiate ()
 		var loadingScreen : TextureRect = loadingScreenScene.find_child ("TextureRect")
 		
-		add_sibling (loadingScreenScene)
+		get_tree ().root.add_child (loadingScreenScene) 
 		
 		var tween = create_tween ()
 		
@@ -32,7 +33,7 @@ func _ready() -> void:
 		loadingScreen.queue_free ()
 		print ("Tween done")
 
-	if playerResource.can_instantiate ():
+	if playerResource.can_instantiate () and generatePlayer:
 		player = playerResource.instantiate ()
 		
 		player.generatePlayerCamera = generatePlayerCamera
@@ -50,7 +51,7 @@ func switch_scene (scene : String):
 		var loadingScreenScene : CanvasLayer = loadingScreenResource.instantiate ()
 		var loadingScreen : TextureRect = loadingScreenScene.find_child ("TextureRect")
 
-		add_sibling (loadingScreenScene)
+		get_tree ().root.add_child (loadingScreenScene) 
 		
 		print ("Loading screen parent: ", loadingScreen.get_path ())
 		

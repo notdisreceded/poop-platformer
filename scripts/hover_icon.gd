@@ -1,4 +1,4 @@
-extends Node2D
+extends Component
 class_name HoverComponent
 
 # properties
