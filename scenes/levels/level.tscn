@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://bagjwf3ndfcod" path="res://scripts/game_manager.gd" id="1_2q6dc"]
 [ext_resource type="Texture2D" uid="uid://bulk6srumsqlj" path="res://assets/sprites/White.png" id="2_w7c3h"]
 [ext_resource type="PackedScene" uid="uid://dl4nwxxv5qvvt" path="res://scenes/checkpoint.tscn" id="3_b2cq8"]
+[ext_resource type="Texture2D" uid="uid://bsei0pn8irffj" path="res://assets/sprites/Guide1.png" id="4_xb4v1"]
+[ext_resource type="PackedScene" uid="uid://buajeyxn22dxa" path="res://scenes/spike.tscn" id="5_urvlt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w8frs"]
 size = Vector2(1007, 107)
@@ -16,15 +18,16 @@ size = Vector2(1007, 1708)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_w8frs"]
 normal = Vector2(0, 1)
 
-[node name="GameManager" type="Node2D" unique_id=1704484248]
+[node name="GameManager" type="Node2D" unique_id=1704484248 node_paths=PackedStringArray("remotePath")]
 script = ExtResource("1_2q6dc")
-voidHeight = 716.0
-playerSpawnPoint = Vector2(575, 405)
+voidHeight = 1000.0
+playerSpawnPoint = Vector2(575, -1200)
 destroyVoidedObjects = false
 teleportVoidedObjects = true
-voidedObjectTeleportPoint = Vector2(0, 405)
+voidedObjectTeleportPoint = Vector2(575, 405)
 showLoadingScreen = true
 generatePlayerCamera = false
+remotePath = NodePath("Camera2D")
 metadata/_custom_type_script = "uid://bagjwf3ndfcod"
 
 [node name="Platform" type="StaticBody2D" parent="." unique_id=1858096964]
@@ -42,7 +45,7 @@ position = Vector2(-33.5, 216.5)
 shape = SubResource("RectangleShape2D_w8frs")
 
 [node name="Platform2" type="StaticBody2D" parent="." unique_id=2125237053]
-position = Vector2(1844, -191)
+position = Vector2(4054, -183)
 
 [node name="Sprite2D" type="Sprite2D" parent="Platform2" unique_id=2071397448]
 modulate = Color(0, 0, 0, 1)
@@ -55,8 +58,22 @@ texture = ExtResource("2_w7c3h")
 position = Vector2(-33.5, 542)
 shape = SubResource("RectangleShape2D_mx8sn")
 
+[node name="Platform4" type="StaticBody2D" parent="." unique_id=1380071601]
+position = Vector2(7164, -164)
+
+[node name="Sprite2D" type="Sprite2D" parent="Platform4" unique_id=479296313]
+modulate = Color(0, 0, 0, 1)
+z_index = 3
+position = Vector2(-34, 553)
+scale = Vector2(3.79057, 2.83636)
+texture = ExtResource("2_w7c3h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform4" unique_id=312942201]
+position = Vector2(-33.5, 542)
+shape = SubResource("RectangleShape2D_mx8sn")
+
 [node name="Platform3" type="StaticBody2D" parent="." unique_id=850195221]
-position = Vector2(3208, -919)
+position = Vector2(5418, -911)
 
 [node name="Sprite2D" type="Sprite2D" parent="Platform3" unique_id=739803889]
 modulate = Color(0, 0, 0, 1)
@@ -69,15 +86,51 @@ texture = ExtResource("2_w7c3h")
 position = Vector2(-33.5, 1017)
 shape = SubResource("RectangleShape2D_ppgk2")
 
+[node name="Platform5" type="StaticBody2D" parent="." unique_id=208320246]
+position = Vector2(2344, -536)
+
+[node name="Sprite2D" type="Sprite2D" parent="Platform5" unique_id=2002452272]
+modulate = Color(0, 0, 0, 1)
+z_index = 3
+position = Vector2(-34, 942.5)
+scale = Vector2(3.79057, 5.66909)
+texture = ExtResource("2_w7c3h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform5" unique_id=1263738733]
+position = Vector2(-33.5, 1017)
+shape = SubResource("RectangleShape2D_ppgk2")
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=749729867]
-position = Vector2(1872, -371)
-zoom = Vector2(0.32, 0.32)
+position = Vector2(1489, -291)
+zoom = Vector2(0.345, 0.345)
+limit_left = 89
+limit_top = -1276
+limit_right = 7596
+limit_bottom = 641
+position_smoothing_enabled = true
 
 [node name="WorldBoundary" type="StaticBody2D" parent="." unique_id=110959077]
-position = Vector2(1847, -1932)
+position = Vector2(1847, -6193)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundary" unique_id=1407379125]
 shape = SubResource("WorldBoundaryShape2D_w8frs")
 
 [node name="Checkpoint" parent="." unique_id=427432872 instance=ExtResource("3_b2cq8")]
-position = Vector2(3320, -767.99994)
+position = Vector2(7502, 0)
+
+[node name="Guide1" type="Sprite2D" parent="." unique_id=886645854]
+position = Vector2(700.00006, -565)
+scale = Vector2(1.015, 1.015)
+texture = ExtResource("4_xb4v1")
+
+[node name="Spike" parent="." unique_id=1467808966 instance=ExtResource("5_urvlt")]
+position = Vector2(3941, -106.99995)
+scale = Vector2(1.915, 1.915)
+
+[node name="Spike2" parent="." unique_id=1389172454 instance=ExtResource("5_urvlt")]
+position = Vector2(4057.9995, -107)
+scale = Vector2(1.915, 1.915)
+
+[node name="Spike3" parent="." unique_id=2138935936 instance=ExtResource("5_urvlt")]
+position = Vector2(4176, -106.99999)
+scale = Vector2(1.915, 1.915)

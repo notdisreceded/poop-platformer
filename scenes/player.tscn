@@ -15,7 +15,9 @@ size = Vector2(82, 240)
 script = ExtResource("1_g2els")
 speed = 500.0
 jumpVelocity = 750.0
-gravity = 3250.0
+minGravity = 2500.0
+maxGravity = 5000.0
+gravityAcceleration = 850.0
 acceleration = 13.0
 deceleration = 15.0
 metadata/_custom_type_script = "uid://dhcoqjfg367wn"
@@ -84,3 +86,5 @@ stream = ExtResource("6_tuyoq")
 [node name="PlayerDataComponent" type="Node" parent="." unique_id=1834918001]
 script = ExtResource("7_fjrip")
 metadata/_custom_type_script = "uid://c8i2wroo7scc7"
+
+[node name="RemoteTransform" type="RemoteTransform2D" parent="." unique_id=144455655]

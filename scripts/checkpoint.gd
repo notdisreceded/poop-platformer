@@ -14,10 +14,11 @@ func onPlayerEntered (player : Player):
     var playerData := player.playerDataComponent.dataResource
     var playerDataComponent := player.playerDataComponent
 
-    playerData.unlockedLevels.append (nextLevelPath)
-    playerDataComponent.saveData (playerData.toDictionary ())
+    if not playerData.unlockedLevels.has (nextLevelPath):
+        playerData.unlockedLevels.append (nextLevelPath)
+        playerDataComponent.saveData (playerData.toDictionary ())
 
-    print (playerData.unlockedLevels)
+        print (playerData.unlockedLevels)
 
 
 

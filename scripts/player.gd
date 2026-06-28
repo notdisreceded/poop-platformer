@@ -4,24 +4,47 @@ class_name Player
 # variables
 @export var speed : float
 @export var jumpVelocity : float
-@export var gravity : float
+@export var minGravity : float
+@export var maxGravity : float
+@export var gravityAcceleration : float
 @export var acceleration : float
 @export var deceleration : float
 @export var poopFallRate : float = 1000
 @export var generatePlayerCamera := true
+@export var remotePath : NodePath
 
-
+# properties
 @onready
 var playerDataComponent : PlayerDataComponent = $PlayerDataComponent 
-
 var isHoldingJump := false
 var horizontalDirection := 0.0
-var health = 100
+var health = 3
+var damageImmunityTimer = 0
+var kbForce := Vector2 (0, 0)
+var gravity := minGravity
 
 
+# signals/events
+signal damaged (amount, health)
 
-func damage (amount : float):
+func setKnockbackForce (kb : Vector2, time : float):
+	kbForce = kb
+	await get_tree ().create_timer (time).timeout
+	kbForce = Vector2 (0, 0)
+
+func canDamage () -> bool:
+	return damageImmunityTimer <= 0
+
+func damage (amount : float, immunity : float):
+	if damageImmunityTimer > 0:
+		return
+
+	damageImmunityTimer = immunity
+	
 	health -= amount
+	damaged.emit (amount, health)
+
+	print ("Did ", amount, " damage to player.")
 	
 
 # Called when the node enters the scene tree for the first time.
@@ -51,6 +74,10 @@ func _physics_process (_delta : float):
 	var line2d := $PoopLine
 	var poopRay := $PoopRay
 	var poopSplatter = $PoopSplatter
+
+	# Handle damage immunity
+	damageImmunityTimer = clamp (damageImmunityTimer - _delta, 0, 100000)
+
 		
 	# If we are accelerating then
 	if velocity.x < targetVelocity.x:
@@ -62,10 +89,14 @@ func _physics_process (_delta : float):
 	if isHoldingJump:
 		targetVelocity.y -= jumpVelocity
 		raycast2d.target_position.y += poopFallRate *  _delta
+
+		gravity = max (gravity - gravityAcceleration * _delta, minGravity)
+	
 	else:
 		$Noise2.stop ()
 		raycast2d.target_position.y = 0
 		
+		gravity = min (gravity + gravityAcceleration * _delta, maxGravity)
 		targetVelocity.y += gravity
 	var isRaycastColliding := raycast2d.is_colliding ()
 	# print ("IS collidng: ", isRaycastColliding)
@@ -79,8 +110,8 @@ func _physics_process (_delta : float):
 
 	# Jump
 	yVelocity = lerp (velocity.y, targetVelocity.y, .8 * _delta)
-	velocity = Vector2 (xVelocity, yVelocity)
-	
+	velocity = Vector2 (xVelocity, yVelocity) + kbForce
+
 	# -- visuals --
 
 	poopRay.emitting = isHoldingJump
@@ -100,5 +131,11 @@ func _physics_process (_delta : float):
 
 		poopSplatter.global_position = point
 
+	# Remote transform
+	$RemoteTransform.remote_path = remotePath
+	$RemoteTransform.update_rotation = false
+	$RemoteTransform.update_position = true
+
+	print ($RemoteTransform.remote_path)
 	move_and_slide ()
 	

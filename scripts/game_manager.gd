@@ -10,11 +10,13 @@ class_name GameManager
 @export var showLoadingScreen := false
 @export var generatePlayerCamera := true
 @export var generatePlayer := true
+@export var remotePath : Node2D
 @onready var playerResource := preload ("res://scenes/player.tscn")
 @onready var loadingScreenResource := preload ("res://scenes/loading_screen.tscn")
-
 # properties
 var player : Player
+var switchingScenes = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if showLoadingScreen:
@@ -37,6 +39,10 @@ func _ready() -> void:
 		player = playerResource.instantiate ()
 		
 		player.generatePlayerCamera = generatePlayerCamera
+		
+		if remotePath:
+			player.remotePath = remotePath.get_path ()
+			
 		add_child.call_deferred (player)
 		player.position = playerSpawnPoint
 		
@@ -46,8 +52,9 @@ func wait (time : float):
 	await timer.timeout
 	timer.free ()
 func switch_scene (scene : String):
-	if loadingScreenResource.can_instantiate ():
-	
+	if loadingScreenResource.can_instantiate () and not switchingScenes:
+		switchingScenes = true
+
 		var loadingScreenScene : CanvasLayer = loadingScreenResource.instantiate ()
 		var loadingScreen : TextureRect = loadingScreenScene.find_child ("TextureRect")
 
