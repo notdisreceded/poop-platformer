@@ -21,7 +21,7 @@ normal = Vector2(0, 1)
 [node name="GameManager" type="Node2D" unique_id=1704484248 node_paths=PackedStringArray("remotePath")]
 script = ExtResource("1_2q6dc")
 voidHeight = 1000.0
-playerSpawnPoint = Vector2(575, -1200)
+playerSpawnPoint = Vector2(575, 405)
 destroyVoidedObjects = false
 teleportVoidedObjects = true
 voidedObjectTeleportPoint = Vector2(575, 405)

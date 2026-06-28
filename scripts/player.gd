@@ -39,6 +39,16 @@ var healthFill : ColorRect
 var maxHealth := health
 var lastDiTick : float = 0
 var now = 0
+var dead : bool = false:
+	get:
+		return health <= 0
+	set (value):
+		if value == true:
+			health = 0
+			dead = true
+		
+		if health <= 0:
+			dead = true
 
 # signals/events
 signal damaged (amount, health)
@@ -57,12 +67,16 @@ func damage (amount : float, immunity : float):
 		return
 
 	health = health - amount
-	damageImmunityTimer = immunity
+	
+	if health >= 0:
+		damageImmunityTimer = immunity
 	
 	damaged.emit (amount, health)
 
 	print ("Did ", amount, " damage to player.")
 	print ("New health: ", health)
+
+	$Damaged.play ()
 	
 
 # Called when the node enters the scene tree for the first time.
@@ -89,6 +103,14 @@ func onJump ():
 func _physics_process (_delta : float):
 	now += _delta
 
+	# Handle health stuff
+	if healthFill:
+		healthFill.size.x = 14.73 * (health / maxHealth)
+
+
+	if dead:
+		return
+
 	horizontalDirection = Input.get_axis ("left", "right")
 	isHoldingJump = Input.is_action_pressed ("jump")
 	
@@ -110,10 +132,10 @@ func _physics_process (_delta : float):
 		
 	# If we are accelerating then
 	if velocity.x < targetVelocity.x:
-		xVelocity = minf (velocity.x + acceleration, speed)
+		xVelocity = minf (velocity.x + acceleration * _delta, speed)
 	# If we are decelerating then
 	elif velocity.x > targetVelocity.x:
-		xVelocity = maxf (velocity.x - deceleration, -speed)
+		xVelocity = maxf (velocity.x - deceleration * _delta, -speed)
 
 	if isHoldingJump:
 		targetVelocity.y -= jumpVelocity
@@ -165,9 +187,6 @@ func _physics_process (_delta : float):
 	$RemoteTransform.update_rotation = false
 	$RemoteTransform.update_position = true
 
-	# Handle health stuff
-	if healthFill:
-		healthFill.size.x = 14.73 * (health / maxHealth)
 
 	if damageImmunityTimer > 0:
 		print (damageImmunityTimer)

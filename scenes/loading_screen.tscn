@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://lk0xmtimv6iq"]
 
 [ext_resource type="Texture2D" uid="uid://bqqec8kgfry1m" path="res://assets/sprites/StickmanShit.png" id="1_ep5rh"]
+[ext_resource type="AudioStream" uid="uid://dg7d7nd6j2a4y" path="res://assets/audio/slidingStone.wav" id="2_hprjd"]
 
 [node name="LoadingScreen" type="CanvasLayer" unique_id=1493262394]
 layer = 3
@@ -14,3 +15,6 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_ep5rh")
 expand_mode = 2
+
+[node name="Slide" type="AudioStreamPlayer" parent="." unique_id=47150867]
+stream = ExtResource("2_hprjd")

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bagjwf3ndfcod" path="res://scripts/game_manager.gd" id="1_tefeu"]
 [ext_resource type="Texture2D" uid="uid://bulk6srumsqlj" path="res://assets/sprites/White.png" id="2_sugp2"]
 [ext_resource type="Texture2D" uid="uid://bn5c7qe4833rk" path="res://assets/sprites/Sky.png" id="3_sugp2"]
-[ext_resource type="Texture2D" uid="uid://cfii61s36onrl" path="res://scenes/Title.png" id="4_jyhfs"]
+[ext_resource type="Texture2D" uid="uid://cfii61s36onrl" path="res://assets/sprites/Title.png" id="4_jyhfs"]
 [ext_resource type="Script" uid="uid://dgh4vnslexll6" path="res://scripts/playButton.gd" id="4_tefeu"]
 [ext_resource type="Script" uid="uid://dtw8vguopx0pu" path="res://scripts/hover_icon.gd" id="5_tefeu"]
 
