@@ -18,6 +18,7 @@ destroyVoidedObjects = false
 teleportVoidedObjects = true
 voidedObjectTeleportPoint = Vector2(941, -382)
 generatePlayerCamera = false
+showHealthbar = false
 metadata/_custom_type_script = "uid://bagjwf3ndfcod"
 
 [node name="Platform" type="StaticBody2D" parent="." unique_id=101035848]
@@ -76,7 +77,6 @@ offset_right = 104.5
 offset_bottom = 72.5
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(2.3656125, 1)
 pivot_offset = Vector2(101.056, 65)
 theme_override_font_sizes/font_size = 100
 text = "Play"

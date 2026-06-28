@@ -108,6 +108,7 @@ limit_top = -1276
 limit_right = 7596
 limit_bottom = 641
 position_smoothing_enabled = true
+position_smoothing_speed = 17.5
 
 [node name="WorldBoundary" type="StaticBody2D" parent="." unique_id=110959077]
 position = Vector2(1847, -6193)

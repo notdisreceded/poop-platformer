@@ -11,21 +11,38 @@ class_name Player
 @export var deceleration : float
 @export var poopFallRate : float = 1000
 @export var generatePlayerCamera := true
+@export var showHealthbar := true
 @export var remotePath : NodePath
+@export var health : float = 3:
+	set (value):
+		if value > maxHealth:
+			print ("Clamped health to max")
+			health = maxHealth
+
+		elif value <= 0:
+			health = 0
+			died.emit ()
+
+		else:
+			health = value
 
 # properties
 @onready
 var playerDataComponent : PlayerDataComponent = $PlayerDataComponent 
+var healthBarResource = preload ("res://scenes/healthbar.tscn")
 var isHoldingJump := false
 var horizontalDirection := 0.0
-var health = 3
-var damageImmunityTimer = 0
+var damageImmunityTimer : float = 0
 var kbForce := Vector2 (0, 0)
 var gravity := minGravity
-
+var healthFill : ColorRect
+var maxHealth := health
+var lastDiTick : float = 0
+var now = 0
 
 # signals/events
 signal damaged (amount, health)
+signal died
 
 func setKnockbackForce (kb : Vector2, time : float):
 	kbForce = kb
@@ -39,27 +56,39 @@ func damage (amount : float, immunity : float):
 	if damageImmunityTimer > 0:
 		return
 
+	health = health - amount
 	damageImmunityTimer = immunity
 	
-	health -= amount
 	damaged.emit (amount, health)
 
 	print ("Did ", amount, " damage to player.")
+	print ("New health: ", health)
 	
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if not generatePlayerCamera:
 		$Camera2D.queue_free ()
+
+	print (healthBarResource.can_instantiate ())
+
+	if healthBarResource.can_instantiate () and showHealthbar:
+		var healthBar := healthBarResource.instantiate ()
+
+		get_tree ().root.add_child (healthBar)
+		healthFill = healthBar.find_child ("TextureRect").find_child ("ColorRect")
 		
-	
+		print (healthBar.get_path ())
 
 func onJump ():
 	$Noise.play ()
 	$Noise2.play ()
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process (_delta : float):
+	now += _delta
+
 	horizontalDirection = Input.get_axis ("left", "right")
 	isHoldingJump = Input.is_action_pressed ("jump")
 	
@@ -136,6 +165,20 @@ func _physics_process (_delta : float):
 	$RemoteTransform.update_rotation = false
 	$RemoteTransform.update_position = true
 
-	print ($RemoteTransform.remote_path)
+	# Handle health stuff
+	if healthFill:
+		healthFill.size.x = 14.73 * (health / maxHealth)
+
+	if damageImmunityTimer > 0:
+		print (damageImmunityTimer)
+
+		if (now - lastDiTick) < damageImmunityTimer / 2:
+			visible = false
+		else:
+			lastDiTick = now
+			visible = true
+	elif damageImmunityTimer <= 0 and not visible:
+		visible = true
+
 	move_and_slide ()
 	

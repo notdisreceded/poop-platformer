@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dbmilaumf82il"]
+
+[ext_resource type="Texture2D" uid="uid://besptahpwmxio" path="res://assets/sprites/GreyHearts.png" id="1_8wl12"]
+
+[node name="Healthbar" type="CanvasLayer" unique_id=82321227]
+layer = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1543751076]
+clip_children = 2
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -57.0
+offset_right = 1822.0
+offset_bottom = 398.0
+grow_vertical = 0
+scale = Vector2(0.13, 0.13)
+texture = ExtResource("1_8wl12")
+
+[node name="ColorRect" type="ColorRect" parent="TextureRect" unique_id=1001094580]
+layout_mode = 0
+offset_right = 14.73
+offset_bottom = 40.0
+scale = Vector2(125.28602, 13.822125)
+color = Color(0.9013872, 0, 0.15073094, 1)

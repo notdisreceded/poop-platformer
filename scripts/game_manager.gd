@@ -10,9 +10,11 @@ class_name GameManager
 @export var showLoadingScreen := false
 @export var generatePlayerCamera := true
 @export var generatePlayer := true
+@export var showHealthbar := true
 @export var remotePath : Node2D
 @onready var playerResource := preload ("res://scenes/player.tscn")
 @onready var loadingScreenResource := preload ("res://scenes/loading_screen.tscn")
+
 # properties
 var player : Player
 var switchingScenes = false
@@ -39,6 +41,7 @@ func _ready() -> void:
 		player = playerResource.instantiate ()
 		
 		player.generatePlayerCamera = generatePlayerCamera
+		player.showHealthbar = showHealthbar
 		
 		if remotePath:
 			player.remotePath = remotePath.get_path ()
@@ -51,6 +54,7 @@ func wait (time : float):
 	
 	await timer.timeout
 	timer.free ()
+	
 func switch_scene (scene : String):
 	if loadingScreenResource.can_instantiate () and not switchingScenes:
 		switchingScenes = true

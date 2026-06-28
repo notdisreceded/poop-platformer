@@ -11,7 +11,9 @@ func onVoided ():
 		return
 	if gameManager.teleportVoidedObjects == true:
 		self.get_parent ().global_position = gameManager.voidedObjectTeleportPoint
-		print ("Teleported")
+		
+		if self.get_parent () is Player:
+			self.get_parent ().damage (1, 0)
 func _ready ():
 	gameManager = get_node ("/root/GameManager")
 	
