@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://dg7d7nd6j2a4y"
-path="res://.godot/imported/slidingStone.wav-0ded52b3f9ffa721545c79f833fd5840.sample"
+path="res://.godot/imported/slidingStone.wav-d4c6330c05daa744d3512356b74ca033.sample"
 
 [deps]
 
-source_file="res://assets/audio/slidingStone.wav"
-dest_files=["res://.godot/imported/slidingStone.wav-0ded52b3f9ffa721545c79f833fd5840.sample"]
+source_file="res://assets/audio/sfx/slidingStone.wav"
+dest_files=["res://.godot/imported/slidingStone.wav-d4c6330c05daa744d3512356b74ca033.sample"]
 
 [params]
 

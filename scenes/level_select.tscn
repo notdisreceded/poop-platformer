@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ccf2dkmyg62b0" path="res://scripts/level_select.gd" id="1_3shnc"]
 [ext_resource type="Script" uid="uid://bagjwf3ndfcod" path="res://scripts/game_manager.gd" id="2_p0wlc"]
+[ext_resource type="AudioStream" uid="uid://cx7ykm5cgfiwl" path="res://assets/audio/music/levelSelect.wav" id="3_2epne"]
 
 [sub_resource type="FontFile" id="FontFile_64kqf"]
 cache/0/variation_coordinates = {}
@@ -319,3 +320,7 @@ showLoadingScreen = true
 generatePlayerCamera = false
 generatePlayer = false
 metadata/_custom_type_script = "uid://bagjwf3ndfcod"
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=157707249]
+stream = ExtResource("3_2epne")
+autoplay = true

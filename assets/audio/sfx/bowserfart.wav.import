@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cgru4dtj132oo"
-path="res://.godot/imported/bowserfart.wav-99ae3ddaffa9cee3a1aa91eac52cde80.sample"
+path="res://.godot/imported/bowserfart.wav-0057a087ceaa0603c2f61fbdae595b1d.sample"
 
 [deps]
 
-source_file="res://assets/audio/bowserfart.wav"
-dest_files=["res://.godot/imported/bowserfart.wav-99ae3ddaffa9cee3a1aa91eac52cde80.sample"]
+source_file="res://assets/audio/sfx/bowserfart.wav"
+dest_files=["res://.godot/imported/bowserfart.wav-0057a087ceaa0603c2f61fbdae595b1d.sample"]
 
 [params]
 

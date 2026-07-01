@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cfii61s36onrl" path="res://assets/sprites/Title.png" id="4_jyhfs"]
 [ext_resource type="Script" uid="uid://dgh4vnslexll6" path="res://scripts/playButton.gd" id="4_tefeu"]
 [ext_resource type="Script" uid="uid://dtw8vguopx0pu" path="res://scripts/hover_icon.gd" id="5_tefeu"]
+[ext_resource type="AudioStream" uid="uid://v0n5yj753440" path="res://assets/audio/music/mainMenu.wav" id="7_o6xl0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0wfyh"]
 size = Vector2(1007, 107)
@@ -19,6 +20,7 @@ teleportVoidedObjects = true
 voidedObjectTeleportPoint = Vector2(941, -382)
 generatePlayerCamera = false
 showHealthbar = false
+showPoopbar = false
 metadata/_custom_type_script = "uid://bagjwf3ndfcod"
 
 [node name="Platform" type="StaticBody2D" parent="." unique_id=101035848]
@@ -111,3 +113,7 @@ metadata/_edit_use_anchors_ = true
 script = ExtResource("5_tefeu")
 hoverScale = 1.085
 metadata/_custom_type_script = "uid://dtw8vguopx0pu"
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=52079793]
+stream = ExtResource("7_o6xl0")
+autoplay = true

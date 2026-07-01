@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://c756j6pxv53ug"]
+
+[node name="PoopMeter" type="CanvasLayer" unique_id=82321227]
+layer = 2
+
+[node name="Background" type="ColorRect" parent="." unique_id=1607726974]
+clip_contents = true
+custom_minimum_size = Vector2(295, 30)
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -435.0
+offset_top = -34.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 0
+grow_vertical = 0
+color = Color(0.21230483, 0.21230483, 0.21230483, 1)
+
+[node name="Fill" type="ColorRect" parent="Background" unique_id=1597354508]
+z_index = 1
+clip_contents = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -431.0
+offset_top = -30.0
+offset_bottom = 70.0
+grow_horizontal = 0
+grow_vertical = 0
+color = Color(0.47450942, 0.21144488, 0.19024709, 1)

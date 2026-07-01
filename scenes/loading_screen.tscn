@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://lk0xmtimv6iq"]
 
 [ext_resource type="Texture2D" uid="uid://bqqec8kgfry1m" path="res://assets/sprites/StickmanShit.png" id="1_ep5rh"]
-[ext_resource type="AudioStream" uid="uid://dg7d7nd6j2a4y" path="res://assets/audio/slidingStone.wav" id="2_hprjd"]
+[ext_resource type="AudioStream" uid="uid://dg7d7nd6j2a4y" path="res://assets/audio/sfx/slidingStone.wav" id="2_hprjd"]
 
 [node name="LoadingScreen" type="CanvasLayer" unique_id=1493262394]
 layer = 3

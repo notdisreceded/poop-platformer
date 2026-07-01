@@ -11,6 +11,7 @@ class_name GameManager
 @export var generatePlayerCamera := true
 @export var generatePlayer := true
 @export var showHealthbar := true
+@export var showPoopbar := true
 @export var remotePath : Node2D
 @onready var playerResource := preload ("res://scenes/player.tscn")
 @onready var loadingScreenResource := preload ("res://scenes/loading_screen.tscn")
@@ -80,6 +81,7 @@ func _ready() -> void:
 		
 		player.generatePlayerCamera = generatePlayerCamera
 		player.showHealthbar = showHealthbar
+		player.showPoopbar = showPoopbar
 		player.died.connect (onPlayerDied)
 		
 		if remotePath:

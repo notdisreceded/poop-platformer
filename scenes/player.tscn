@@ -4,12 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://bfbp1l1hpb334" path="res://assets/sprites/Player.png" id="2_qhqgy"]
 [ext_resource type="PackedScene" uid="uid://dwvpmqqyane44" path="res://scenes/poop_splatter.tscn" id="3_qhqgy"]
 [ext_resource type="Script" uid="uid://bi3bf6c87aqst" path="res://scripts/void_behavior.gd" id="4_dqkch"]
-[ext_resource type="AudioStream" uid="uid://cgru4dtj132oo" path="res://assets/audio/bowserfart.wav" id="5_qlg0r"]
-[ext_resource type="AudioStream" uid="uid://bbnvyu6wvx4sh" path="res://assets/audio/Shit.wav" id="6_tuyoq"]
+[ext_resource type="AudioStream" uid="uid://cgru4dtj132oo" path="res://assets/audio/sfx/bowserfart.wav" id="5_qlg0r"]
+[ext_resource type="AudioStream" uid="uid://bbnvyu6wvx4sh" path="res://assets/audio/sfx/Shit.wav" id="6_tuyoq"]
 [ext_resource type="Script" uid="uid://c8i2wroo7scc7" path="res://scripts/playerDataComponent.gd" id="7_fjrip"]
 [ext_resource type="Texture2D" uid="uid://b0jrs3yekn50f" path="res://assets/sprites/X.png" id="8_smehm"]
-[ext_resource type="AudioStream" uid="uid://cfsu1l6tjhlva" path="res://assets/audio/gameover.wav" id="9_ur7pv"]
-[ext_resource type="AudioStream" uid="uid://d0co3cyyd35hr" path="res://assets/audio/damageTaken.wav" id="10_y4r1p"]
+[ext_resource type="AudioStream" uid="uid://cfsu1l6tjhlva" path="res://assets/audio/sfx/gameover.wav" id="9_ur7pv"]
+[ext_resource type="AudioStream" uid="uid://d0co3cyyd35hr" path="res://assets/audio/sfx/damageTaken.wav" id="10_y4r1p"]
+[ext_resource type="AudioStream" uid="uid://45ik8xn2jruf" path="res://assets/audio/sfx/fart.wav" id="11_d2wvv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
 size = Vector2(82, 240)
@@ -17,12 +18,12 @@ size = Vector2(82, 240)
 [node name="Player" type="CharacterBody2D" unique_id=1050360423]
 position = Vector2(0, 5)
 script = ExtResource("1_g2els")
-speed = 500.0
+speed = 700.0
 jumpVelocity = 800.0
 minGravity = 2500.0
 maxGravity = 5000.0
 gravityAcceleration = 850.0
-acceleration = 700.0
+acceleration = 900.0
 deceleration = 500.0
 metadata/_custom_type_script = "uid://dhcoqjfg367wn"
 
@@ -46,6 +47,7 @@ position_smoothing_speed = 10.0
 rotation_smoothing_enabled = true
 
 [node name="PoopLine" type="Line2D" parent="." unique_id=691023597]
+visible = false
 z_index = -1
 position = Vector2(0, -3)
 points = PackedVector2Array(0, 39, 0, 800)
@@ -71,6 +73,27 @@ emission_shape = 3
 emission_rect_extents = Vector2(2.655, 1.305)
 gravity = Vector2(0, 1281.46)
 angle_min = -580.3
+angle_max = 720.0
+scale_amount_min = 6.0
+scale_amount_max = 67.39
+color = Color(0.359542, 0.112756, 0.0357044, 1)
+
+[node name="PoopParticles" type="CPUParticles2D" parent="." unique_id=278801120]
+z_index = -1
+position = Vector2(1, 97)
+emitting = false
+amount = 5
+speed_scale = 2.0
+explosiveness = 1.0
+randomness = 1.0
+local_coords = true
+emission_shape = 1
+emission_sphere_radius = 128.0
+direction = Vector2(25.83, 12.115)
+spread = 180.0
+gravity = Vector2(0, 1281.46)
+initial_velocity_max = 524.75
+angle_min = -720.0
 angle_max = 720.0
 scale_amount_min = 6.0
 scale_amount_max = 67.39
@@ -105,3 +128,6 @@ texture = ExtResource("8_smehm")
 
 [node name="Damaged" type="AudioStreamPlayer" parent="." unique_id=499322118]
 stream = ExtResource("10_y4r1p")
+
+[node name="TinyHop" type="AudioStreamPlayer" parent="." unique_id=933235250]
+stream = ExtResource("11_d2wvv")

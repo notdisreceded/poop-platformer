@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://bbnvyu6wvx4sh"
-path="res://.godot/imported/Shit.wav-d11dc27d78b8cf2aded5d0d45f420f67.sample"
+uid="uid://cfsu1l6tjhlva"
+path="res://.godot/imported/gameover.wav-1fccd7c7d15d736f955360b212462230.sample"
 
 [deps]
 
-source_file="res://assets/audio/Shit.wav"
-dest_files=["res://.godot/imported/Shit.wav-d11dc27d78b8cf2aded5d0d45f420f67.sample"]
+source_file="res://assets/audio/sfx/gameover.wav"
+dest_files=["res://.godot/imported/gameover.wav-1fccd7c7d15d736f955360b212462230.sample"]
 
 [params]
 

@@ -5,6 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://dl4nwxxv5qvvt" path="res://scenes/checkpoint.tscn" id="3_b2cq8"]
 [ext_resource type="Texture2D" uid="uid://bsei0pn8irffj" path="res://assets/sprites/Guide1.png" id="4_xb4v1"]
 [ext_resource type="PackedScene" uid="uid://buajeyxn22dxa" path="res://scenes/spike.tscn" id="5_urvlt"]
+[ext_resource type="Texture2D" uid="uid://cfebsg76eqkak" path="res://assets/sprites/ManageYourPoop.png" id="6_mbbpy"]
+[ext_resource type="Texture2D" uid="uid://bj7e0oolk14cr" path="res://assets/sprites/HeightGuide.png" id="7_ouxo3"]
+[ext_resource type="AudioStream" uid="uid://ccmvipnplyw4v" path="res://assets/audio/music/please be kind.wav" id="8_ouxo3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w8frs"]
 size = Vector2(1007, 107)
@@ -31,7 +34,8 @@ remotePath = NodePath("Camera2D")
 metadata/_custom_type_script = "uid://bagjwf3ndfcod"
 
 [node name="Platform" type="StaticBody2D" parent="." unique_id=1858096964]
-position = Vector2(606, 401)
+position = Vector2(3364, 380)
+scale = Vector2(6.24, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="Platform" unique_id=2141458184]
 modulate = Color(0, 0, 0, 1)
@@ -45,7 +49,7 @@ position = Vector2(-33.5, 216.5)
 shape = SubResource("RectangleShape2D_w8frs")
 
 [node name="Platform2" type="StaticBody2D" parent="." unique_id=2125237053]
-position = Vector2(4054, -183)
+position = Vector2(8003, -183)
 
 [node name="Sprite2D" type="Sprite2D" parent="Platform2" unique_id=2071397448]
 modulate = Color(0, 0, 0, 1)
@@ -59,7 +63,7 @@ position = Vector2(-33.5, 542)
 shape = SubResource("RectangleShape2D_mx8sn")
 
 [node name="Platform4" type="StaticBody2D" parent="." unique_id=1380071601]
-position = Vector2(7164, -164)
+position = Vector2(11113, -164)
 
 [node name="Sprite2D" type="Sprite2D" parent="Platform4" unique_id=479296313]
 modulate = Color(0, 0, 0, 1)
@@ -73,7 +77,7 @@ position = Vector2(-33.5, 542)
 shape = SubResource("RectangleShape2D_mx8sn")
 
 [node name="Platform3" type="StaticBody2D" parent="." unique_id=850195221]
-position = Vector2(5418, -911)
+position = Vector2(9367, -911)
 
 [node name="Sprite2D" type="Sprite2D" parent="Platform3" unique_id=739803889]
 modulate = Color(0, 0, 0, 1)
@@ -87,7 +91,7 @@ position = Vector2(-33.5, 1017)
 shape = SubResource("RectangleShape2D_ppgk2")
 
 [node name="Platform5" type="StaticBody2D" parent="." unique_id=208320246]
-position = Vector2(2344, -536)
+position = Vector2(6293, -536)
 
 [node name="Sprite2D" type="Sprite2D" parent="Platform5" unique_id=2002452272]
 modulate = Color(0, 0, 0, 1)
@@ -105,7 +109,7 @@ position = Vector2(1489, -291)
 zoom = Vector2(0.345, 0.345)
 limit_left = 89
 limit_top = -1276
-limit_right = 7596
+limit_right = 11586
 limit_bottom = 641
 position_smoothing_enabled = true
 position_smoothing_speed = 17.5
@@ -117,21 +121,107 @@ position = Vector2(1847, -6193)
 shape = SubResource("WorldBoundaryShape2D_w8frs")
 
 [node name="Checkpoint" parent="." unique_id=427432872 instance=ExtResource("3_b2cq8")]
-position = Vector2(7502, 0)
+position = Vector2(11451, 0)
 
 [node name="Guide1" type="Sprite2D" parent="." unique_id=886645854]
-position = Vector2(700.00006, -565)
+position = Vector2(606.00006, 106)
 scale = Vector2(1.015, 1.015)
 texture = ExtResource("4_xb4v1")
 
 [node name="Spike" parent="." unique_id=1467808966 instance=ExtResource("5_urvlt")]
-position = Vector2(3941, -106.99995)
+position = Vector2(7890.0005, -106.99995)
 scale = Vector2(1.915, 1.915)
 
 [node name="Spike2" parent="." unique_id=1389172454 instance=ExtResource("5_urvlt")]
-position = Vector2(4057.9995, -107)
+position = Vector2(8007, -107)
 scale = Vector2(1.915, 1.915)
 
 [node name="Spike3" parent="." unique_id=2138935936 instance=ExtResource("5_urvlt")]
-position = Vector2(4176, -106.99999)
+position = Vector2(8125.0005, -106.99999)
 scale = Vector2(1.915, 1.915)
+
+[node name="ManageYourPoop" type="Sprite2D" parent="." unique_id=1000246147]
+position = Vector2(2172.9995, 106.00006)
+scale = Vector2(0.425, 0.425)
+texture = ExtResource("6_mbbpy")
+
+[node name="HeightGuide" type="Sprite2D" parent="." unique_id=2095267593]
+position = Vector2(4062, 29.99997)
+scale = Vector2(0.415, 0.415)
+texture = ExtResource("7_ouxo3")
+
+[node name="Spike4" parent="." unique_id=31330328 instance=ExtResource("5_urvlt")]
+position = Vector2(5710, 341)
+rotation = -1.5707964
+
+[node name="Spike5" parent="." unique_id=1300708608 instance=ExtResource("5_urvlt")]
+position = Vector2(5710, 401)
+rotation = -1.5707964
+
+[node name="Spike6" parent="." unique_id=820850101 instance=ExtResource("5_urvlt")]
+position = Vector2(5712, 459)
+rotation = -1.5707964
+
+[node name="Spike7" parent="." unique_id=265169590 instance=ExtResource("5_urvlt")]
+position = Vector2(5710, 106)
+rotation = -1.5707964
+
+[node name="Spike8" parent="." unique_id=1802339929 instance=ExtResource("5_urvlt")]
+position = Vector2(5710, 166)
+rotation = -1.5707964
+
+[node name="Spike9" parent="." unique_id=504555872 instance=ExtResource("5_urvlt")]
+position = Vector2(5712, 224)
+rotation = -1.5707964
+
+[node name="Spike10" parent="." unique_id=1472704034 instance=ExtResource("5_urvlt")]
+position = Vector2(5710, -213)
+rotation = -1.5707964
+
+[node name="Spike11" parent="." unique_id=1644964775 instance=ExtResource("5_urvlt")]
+position = Vector2(5710, -153)
+rotation = -1.5707964
+
+[node name="Spike12" parent="." unique_id=1802254222 instance=ExtResource("5_urvlt")]
+position = Vector2(5712, -95)
+rotation = -1.5707964
+
+[node name="Spike13" parent="." unique_id=486027853 instance=ExtResource("5_urvlt")]
+position = Vector2(6808, 349)
+rotation = 1.5707964
+
+[node name="Spike14" parent="." unique_id=1929834346 instance=ExtResource("5_urvlt")]
+position = Vector2(6808, 409)
+rotation = 1.5707964
+
+[node name="Spike15" parent="." unique_id=551068637 instance=ExtResource("5_urvlt")]
+position = Vector2(6810, 467)
+rotation = 1.5707964
+
+[node name="Spike16" parent="." unique_id=1113005595 instance=ExtResource("5_urvlt")]
+position = Vector2(6808, 114)
+rotation = 1.5707964
+
+[node name="Spike17" parent="." unique_id=626820960 instance=ExtResource("5_urvlt")]
+position = Vector2(6808, 174)
+rotation = 1.5707964
+
+[node name="Spike18" parent="." unique_id=1759775475 instance=ExtResource("5_urvlt")]
+position = Vector2(6810, 232)
+rotation = 1.5707964
+
+[node name="Spike19" parent="." unique_id=413026375 instance=ExtResource("5_urvlt")]
+position = Vector2(6808, -205)
+rotation = 1.5707964
+
+[node name="Spike20" parent="." unique_id=33934100 instance=ExtResource("5_urvlt")]
+position = Vector2(6808, -145)
+rotation = 1.5707964
+
+[node name="Spike21" parent="." unique_id=1638911783 instance=ExtResource("5_urvlt")]
+position = Vector2(6810, -87)
+rotation = 1.5707964
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=315971554]
+stream = ExtResource("8_ouxo3")
+autoplay = true

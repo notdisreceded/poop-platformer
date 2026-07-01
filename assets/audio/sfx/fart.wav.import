@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://cfsu1l6tjhlva"
-path="res://.godot/imported/gameover.wav-546a15a96bb084cfc19f83814eb1fd18.sample"
+uid="uid://45ik8xn2jruf"
+path="res://.godot/imported/fart.wav-db032ac7d0382ad505ed21c3417b0888.sample"
 
 [deps]
 
-source_file="res://assets/audio/gameover.wav"
-dest_files=["res://.godot/imported/gameover.wav-546a15a96bb084cfc19f83814eb1fd18.sample"]
+source_file="res://assets/audio/sfx/fart.wav"
+dest_files=["res://.godot/imported/fart.wav-db032ac7d0382ad505ed21c3417b0888.sample"]
 
 [params]
 
