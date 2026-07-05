@@ -1,0 +1,117 @@
+[gd_scene format=3 uid="uid://c03gotc6r5rb0"]
+
+[ext_resource type="Texture2D" uid="uid://drkltwtrds5gx" path="res://assets/sprites/trampoline/trampoline_idle.png" id="1_2yctu"]
+[ext_resource type="Texture2D" uid="uid://ca3k46i3bn20f" path="res://assets/sprites/trampoline/trampoline_bounce_00000.png" id="1_y2tmh"]
+[ext_resource type="Texture2D" uid="uid://bkmlan1exjvat" path="res://assets/sprites/trampoline/trampoline_bounce_00001.png" id="2_h7vfa"]
+[ext_resource type="Texture2D" uid="uid://dgycuyrw3p0mm" path="res://assets/sprites/trampoline/trampoline_bounce_00002.png" id="3_ntjuk"]
+[ext_resource type="Texture2D" uid="uid://u8ajkp0qsfpe" path="res://assets/sprites/trampoline/trampoline_bounce_00003.png" id="4_esf1p"]
+[ext_resource type="Texture2D" uid="uid://cb4ev8nbnwdtl" path="res://assets/sprites/trampoline/trampoline_bounce_00004.png" id="5_ipq32"]
+[ext_resource type="Texture2D" uid="uid://tbe8hgr5lve2" path="res://assets/sprites/trampoline/trampoline_bounce_00005.png" id="6_u4ljh"]
+[ext_resource type="Texture2D" uid="uid://b102a5fwau6fj" path="res://assets/sprites/trampoline/trampoline_bounce_00006.png" id="7_o6y3u"]
+[ext_resource type="Texture2D" uid="uid://dmiockokbiqa7" path="res://assets/sprites/trampoline/trampoline_bounce_00007.png" id="8_f0ame"]
+[ext_resource type="Texture2D" uid="uid://bk6t75yvtbbrd" path="res://assets/sprites/trampoline/trampoline_bounce_00008.png" id="9_8316o"]
+[ext_resource type="Texture2D" uid="uid://dfhbhr8vqj830" path="res://assets/sprites/trampoline/trampoline_bounce_00009.png" id="10_rg4fw"]
+[ext_resource type="Texture2D" uid="uid://cmbt0whuk8kw1" path="res://assets/sprites/trampoline/trampoline_bounce_00010.png" id="11_uvdex"]
+[ext_resource type="Texture2D" uid="uid://d1mchojmb4euy" path="res://assets/sprites/trampoline/trampoline_bounce_00011.png" id="12_w510i"]
+[ext_resource type="Texture2D" uid="uid://diq72rc4le138" path="res://assets/sprites/trampoline/trampoline_bounce_00012.png" id="13_cqw5c"]
+[ext_resource type="Texture2D" uid="uid://b3vfya5qhec5k" path="res://assets/sprites/trampoline/trampoline_bounce_00013.png" id="14_fly5k"]
+[ext_resource type="Texture2D" uid="uid://dmh8b4l4o6gle" path="res://assets/sprites/trampoline/trampoline_bounce_00014.png" id="15_dkhjw"]
+[ext_resource type="Texture2D" uid="uid://djki5ek25u0il" path="res://assets/sprites/trampoline/trampoline_bounce_00015.png" id="16_5p8rm"]
+[ext_resource type="Script" uid="uid://c0myjvnyq6gbn" path="res://scripts/trampoline.gd" id="18_h7vfa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h7vfa"]
+size = Vector2(217, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fsnqj"]
+atlas = ExtResource("1_2yctu")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rhr5u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_y2tmh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_h7vfa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ntjuk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_esf1p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ipq32")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_u4ljh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_o6y3u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_f0ame")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_8316o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_rg4fw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_uvdex")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_w510i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_cqw5c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_fly5k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_dkhjw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_5p8rm")
+}],
+"loop": false,
+"name": &"bounce",
+"speed": 60.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fsnqj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y2tmh"]
+size = Vector2(461, 80)
+
+[node name="Trampoline" type="Area2D" unique_id=1735447229]
+script = ExtResource("18_h7vfa")
+power = 300
+metadata/_custom_type_script = "uid://c0myjvnyq6gbn"
+metadata/_edit_pinned_properties_ = [&"power"]
+
+[node name="Trigger" type="CollisionShape2D" parent="." unique_id=1823211841]
+position = Vector2(-0.5, -35)
+shape = SubResource("RectangleShape2D_h7vfa")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1193301003]
+texture_filter = 1
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_rhr5u")
+offset = Vector2(0, -125)
+
+[node name="StaticBody" type="StaticBody2D" parent="." unique_id=1805461438]
+scale = Vector2(0.5, 0.5)
+
+[node name="Collision" type="CollisionShape2D" parent="StaticBody" unique_id=897496166]
+position = Vector2(0.5, 3)
+shape = SubResource("RectangleShape2D_y2tmh")

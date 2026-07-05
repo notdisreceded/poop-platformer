@@ -96,10 +96,10 @@ var isHoldingJump := false:
 	set (value):
 		
 		if value == true and isHoldingJump != true:
-			print ("Started jumping event fired")
+			
 			startedJumping.emit ()
 		elif value == false and isHoldingJump != false:
-			print ("Stopped jumping event fired")
+			
 			stoppedJumping.emit ()
 
 		isHoldingJump = value
@@ -121,9 +121,7 @@ func onVoided ():
 
 func onStartedJumping ():
 	var root = get_tree ().root
-	var child = root.get_node ("GameManager")
-
-	print (child)
+	var child = root.get_node_or_null ("GameManager")
 
 	if child is GameManager:
 		child.shakeCamera (25 * poop / maxPoopMeter, 3)
@@ -278,8 +276,6 @@ func _physics_process (_delta : float):
 
 	if isHoldingJump and canJump:
 		var multBy := poopPowerCurve.sample (1 - poop / maxPoopMeter)
-
-		print ("MB: ", multBy)
 
 		targetVelocity.y -= jumpVelocity * multBy
 		raycast2d.target_position.y += poopFallRate *  _delta

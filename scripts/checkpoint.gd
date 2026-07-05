@@ -35,6 +35,7 @@ func onPlayerEntered (player : Player):
 
     player.checkpointPosition = global_position
     player.health = player.maxHealth
+    player.poop = player.maxPoopMeter
 
     var tween := create_tween ()
 

@@ -1,5 +1,5 @@
-extends Area2D
 class_name Hazard
+extends PlayerDetector
 
 # signal
 signal hitPlayer

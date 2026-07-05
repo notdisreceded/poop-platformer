@@ -10,7 +10,7 @@ func onPressed ():
 
 	pressedButton = true
 	
-	var gameManager : GameManager = get_node ("/root/GameManager")
+	var gameManager : GameManager = get_node_or_null ("/root/GameManager")
 	gameManager.switch_scene (scene)
 
 # Called when the node enters the scene tree for the first time.

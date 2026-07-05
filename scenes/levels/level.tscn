@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://co0tdkysbaqwv" path="res://assets/sprites/SpikyHills.png" id="13_qogh7"]
 [ext_resource type="Texture2D" uid="uid://cliyqri474rg8" path="res://assets/sprites/SeamlessSky3.png" id="14_8iyoh"]
 [ext_resource type="Texture2D" uid="uid://ddsyedeqj842b" path="res://assets/sprites/Cloud1.png" id="15_mq31s"]
+[ext_resource type="Script" uid="uid://cmb6cqsseisqp" path="res://scripts/finish_line.gd" id="16_5mi6g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w8frs"]
 size = Vector2(1007, 107)
@@ -52,6 +53,9 @@ distance = 0.19013025
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_icy5c"]
 size = Vector2(1001, 783)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5mi6g"]
+normal = Vector2(-1, 0)
 
 [node name="GameManager" type="Node2D" unique_id=1704484248 node_paths=PackedStringArray("playerChildrenNodes")]
 script = ExtResource("1_2q6dc")
@@ -115,9 +119,13 @@ shape = SubResource("WorldBoundaryShape2D_w8frs")
 
 [node name="Checkpoint" parent="." unique_id=427432872 instance=ExtResource("3_b2cq8")]
 position = Vector2(8948, -989)
+litColor = Color(1, 0.6392157, 0, 1)
+litTweenLength = 1.0
 
 [node name="Checkpoint2" parent="." unique_id=1399950714 instance=ExtResource("3_b2cq8")]
 position = Vector2(14245, -1015)
+litColor = Color(1, 0.6392157, 0, 1)
+litTweenLength = 1.0
 
 [node name="Guide1" type="Sprite2D" parent="." unique_id=886645854]
 z_index = -3
@@ -2057,20 +2065,20 @@ z_index = -3
 position = Vector2(18579, -2382)
 texture = ExtResource("9_icy5c")
 
-[node name="FinishLine" type="Area2D" parent="." unique_id=933376390]
+[node name="FinishSign" type="Area2D" parent="." unique_id=933376390]
 position = Vector2(25609, -1516)
 
-[node name="Sign" type="Sprite2D" parent="FinishLine" unique_id=708907911]
+[node name="Sign" type="Sprite2D" parent="FinishSign" unique_id=708907911]
 self_modulate = Color(0, 0, 0, 1)
 texture = ExtResource("10_7pb6i")
 
-[node name="Arrow" type="Sprite2D" parent="FinishLine/Sign" unique_id=1117074204]
+[node name="Arrow" type="Sprite2D" parent="FinishSign/Sign" unique_id=1117074204]
 z_index = 1
 position = Vector2(-10.998047, 16)
 scale = Vector2(0.255, 0.255)
 texture = ExtResource("11_xfk5q")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FinishLine" unique_id=2080438197]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FinishSign" unique_id=2080438197]
 shape = SubResource("WorldBoundaryShape2D_qogh7")
 
 [node name="Platform3" parent="." unique_id=351427414 instance=ExtResource("3_xfk5q")]
@@ -2172,6 +2180,8 @@ scale = Vector2(2.2727273, 2.2727273)
 
 [node name="Checkpoint3" parent="." unique_id=1766278232 instance=ExtResource("3_b2cq8")]
 position = Vector2(18501, -1037)
+litColor = Color(1, 0.6392157, 0, 1)
+litTweenLength = 1.0
 
 [node name="Spike4" parent="." unique_id=2146361168 instance=ExtResource("5_urvlt")]
 position = Vector2(19447, -1472)
@@ -2287,3 +2297,19 @@ modulate = Color(0.08472497, 0.14288348, 0.13459024, 1)
 z_index = -101
 scale = Vector2(4, 4)
 texture = ExtResource("13_qogh7")
+
+[node name="FinishLine" type="Area2D" parent="." unique_id=1171019942]
+position = Vector2(26438, -1829)
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FinishLine" unique_id=1277312992]
+position = Vector2(410, -564)
+shape = SubResource("WorldBoundaryShape2D_5mi6g")
+
+[node name="FinishPoint" type="Node2D" parent="FinishLine" unique_id=1857961583]
+position = Vector2(-111, -47.5)
+script = ExtResource("16_5mi6g")
+nextLevelPath = "res://scenes/levels/level2.tscn"
+metadata/_custom_type_script = "uid://cmb6cqsseisqp"
+
+[connection signal="body_entered" from="FinishLine" to="FinishLine/FinishPoint" method="moveToNextStage"]

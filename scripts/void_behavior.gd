@@ -24,7 +24,7 @@ func onVoided ():
 			self.get_parent ().damage (1, 0)
 
 func _ready ():
-	gameManager = get_node ("/root/GameManager")
+	gameManager = get_node_or_null ("/root/GameManager")
 	selfTeleportPoint = gameManager.voidedObjectTeleportPoint
 	onHitVoid.connect (onVoided)
 
@@ -32,7 +32,7 @@ func _ready ():
 func _process (_delta: float) -> void:
 	if not gameManager:
 		push_warning ("Game manager is null.")
-		gameManager = get_node ("/root/GameManager")
+		gameManager = get_node_or_null ("/root/GameManager")
 		return
 		
 	if self.global_position.y > gameManager.voidHeight:

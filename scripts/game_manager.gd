@@ -39,7 +39,7 @@ func onPlayerDamaged (amount : float, _health : float):
 func onPlayerDied ():
 	print ("Player has died.")
 
-	var music := get_node ("Music")
+	var music := get_node_or_null ("Music")
 
 	if music:
 		music.queue_free ()
@@ -100,13 +100,13 @@ func _ready() -> void:
 		# get loading screen
 		var root := get_tree ().root
 
-		var loadingScreenScene : CanvasLayer = root.get_node ("LoadingScreen")
+		var loadingScreenScene : CanvasLayer = root.get_node_or_null ("LoadingScreen")
 
 		if not loadingScreenScene:
 			return
 
 		print ("children: ", loadingScreenScene.get_children ())
-		var loadingScreen : TextureRect = loadingScreenScene.get_node ("TextureRect")
+		var loadingScreen : TextureRect = loadingScreenScene.get_node_or_null ("TextureRect")
 
 		if not loadingScreen:
 			push_warning ("Could not find texture rect of loading screen scene!")
