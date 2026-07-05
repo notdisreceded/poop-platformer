@@ -5,12 +5,16 @@
 [ext_resource type="PackedScene" uid="uid://dwvpmqqyane44" path="res://scenes/poop_splatter.tscn" id="3_qhqgy"]
 [ext_resource type="Script" uid="uid://bi3bf6c87aqst" path="res://scripts/void_behavior.gd" id="4_dqkch"]
 [ext_resource type="AudioStream" uid="uid://cgru4dtj132oo" path="res://assets/audio/sfx/bowserfart.wav" id="5_qlg0r"]
-[ext_resource type="AudioStream" uid="uid://bbnvyu6wvx4sh" path="res://assets/audio/sfx/Shit.wav" id="6_tuyoq"]
+[ext_resource type="AudioStream" uid="uid://c66r8pop0we2g" path="res://assets/audio/sfx/Shit.wav" id="6_tuyoq"]
 [ext_resource type="Script" uid="uid://c8i2wroo7scc7" path="res://scripts/playerDataComponent.gd" id="7_fjrip"]
 [ext_resource type="Texture2D" uid="uid://b0jrs3yekn50f" path="res://assets/sprites/X.png" id="8_smehm"]
 [ext_resource type="AudioStream" uid="uid://cfsu1l6tjhlva" path="res://assets/audio/sfx/gameover.wav" id="9_ur7pv"]
 [ext_resource type="AudioStream" uid="uid://d0co3cyyd35hr" path="res://assets/audio/sfx/damageTaken.wav" id="10_y4r1p"]
 [ext_resource type="AudioStream" uid="uid://45ik8xn2jruf" path="res://assets/audio/sfx/fart.wav" id="11_d2wvv"]
+
+[sub_resource type="Curve" id="Curve_d2wvv"]
+_data = [Vector2(0, 1), 0.0, -24.157305, 0, 0, Vector2(0.1, 0.3), -0.15222912, 0.0, 0, 0, Vector2(0.24999999, 0.30337083), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
 size = Vector2(82, 240)
@@ -19,12 +23,13 @@ size = Vector2(82, 240)
 position = Vector2(0, 5)
 script = ExtResource("1_g2els")
 speed = 700.0
-jumpVelocity = 800.0
+jumpVelocity = 3000.0
 minGravity = 2500.0
 maxGravity = 5000.0
 gravityAcceleration = 850.0
 acceleration = 900.0
-deceleration = 500.0
+deceleration = 900.0
+poopPowerCurve = SubResource("Curve_d2wvv")
 metadata/_custom_type_script = "uid://dhcoqjfg367wn"
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=646518278]

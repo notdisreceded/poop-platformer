@@ -8,17 +8,20 @@ size = Vector2(281.81818, 761.36365)
 
 [node name="Checkpoint" type="Node2D" unique_id=1399950714 node_paths=PackedStringArray("area2D")]
 script = ExtResource("1_ywqth")
-nextLevelPath = "res://scenes/main.tscn"
+litColor = Color(1, 0.6862745, 0.11764706, 1)
+litTweenLength = 0.7
 area2D = NodePath("Area2D")
 metadata/_custom_type_script = "uid://cnwolo8dxe6av"
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=427432872]
 modulate = Color(0, 0, 0, 1)
+position = Vector2(-0.16000366, 137.04001)
 scale = Vector2(0.44, 0.44)
 texture = ExtResource("1_13s36")
 offset = Vector2(119, -361)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1544757656]
+position = Vector2(-0.16000366, 137.04001)
 scale = Vector2(0.44, 0.44)
 monitorable = false
 

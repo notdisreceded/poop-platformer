@@ -3,26 +3,32 @@
 [ext_resource type="Texture2D" uid="uid://dobe56kpb3qb2" path="res://assets/sprites/Spike.png" id="1_ljd5v"]
 [ext_resource type="Script" uid="uid://qm5o1a74k2r6" path="res://scripts/hazard.gd" id="2_7a7y0"]
 
+[sub_resource type="Gradient" id="Gradient_7a7y0"]
+colors = PackedColorArray(0.21770248, 0.23947468, 0.272597, 1, 1, 0, 0, 1)
+
 [node name="Spike" type="Node2D" unique_id=1467808966]
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=180893183]
-modulate = Color(0, 0, 0, 1)
-scale = Vector2(0.3, 0.3)
+self_modulate = Color(1, 0, 0, 1)
+scale = Vector2(0.575, 0.575)
 texture = ExtResource("1_ljd5v")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=8492258]
 position = Vector2(-1, 0)
+scale = Vector2(1.915, 1.915)
 disable_mode = 2
 script = ExtResource("2_7a7y0")
 damage = 1.0
 damageImmunityTime = 1.0
 knockback = 1000.0
+colorGradient = SubResource("Gradient_7a7y0")
 
 [node name="Trigger" type="CollisionPolygon2D" parent="Area2D" unique_id=497326174]
 position = Vector2(4, -2)
 polygon = PackedVector2Array(-4, -10, 31, 53, -39, 53)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1565095153]
+scale = Vector2(1.915, 1.915)
 
 [node name="Collision" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1759843006]
 position = Vector2(4, 2.9999998)

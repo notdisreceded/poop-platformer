@@ -14,8 +14,9 @@ class_name Player
 @export var showHealthbar := true
 @export var showPoopbar := true
 @export var remotePath : NodePath
-@export var poopUsageRate := 28
-@export var poopRegenRate := 12.5
+@export var poopUsageRate := 27.5
+@export var poopRegenRate := 13.5
+@export var poopPowerCurve : Curve
 
 @export var health : float = 3:
 	set (value):
@@ -37,6 +38,7 @@ var healthBarResource = preload ("res://scenes/healthbar.tscn")
 var poopBarResource = preload ("res://scenes/poopMeter.tscn")
 var horizontalDirection := 0.0
 var damageImmunityTimer : float = 0
+var hopCooldown : float = 0
 var noPoopRegenTimer : float = 0
 var kbForce := Vector2 (0, 0)
 var gravity := minGravity
@@ -48,6 +50,11 @@ var now = 0
 var canJump := true
 var normalPoopFillColor : Color
 var emergencyPoopFillColor := Color ("ff5340")
+
+var checkpointPosition : Vector2:
+	set (value):
+		checkpointPosition = value
+		$VoidBehavior.selfTeleportPoint = value
 
 var dead : bool = false:
 	get: # returns a boolean if we're dead
@@ -62,14 +69,28 @@ var dead : bool = false:
 
 var maxPoopMeter := 100.0
 
+# append .0 to suppress the divison warning
+var hopThreshold := 10.0 / 100.0 * maxPoopMeter
+
 var poop := maxPoopMeter: # properties automatically clamps this value between 0 and maxPoopMeter
 	set (value):
+
 		if value > maxPoopMeter:
 			poop = maxPoopMeter
 		elif value < 0:
+
+			if poop > 0:
+				ranOutOfShit.emit ()
+
 			poop = 0
 		else:
+			# and also handle events
+			if value <= hopThreshold and value > 0 and poop > hopThreshold:
+				onLowShit.emit ()
+
 			poop = value
+
+
 
 var isHoldingJump := false:
 	set (value):
@@ -87,8 +108,25 @@ var isHoldingJump := false:
 signal damaged (amount, health)
 signal died
 signal ranOutOfShit
+signal onLowShit
 signal startedJumping
 signal stoppedJumping
+
+# resets everything except health
+func onVoided ():
+	noPoopRegenTimer = 0
+	damageImmunityTimer = 0
+	poop = maxPoopMeter
+	velocity = Vector2.ZERO
+
+func onStartedJumping ():
+	var root = get_tree ().root
+	var child = root.get_node ("GameManager")
+
+	print (child)
+
+	if child is GameManager:
+		child.shakeCamera (25 * poop / maxPoopMeter, 3)
 
 func setKnockbackForce (kb : Vector2, time : float):
 	kbForce = kb
@@ -109,15 +147,12 @@ func damage (amount : float, immunity : float):
 	
 	damaged.emit (amount, health)
 
-	print ("Did ", amount, " damage to player.")
-	print ("New health: ", health)
 
 	$Damaged.play ()
 	
 func onStoppedJumping ():
 	# delay poop regeneration based on how full your poop meter is
 
-	print ("Stopped jumping")
 	noPoopRegenTimer += 0.5 * (1 - poop / maxPoopMeter)
 
 # Called when the node enters the scene tree for the first time.
@@ -126,7 +161,7 @@ func _ready() -> void:
 	if not generatePlayerCamera:
 		$Camera2D.queue_free ()
 
-	print (healthBarResource.can_instantiate ())
+
 
 	if healthBarResource.can_instantiate () and showHealthbar:
 		var healthBar := healthBarResource.instantiate ()
@@ -145,8 +180,11 @@ func _ready() -> void:
 	
 
 	ranOutOfShit.connect (onRanOutOfShit)
+	onLowShit.connect (onLowShitHandler)
 	stoppedJumping.connect (onStoppedJumping)
+	startedJumping.connect (onStartedJumping)
 
+	$VoidBehavior.onHitVoid.connect (onVoided)
 func onJump ():
 	if canJump:
 		$Noise.play ()
@@ -158,7 +196,12 @@ func onJumpReleased ():
 	noPoopRegenTimer += 4
 
 func onRanOutOfShit ():
-	noPoopRegenTimer = 8
+	print ("Ran out of shit!")
+	noPoopRegenTimer = 6
+
+func onLowShitHandler ():
+	print ("Low shit!")
+	noPoopRegenTimer = 2.5
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -171,8 +214,7 @@ func _physics_process (_delta : float):
 
 	var poopFillSize := 431 * (poop / maxPoopMeter)
 
-	# append .0 to suppress the divison warning
-	var hopThreshold := 15.0 / 100.0 * maxPoopMeter
+
 
 	if poopFill:
 		poopFill.size.x = poopFillSize
@@ -186,7 +228,7 @@ func _physics_process (_delta : float):
 		return
 
 	horizontalDirection = Input.get_axis ("left", "right")
-	isHoldingJump = Input.is_action_pressed ("jump") and canJump
+	isHoldingJump = Input.is_action_pressed ("jump")
 	
 	if Input.is_action_just_pressed ("jump"):
 		onJump ()
@@ -204,7 +246,8 @@ func _physics_process (_delta : float):
 	# Handle timer variables
 	damageImmunityTimer = clamp (damageImmunityTimer - _delta, 0, 100000)
 	noPoopRegenTimer = clamp (noPoopRegenTimer - _delta, 0, 100000)
-		
+	hopCooldown = clamp (hopCooldown - _delta, 0, 100000)
+
 	# If we are accelerating then
 	if velocity.x < targetVelocity.x:
 		xVelocity = minf (velocity.x + acceleration * _delta, speed)
@@ -216,39 +259,33 @@ func _physics_process (_delta : float):
 	if noPoopRegenTimer <= 0:
 		poop += poopRegenRate * _delta
 
-	print (canJump)
+	# print ("NPRT: ", noPoopRegenTimer)
 
 	# Do a short little hop
-	if Input.is_action_just_pressed ("jump") and is_on_floor () and poop <= hopThreshold and poop > 0:
-		noPoopRegenTimer += .75
+	if isHoldingJump and is_on_floor () and poop <= hopThreshold and poop > 0 and hopCooldown <= 0:
+		noPoopRegenTimer += .5
+		hopCooldown = 0.3
 
 		poopParticles.emitting = true
 		poopParticles.emitting = false
 		
 		poop -= 1.5
-		velocity.y -= jumpVelocity * 1.9
+		velocity.y -= jumpVelocity * 0.85 * (poop / hopThreshold)
 		$TinyHop.play ()
 
 	canJump = poop >= hopThreshold
 
-	print ("Poop: ", poop)
-
 
 	if isHoldingJump and canJump:
-		var multBy := clampf ((poop  + 25) / maxPoopMeter, 0, 1)
+		var multBy := poopPowerCurve.sample (1 - poop / maxPoopMeter)
 
-		print ("Mult by: ", multBy)
+		print ("MB: ", multBy)
 
 		targetVelocity.y -= jumpVelocity * multBy
 		raycast2d.target_position.y += poopFallRate *  _delta
 
 		poop -= poopUsageRate * _delta
 		gravity = max (gravity - gravityAcceleration * _delta, minGravity)
-
-		if poop <= 0:
-			noPoopRegenTimer = 6
-			ranOutOfShit.emit ()
-	
 	else:
 		$Noise2.stop ()
 		raycast2d.target_position.y = 0
