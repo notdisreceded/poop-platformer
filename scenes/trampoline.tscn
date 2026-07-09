@@ -1,81 +1,104 @@
 [gd_scene format=3 uid="uid://c03gotc6r5rb0"]
 
-[ext_resource type="Texture2D" uid="uid://drkltwtrds5gx" path="res://assets/sprites/trampoline/trampoline_idle.png" id="1_2yctu"]
-[ext_resource type="Texture2D" uid="uid://ca3k46i3bn20f" path="res://assets/sprites/trampoline/trampoline_bounce_00000.png" id="1_y2tmh"]
-[ext_resource type="Texture2D" uid="uid://bkmlan1exjvat" path="res://assets/sprites/trampoline/trampoline_bounce_00001.png" id="2_h7vfa"]
-[ext_resource type="Texture2D" uid="uid://dgycuyrw3p0mm" path="res://assets/sprites/trampoline/trampoline_bounce_00002.png" id="3_ntjuk"]
-[ext_resource type="Texture2D" uid="uid://u8ajkp0qsfpe" path="res://assets/sprites/trampoline/trampoline_bounce_00003.png" id="4_esf1p"]
-[ext_resource type="Texture2D" uid="uid://cb4ev8nbnwdtl" path="res://assets/sprites/trampoline/trampoline_bounce_00004.png" id="5_ipq32"]
-[ext_resource type="Texture2D" uid="uid://tbe8hgr5lve2" path="res://assets/sprites/trampoline/trampoline_bounce_00005.png" id="6_u4ljh"]
-[ext_resource type="Texture2D" uid="uid://b102a5fwau6fj" path="res://assets/sprites/trampoline/trampoline_bounce_00006.png" id="7_o6y3u"]
-[ext_resource type="Texture2D" uid="uid://dmiockokbiqa7" path="res://assets/sprites/trampoline/trampoline_bounce_00007.png" id="8_f0ame"]
-[ext_resource type="Texture2D" uid="uid://bk6t75yvtbbrd" path="res://assets/sprites/trampoline/trampoline_bounce_00008.png" id="9_8316o"]
-[ext_resource type="Texture2D" uid="uid://dfhbhr8vqj830" path="res://assets/sprites/trampoline/trampoline_bounce_00009.png" id="10_rg4fw"]
-[ext_resource type="Texture2D" uid="uid://cmbt0whuk8kw1" path="res://assets/sprites/trampoline/trampoline_bounce_00010.png" id="11_uvdex"]
-[ext_resource type="Texture2D" uid="uid://d1mchojmb4euy" path="res://assets/sprites/trampoline/trampoline_bounce_00011.png" id="12_w510i"]
-[ext_resource type="Texture2D" uid="uid://diq72rc4le138" path="res://assets/sprites/trampoline/trampoline_bounce_00012.png" id="13_cqw5c"]
-[ext_resource type="Texture2D" uid="uid://b3vfya5qhec5k" path="res://assets/sprites/trampoline/trampoline_bounce_00013.png" id="14_fly5k"]
-[ext_resource type="Texture2D" uid="uid://dmh8b4l4o6gle" path="res://assets/sprites/trampoline/trampoline_bounce_00014.png" id="15_dkhjw"]
-[ext_resource type="Texture2D" uid="uid://djki5ek25u0il" path="res://assets/sprites/trampoline/trampoline_bounce_00015.png" id="16_5p8rm"]
+[ext_resource type="Texture2D" uid="uid://xcyj13o62sko" path="res://assets/sprites/trampoline/Trampoline/trampoline_bounce_00000.png" id="2_o6y3u"]
+[ext_resource type="Texture2D" uid="uid://ciy643e0qeq55" path="res://assets/sprites/trampoline/Trampoline/trampoline_bounce_00001.png" id="3_f0ame"]
+[ext_resource type="Texture2D" uid="uid://cqjvpwpmelwd3" path="res://assets/sprites/trampoline/Trampoline/trampoline_bounce_00002.png" id="4_8316o"]
+[ext_resource type="Texture2D" uid="uid://v3d0yonnixhw" path="res://assets/sprites/trampoline/Trampoline/trampoline_bounce_00003.png" id="5_rg4fw"]
+[ext_resource type="Texture2D" uid="uid://16gghbujn0h2" path="res://assets/sprites/trampoline/Trampoline/trampoline_bounce_00004.png" id="6_uvdex"]
+[ext_resource type="Texture2D" uid="uid://mskgwek3nu88" path="res://assets/sprites/trampoline/Trampoline/trampoline_bounce_00005.png" id="7_w510i"]
+[ext_resource type="Texture2D" uid="uid://cm5qxpjpma3rg" path="res://assets/sprites/trampoline/Trampoline/trampoline_bounce_00006.png" id="8_cqw5c"]
+[ext_resource type="Texture2D" uid="uid://bte2x1c34flc1" path="res://assets/sprites/trampoline/Trampoline/trampoline_bounce_00007.png" id="9_fly5k"]
+[ext_resource type="Texture2D" uid="uid://gtoxmt4ewvun" path="res://assets/sprites/trampoline/Trampoline/trampoline_bounce_00008.png" id="10_dkhjw"]
+[ext_resource type="Texture2D" uid="uid://0dbut3y0tfg1" path="res://assets/sprites/trampoline/Trampoline/trampoline_bounce_00009.png" id="11_5p8rm"]
+[ext_resource type="Texture2D" uid="uid://cpq02a2onabcr" path="res://assets/sprites/trampoline/Trampoline/trampoline_bounce_00010.png" id="12_fsnqj"]
+[ext_resource type="Texture2D" uid="uid://dmlp84txg2jc0" path="res://assets/sprites/trampoline/Trampoline/trampoline_bounce_00011.png" id="13_rhr5u"]
+[ext_resource type="Texture2D" uid="uid://dq4jj6qhaql85" path="res://assets/sprites/trampoline/Trampoline/trampoline_bounce_00012.png" id="14_heohe"]
+[ext_resource type="Texture2D" uid="uid://wfdt1wlwhrh3" path="res://assets/sprites/trampoline/Trampoline/trampoline_bounce_00013.png" id="15_kpqr2"]
+[ext_resource type="Texture2D" uid="uid://b0tcm1xvoy03f" path="res://assets/sprites/trampoline/Trampoline/trampoline_bounce_00014.png" id="16_apkuy"]
+[ext_resource type="Texture2D" uid="uid://cwxs8dt3o2uro" path="res://assets/sprites/trampoline/Trampoline/trampoline_bounce_00015.png" id="17_8sxq8"]
 [ext_resource type="Script" uid="uid://c0myjvnyq6gbn" path="res://scripts/trampoline.gd" id="18_h7vfa"]
+[ext_resource type="Texture2D" uid="uid://bl4lkkt7xyeeg" path="res://assets/sprites/trampoline/Trampoline/trampoline_bounce_00016.png" id="18_iwgyy"]
+[ext_resource type="Texture2D" uid="uid://h1wmnx3cesre" path="res://assets/sprites/trampoline/Trampoline/trampoline_bounce_00017.png" id="19_i6i3y"]
+[ext_resource type="Texture2D" uid="uid://dihtlns046io8" path="res://assets/sprites/trampoline/Trampoline/trampoline_bounce_00018.png" id="20_74b8f"]
+[ext_resource type="Texture2D" uid="uid://cnucghb40x0wt" path="res://assets/sprites/trampoline/Trampoline/trampoline_bounce_00019.png" id="21_hukwj"]
+[ext_resource type="Texture2D" uid="uid://dnimpcyj7dbue" path="res://assets/sprites/trampoline/Trampoline/trampoline_bounce_00020.png" id="22_uug57"]
+[ext_resource type="Texture2D" uid="uid://u2lpswo1fsao" path="res://assets/sprites/trampoline/Trampoline/trampoline_bounce_00021.png" id="23_8dhp1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h7vfa"]
-size = Vector2(217, 36)
+size = Vector2(211, 20)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fsnqj"]
-atlas = ExtResource("1_2yctu")
-region = Rect2(0, 0, 512, 512)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ix6un"]
+atlas = ExtResource("23_8dhp1")
+region = Rect2(0, 0, 720, 512)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rhr5u"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_y2tmh")
+"texture": ExtResource("2_o6y3u")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_h7vfa")
+"texture": ExtResource("3_f0ame")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_ntjuk")
+"texture": ExtResource("4_8316o")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_esf1p")
+"texture": ExtResource("5_rg4fw")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_ipq32")
+"texture": ExtResource("6_uvdex")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_u4ljh")
+"texture": ExtResource("7_w510i")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_o6y3u")
+"texture": ExtResource("8_cqw5c")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_f0ame")
+"texture": ExtResource("9_fly5k")
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_8316o")
+"texture": ExtResource("10_dkhjw")
 }, {
 "duration": 1.0,
-"texture": ExtResource("10_rg4fw")
+"texture": ExtResource("11_5p8rm")
 }, {
 "duration": 1.0,
-"texture": ExtResource("11_uvdex")
+"texture": ExtResource("12_fsnqj")
 }, {
 "duration": 1.0,
-"texture": ExtResource("12_w510i")
+"texture": ExtResource("13_rhr5u")
 }, {
 "duration": 1.0,
-"texture": ExtResource("13_cqw5c")
+"texture": ExtResource("14_heohe")
 }, {
 "duration": 1.0,
-"texture": ExtResource("14_fly5k")
+"texture": ExtResource("15_kpqr2")
 }, {
 "duration": 1.0,
-"texture": ExtResource("15_dkhjw")
+"texture": ExtResource("16_apkuy")
 }, {
 "duration": 1.0,
-"texture": ExtResource("16_5p8rm")
+"texture": ExtResource("17_8sxq8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_iwgyy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_i6i3y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_74b8f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_hukwj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_uug57")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_8dhp1")
 }],
 "loop": false,
 "name": &"bounce",
@@ -83,7 +106,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fsnqj")
+"texture": SubResource("AtlasTexture_ix6un")
 }],
 "loop": true,
 "name": &"default",
@@ -91,7 +114,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y2tmh"]
-size = Vector2(461, 80)
+size = Vector2(435.25, 118)
 
 [node name="Trampoline" type="Area2D" unique_id=1735447229]
 script = ExtResource("18_h7vfa")
@@ -100,18 +123,23 @@ metadata/_custom_type_script = "uid://c0myjvnyq6gbn"
 metadata/_edit_pinned_properties_ = [&"power"]
 
 [node name="Trigger" type="CollisionShape2D" parent="." unique_id=1823211841]
-position = Vector2(-0.5, -35)
+position = Vector2(-0.5, -18)
 shape = SubResource("RectangleShape2D_h7vfa")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1193301003]
 texture_filter = 1
+position = Vector2(-1, 25)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_rhr5u")
-offset = Vector2(0, -125)
+animation = &"bounce"
+frame = 21
+frame_progress = 1.0
+offset = Vector2(0, -200)
 
 [node name="StaticBody" type="StaticBody2D" parent="." unique_id=1805461438]
+position = Vector2(-1, 25)
 scale = Vector2(0.5, 0.5)
 
 [node name="Collision" type="CollisionShape2D" parent="StaticBody" unique_id=897496166]
-position = Vector2(0.5, 3)
+position = Vector2(0.375, -3)
 shape = SubResource("RectangleShape2D_y2tmh")

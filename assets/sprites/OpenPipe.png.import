@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmfgy7quinbbq"
-path="res://.godot/imported/Checkpoint.png-7970e83312d27be0fd319988947ab8f0.ctex"
+uid="uid://blvn0dsvt04bq"
+path="res://.godot/imported/OpenPipe.png-8c9ade2b7d33481192f67994796e406f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Checkpoint.png"
-dest_files=["res://.godot/imported/Checkpoint.png-7970e83312d27be0fd319988947ab8f0.ctex"]
+source_file="res://assets/sprites/OpenPipe.png"
+dest_files=["res://.godot/imported/OpenPipe.png-8c9ade2b7d33481192f67994796e406f.ctex"]
 
 [params]
 

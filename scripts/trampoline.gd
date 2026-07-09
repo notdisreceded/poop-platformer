@@ -11,7 +11,7 @@ var lastHitPlayer := 0.0
 
 func onTouchedPlayer (player : Player):
 
-    var sprite : AnimatedSprite2D = get_node_or_null ("../Sprite")
+    var sprite : AnimatedSprite2D = get_node_or_null ("Sprite")
 
     if sprite:
         sprite.play ("bounce")
@@ -29,10 +29,10 @@ func onTouchedPlayer (player : Player):
     lastHitPlayer = now
 
     var scaleMult = global_scale.x / 0.5
-    var force : Vector2 = -(direction * power * multiplier * scaleMult)
+    var force : Vector2 = -(direction * power * 2 * multiplier * scaleMult)
 
     player.velocity.y = 0
-    player.setKnockbackForce (force, 0.1)
+    player.setKnockbackForce (force, 0.05)
 
     print ("Bounce power: ", force)
 

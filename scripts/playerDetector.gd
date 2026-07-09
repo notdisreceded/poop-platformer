@@ -3,6 +3,7 @@ class_name PlayerDetector
 
 # signals
 signal touchedPlayer (player : Player)
+signal playerLeft (player : Player)
 
 # properties
 @export var cooldown := 0.0
@@ -18,14 +19,21 @@ func onTouchedObject (body : PhysicsBody2D):
 
     if body is Player and now - lastHit >= cooldown:
         lastHit = now
-
-        print ("Event fired")
         
         touchedPlayer.emit (body)
         onTouchedPlayer (body)
 
+func onObjectLeft (body : PhysicsBody2D):
+    print ("something left")
+
+    if body is Player:
+
+        print ("player left")
+        playerLeft.emit (body) 
+
 func _ready() -> void:
     body_entered.connect (onTouchedObject)
+    body_exited.connect (onObjectLeft)
 
 func _process (delta: float) -> void:
     now += delta

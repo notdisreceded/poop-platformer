@@ -50,6 +50,7 @@ var now = 0
 var canJump := true
 var normalPoopFillColor : Color
 var emergencyPoopFillColor := Color ("ff5340")
+var canBeTeleported := true
 
 var checkpointPosition : Vector2:
 	set (value):

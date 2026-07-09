@@ -5,20 +5,22 @@
 [ext_resource type="PackedScene" uid="uid://buajeyxn22dxa" path="res://scenes/spike.tscn" id="3_71baw"]
 [ext_resource type="PackedScene" uid="uid://c03gotc6r5rb0" path="res://scenes/trampoline.tscn" id="4_niitk"]
 [ext_resource type="Texture2D" uid="uid://bulk6srumsqlj" path="res://assets/sprites/White.png" id="5_d5djh"]
-[ext_resource type="Texture2D" uid="uid://bdq7e4gqu082h" path="res://assets/sprites/Pipe.png" id="6_ok6xr"]
 [ext_resource type="PackedScene" uid="uid://b7qw15vivbp2q" path="res://scenes/pipe.tscn" id="7_b0vvs"]
 [ext_resource type="Texture2D" uid="uid://drpsqp6hqrxh1" path="res://assets/sprites/Skull.png" id="7_dj4wq"]
 [ext_resource type="PackedScene" uid="uid://dl4nwxxv5qvvt" path="res://scenes/checkpoint.tscn" id="8_k0mew"]
 [ext_resource type="Texture2D" uid="uid://cliyqri474rg8" path="res://assets/sprites/SeamlessSky3.png" id="10_gycjm"]
 [ext_resource type="Texture2D" uid="uid://co0tdkysbaqwv" path="res://assets/sprites/SpikyHills.png" id="11_8i1lk"]
+[ext_resource type="PackedScene" uid="uid://yrlqn1mct2b" path="res://scenes/exit_pipe.tscn" id="12_8i1lk"]
+[ext_resource type="Texture2D" uid="uid://ddsyedeqj842b" path="res://assets/sprites/Cloud1.png" id="13_hgky1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_icy5c"]
-size = Vector2(1001, 783)
+size = Vector2(1001, 660.94025)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ok6xr"]
-size = Vector2(279, 417)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hgky1"]
+size = Vector2(979.5642, 783)
 
 [node name="GameManager" type="Node2D" unique_id=1389992201 node_paths=PackedStringArray("playerChildrenNodes")]
+position = Vector2(0, -16)
 script = ExtResource("1_e0cvd")
 voidHeight = 150.0
 playerSpawnPoint = Vector2(125, -137)
@@ -41,56 +43,12 @@ limit_bottom = 151
 limit_smoothed = true
 position_smoothing_enabled = true
 
-[node name="Spike" parent="." unique_id=1467808966 instance=ExtResource("3_71baw")]
-position = Vector2(892, -78)
-
 [node name="Platform2" parent="." unique_id=1795179807 instance=ExtResource("2_nos0u")]
 position = Vector2(1671, -213)
 
-[node name="Spike2" parent="." unique_id=1340128619 instance=ExtResource("3_71baw")]
-position = Vector2(1238, -696)
-
-[node name="Spike3" parent="." unique_id=865341963 instance=ExtResource("3_71baw")]
-position = Vector2(1368, -700)
-
-[node name="Spike5" parent="." unique_id=1137291276 instance=ExtResource("3_71baw")]
-position = Vector2(1508, -700)
-metadata/_edit_group_ = true
-
-[node name="Spike6" parent="." unique_id=196579777 instance=ExtResource("3_71baw")]
-position = Vector2(1640, -696)
-metadata/_edit_group_ = true
-
-[node name="Spike4" parent="." unique_id=563426702 instance=ExtResource("3_71baw")]
-position = Vector2(759, -76)
-
 [node name="Trampoline" parent="." unique_id=1289479644 instance=ExtResource("4_niitk")]
-position = Vector2(1949, -692)
+position = Vector2(1960, -664)
 scale = Vector2(1.8799975, 1.4960002)
-
-[node name="Spike7" parent="." unique_id=1036549511 instance=ExtResource("3_71baw")]
-position = Vector2(10125, -2906)
-rotation = -3.1415927
-
-[node name="Spike8" parent="." unique_id=1751378645 instance=ExtResource("3_71baw")]
-position = Vector2(10249, -2906)
-rotation = -3.1415927
-
-[node name="Spike9" parent="." unique_id=222385192 instance=ExtResource("3_71baw")]
-position = Vector2(10372, -2906)
-rotation = -3.1415927
-
-[node name="Spike10" parent="." unique_id=2023489938 instance=ExtResource("3_71baw")]
-position = Vector2(9530, -2906)
-rotation = -3.1415927
-
-[node name="Spike11" parent="." unique_id=261074295 instance=ExtResource("3_71baw")]
-position = Vector2(9654, -2906)
-rotation = -3.1415927
-
-[node name="Spike12" parent="." unique_id=1849394660 instance=ExtResource("3_71baw")]
-position = Vector2(9777, -2906)
-rotation = -3.1415927
 
 [node name="Platform4" type="StaticBody2D" parent="." unique_id=28069723]
 position = Vector2(1967, -2153)
@@ -99,15 +57,15 @@ metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Platform4" unique_id=321989865]
 modulate = Color(0, 0, 0, 1)
-z_index = 4
-scale = Vector2(3.79057, 2.83636)
+z_index = 5
+position = Vector2(0, -61.2873)
+scale = Vector2(3.79057, 2.3906343)
 texture = ExtResource("5_d5djh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform4" unique_id=665209329]
-position = Vector2(-0.5, -0.5)
-scale = Vector2(1.0069342, 1)
+position = Vector2(-0.5, -61.529907)
+scale = Vector2(1.0069339, 1)
 shape = SubResource("RectangleShape2D_icy5c")
-one_way_collision = true
 one_way_collision_margin = 105.4
 
 [node name="Trampoline2" parent="." unique_id=383449278 instance=ExtResource("4_niitk")]
@@ -137,144 +95,17 @@ position = Vector2(6523, -2759)
 position = Vector2(8893, -1424)
 scale = Vector2(2.75, 1)
 
-[node name="Spike13" parent="." unique_id=1628276663 instance=ExtResource("3_71baw")]
-position = Vector2(4938, -3117)
-
-[node name="Spike14" parent="." unique_id=1443129024 instance=ExtResource("3_71baw")]
-position = Vector2(5558, -1990)
-
-[node name="Spike15" parent="." unique_id=1019793598 instance=ExtResource("3_71baw")]
-position = Vector2(6090, -3244)
-
-[node name="Spike16" parent="." unique_id=779623113 instance=ExtResource("3_71baw")]
-position = Vector2(6211, -3244)
-
-[node name="Spike17" parent="." unique_id=967861932 instance=ExtResource("3_71baw")]
-position = Vector2(6342, -3244)
-
-[node name="Spike18" parent="." unique_id=1120270751 instance=ExtResource("3_71baw")]
-position = Vector2(6467, -3234)
-
-[node name="Spike19" parent="." unique_id=1682035285 instance=ExtResource("3_71baw")]
-position = Vector2(6584, -3237)
-
-[node name="Spike20" parent="." unique_id=403733873 instance=ExtResource("3_71baw")]
-position = Vector2(6708, -3237)
-
-[node name="Spike21" parent="." unique_id=638473506 instance=ExtResource("3_71baw")]
-position = Vector2(6832, -3237)
-
-[node name="Spike22" parent="." unique_id=1562269979 instance=ExtResource("3_71baw")]
-position = Vector2(6960, -3234)
+[node name="CollisionShape2D" parent="Platform8" index="1" unique_id=665209329]
+position = Vector2(-11.672607, -0.5)
+shape = SubResource("RectangleShape2D_hgky1")
 
 [node name="Trampoline4" parent="." unique_id=1234757735 instance=ExtResource("4_niitk")]
 position = Vector2(6939, -2316)
 rotation = 3.1415927
 
-[node name="Spike23" parent="." unique_id=1312505509 instance=ExtResource("3_71baw")]
-position = Vector2(6056, -2330)
-rotation = 3.1415927
-scale = Vector2(0.5, 0.5)
-
-[node name="Spike24" parent="." unique_id=39131411 instance=ExtResource("3_71baw")]
-position = Vector2(6114, -2330)
-rotation = 3.1415927
-scale = Vector2(0.5, 0.5)
-
-[node name="Spike25" parent="." unique_id=2117563353 instance=ExtResource("3_71baw")]
-position = Vector2(6172, -2330)
-rotation = 3.1415927
-scale = Vector2(0.5, 0.5)
-
-[node name="Spike26" parent="." unique_id=1390640735 instance=ExtResource("3_71baw")]
-position = Vector2(6234, -2330)
-rotation = 3.1415927
-scale = Vector2(0.5, 0.5)
-
-[node name="Spike27" parent="." unique_id=2142386273 instance=ExtResource("3_71baw")]
-position = Vector2(6300, -2330)
-rotation = 3.1415927
-scale = Vector2(0.5, 0.5)
-
-[node name="Spike28" parent="." unique_id=1321909743 instance=ExtResource("3_71baw")]
-position = Vector2(6362, -2330)
-rotation = 3.1415927
-scale = Vector2(0.5, 0.5)
-
-[node name="Spike29" parent="." unique_id=754894047 instance=ExtResource("3_71baw")]
-position = Vector2(6422, -2328)
-rotation = 3.1415927
-scale = Vector2(0.5, 0.5)
-
-[node name="Spike30" parent="." unique_id=695794911 instance=ExtResource("3_71baw")]
-position = Vector2(6480, -2328)
-rotation = 3.1415927
-scale = Vector2(0.5, 0.5)
-
-[node name="Spike31" parent="." unique_id=422503563 instance=ExtResource("3_71baw")]
-position = Vector2(6542, -2328)
-rotation = 3.1415927
-scale = Vector2(0.5, 0.5)
-
-[node name="Spike32" parent="." unique_id=841357402 instance=ExtResource("3_71baw")]
-position = Vector2(6602, -2328)
-rotation = 3.1415927
-scale = Vector2(0.5, 0.5)
-
-[node name="Spike33" parent="." unique_id=769602490 instance=ExtResource("3_71baw")]
-position = Vector2(6662, -2328)
-rotation = 3.1415927
-scale = Vector2(0.5, 0.5)
-
-[node name="Spike34" parent="." unique_id=750318955 instance=ExtResource("3_71baw")]
-position = Vector2(6724, -2328)
-rotation = 3.1415927
-scale = Vector2(0.5, 0.5)
-
-[node name="Spike35" parent="." unique_id=1320188611 instance=ExtResource("3_71baw")]
-position = Vector2(6778, -2328)
-rotation = 3.1415927
-scale = Vector2(0.5, 0.5)
-
 [node name="Trampoline5" parent="." unique_id=884537188 instance=ExtResource("4_niitk")]
 position = Vector2(5963, -2819)
 rotation = -1.5707964
-
-[node name="Spike36" parent="." unique_id=22167302 instance=ExtResource("3_71baw")]
-position = Vector2(5180, -2956)
-rotation = 1.5707964
-
-[node name="Spike37" parent="." unique_id=348638599 instance=ExtResource("3_71baw")]
-position = Vector2(5180, -2838)
-rotation = 1.5707964
-
-[node name="Spike38" parent="." unique_id=823736420 instance=ExtResource("3_71baw")]
-position = Vector2(5166, -2725)
-rotation = 1.5707964
-
-[node name="Pipe" type="Sprite2D" parent="." unique_id=1632271315]
-modulate = Color(0.8274021, 0.7210065, 3.85046e-07, 1)
-z_index = 3
-position = Vector2(1950, -1857)
-rotation = 3.1415927
-texture = ExtResource("6_ok6xr")
-centered = false
-offset = Vector2(-179, -504)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=322863198]
-position = Vector2(1950, -2492)
-
-[node name="Pipe2" type="Sprite2D" parent="StaticBody2D" unique_id=1422485604]
-modulate = Color(0.8274021, 0.7210065, 3.85046e-07, 1)
-z_index = 3
-texture = ExtResource("6_ok6xr")
-centered = false
-offset = Vector2(-179, -504)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1905418395]
-position = Vector2(2.5, -198.5)
-shape = SubResource("RectangleShape2D_ok6xr")
-one_way_collision = true
 
 [node name="Skull" type="Sprite2D" parent="." unique_id=852210629]
 z_index = 4
@@ -288,81 +119,9 @@ position = Vector2(9904, -1656)
 scale = Vector2(0.14, 0.14)
 texture = ExtResource("7_dj4wq")
 
-[node name="Spike39" parent="." unique_id=1735073097 instance=ExtResource("3_71baw")]
-position = Vector2(9541, -1904)
-
-[node name="Spike40" parent="." unique_id=246132961 instance=ExtResource("3_71baw")]
-position = Vector2(9410, -1905)
-
-[node name="Spike41" parent="." unique_id=1227459451 instance=ExtResource("3_71baw")]
-position = Vector2(9280, -1907)
-
 [node name="Platform9" parent="." unique_id=427185963 instance=ExtResource("2_nos0u")]
 position = Vector2(8266, -3213)
 scale = Vector2(1.2182467, 0.7015063)
-
-[node name="Spike42" parent="." unique_id=658722254 instance=ExtResource("3_71baw")]
-position = Vector2(8020, -1946.0001)
-scale = Vector2(1, 1.7200024)
-
-[node name="Spike43" parent="." unique_id=1685374792 instance=ExtResource("3_71baw")]
-position = Vector2(8106, -1946.0001)
-scale = Vector2(1, 1.7200024)
-
-[node name="Spike44" parent="." unique_id=301851994 instance=ExtResource("3_71baw")]
-position = Vector2(8183, -1937.0001)
-scale = Vector2(1, 1.7200024)
-
-[node name="Spike45" parent="." unique_id=1063850625 instance=ExtResource("3_71baw")]
-position = Vector2(8264, -1937.0001)
-scale = Vector2(1, 1.7200024)
-
-[node name="Spike46" parent="." unique_id=1295825726 instance=ExtResource("3_71baw")]
-position = Vector2(8339, -1937.0001)
-scale = Vector2(1, 1.7200024)
-
-[node name="Spike47" parent="." unique_id=1570050347 instance=ExtResource("3_71baw")]
-position = Vector2(8405, -1937.0001)
-scale = Vector2(1, 1.7200024)
-
-[node name="Spike48" parent="." unique_id=1980779787 instance=ExtResource("3_71baw")]
-position = Vector2(8489, -1937.0001)
-scale = Vector2(1, 1.7200024)
-
-[node name="Spike49" parent="." unique_id=1512267875 instance=ExtResource("3_71baw")]
-position = Vector2(8004, -2782)
-rotation = 3.1415927
-scale = Vector2(1, 1.7200024)
-
-[node name="Spike50" parent="." unique_id=2092629653 instance=ExtResource("3_71baw")]
-position = Vector2(8090, -2782)
-rotation = 3.1415927
-scale = Vector2(1, 1.7200024)
-
-[node name="Spike51" parent="." unique_id=1299183429 instance=ExtResource("3_71baw")]
-position = Vector2(8167, -2773)
-rotation = 3.1415927
-scale = Vector2(1, 1.7200024)
-
-[node name="Spike52" parent="." unique_id=964506614 instance=ExtResource("3_71baw")]
-position = Vector2(8248, -2773)
-rotation = 3.1415927
-scale = Vector2(1, 1.7200024)
-
-[node name="Spike53" parent="." unique_id=1154935996 instance=ExtResource("3_71baw")]
-position = Vector2(8323, -2773)
-rotation = 3.1415927
-scale = Vector2(1, 1.7200024)
-
-[node name="Spike54" parent="." unique_id=14739835 instance=ExtResource("3_71baw")]
-position = Vector2(8389, -2773)
-rotation = 3.1415927
-scale = Vector2(1, 1.7200024)
-
-[node name="Spike55" parent="." unique_id=1459674071 instance=ExtResource("3_71baw")]
-position = Vector2(8473, -2773)
-rotation = 3.1415927
-scale = Vector2(1, 1.7200024)
 
 [node name="White" type="Sprite2D" parent="." unique_id=1110487307]
 modulate = Color(1, 0, 0, 1)
@@ -375,197 +134,6 @@ modulate = Color(1, 0, 0, 1)
 z_index = 5
 position = Vector2(8599, -3242)
 texture = ExtResource("5_d5djh")
-
-[node name="Spike56" parent="." unique_id=602738746 instance=ExtResource("3_71baw")]
-position = Vector2(7726, -3587)
-
-[node name="Spike57" parent="." unique_id=678901683 instance=ExtResource("3_71baw")]
-position = Vector2(7843, -3587)
-
-[node name="Spike58" parent="." unique_id=986471669 instance=ExtResource("3_71baw")]
-position = Vector2(7968, -3587)
-
-[node name="Spike59" parent="." unique_id=1511201566 instance=ExtResource("3_71baw")]
-position = Vector2(8097, -3579)
-
-[node name="Spike60" parent="." unique_id=209556425 instance=ExtResource("3_71baw")]
-position = Vector2(8226, -3579)
-
-[node name="Spike61" parent="." unique_id=74192240 instance=ExtResource("3_71baw")]
-position = Vector2(8364, -3579)
-
-[node name="Spike62" parent="." unique_id=1763697857 instance=ExtResource("3_71baw")]
-position = Vector2(8493, -3579)
-
-[node name="Spike63" parent="." unique_id=688907511 instance=ExtResource("3_71baw")]
-position = Vector2(8627, -3579)
-
-[node name="Spike64" parent="." unique_id=2081974114 instance=ExtResource("3_71baw")]
-position = Vector2(8777, -3579)
-
-[node name="SpikeBlock" type="Node2D" parent="." unique_id=371760092]
-position = Vector2(11229, -2354)
-rotation = 1.5676537
-
-[node name="Platform10" parent="SpikeBlock" unique_id=1142065396 instance=ExtResource("2_nos0u")]
-position = Vector2(18, -5.000122)
-scale = Vector2(1.2182467, 0.7015063)
-
-[node name="Spike65" parent="SpikeBlock" unique_id=1901421065 instance=ExtResource("3_71baw")]
-position = Vector2(-244, 426)
-rotation = -3.1415925
-scale = Vector2(1, 1.7200024)
-
-[node name="Spike66" parent="SpikeBlock" unique_id=784491001 instance=ExtResource("3_71baw")]
-position = Vector2(-158, 426)
-rotation = -3.1415925
-scale = Vector2(1, 1.7200024)
-
-[node name="Spike67" parent="SpikeBlock" unique_id=705358908 instance=ExtResource("3_71baw")]
-position = Vector2(-81, 435)
-rotation = -3.1415925
-scale = Vector2(1, 1.7200024)
-
-[node name="Spike68" parent="SpikeBlock" unique_id=2111860509 instance=ExtResource("3_71baw")]
-position = Vector2(0, 435)
-rotation = -3.1415925
-scale = Vector2(1, 1.7200024)
-
-[node name="Spike69" parent="SpikeBlock" unique_id=1454528860 instance=ExtResource("3_71baw")]
-position = Vector2(75, 435)
-rotation = -3.1415925
-scale = Vector2(1, 1.7200024)
-
-[node name="Spike70" parent="SpikeBlock" unique_id=1762162192 instance=ExtResource("3_71baw")]
-position = Vector2(141, 435)
-rotation = -3.1415925
-scale = Vector2(1, 1.7200024)
-
-[node name="Spike71" parent="SpikeBlock" unique_id=1194854870 instance=ExtResource("3_71baw")]
-position = Vector2(225, 435)
-rotation = -3.1415925
-scale = Vector2(1, 1.7200024)
-
-[node name="White3" type="Sprite2D" parent="SpikeBlock" unique_id=547710377]
-modulate = Color(1, 0, 0, 1)
-z_index = 5
-position = Vector2(-362, -37)
-texture = ExtResource("5_d5djh")
-
-[node name="White4" type="Sprite2D" parent="SpikeBlock" unique_id=1036744373]
-modulate = Color(1, 0, 0, 1)
-z_index = 5
-position = Vector2(351, -34)
-texture = ExtResource("5_d5djh")
-
-[node name="Spike72" parent="SpikeBlock" unique_id=422274026 instance=ExtResource("3_71baw")]
-position = Vector2(-522, -379)
-
-[node name="Spike73" parent="SpikeBlock" unique_id=1861834459 instance=ExtResource("3_71baw")]
-position = Vector2(-405, -379)
-
-[node name="Spike74" parent="SpikeBlock" unique_id=789516001 instance=ExtResource("3_71baw")]
-position = Vector2(-280, -379)
-
-[node name="Spike75" parent="SpikeBlock" unique_id=1946690755 instance=ExtResource("3_71baw")]
-position = Vector2(-151, -371)
-
-[node name="Spike76" parent="SpikeBlock" unique_id=615989642 instance=ExtResource("3_71baw")]
-position = Vector2(-22, -371)
-
-[node name="Spike77" parent="SpikeBlock" unique_id=1943283298 instance=ExtResource("3_71baw")]
-position = Vector2(116, -371)
-
-[node name="Spike78" parent="SpikeBlock" unique_id=227846415 instance=ExtResource("3_71baw")]
-position = Vector2(245, -371)
-
-[node name="Spike79" parent="SpikeBlock" unique_id=348402906 instance=ExtResource("3_71baw")]
-position = Vector2(379, -371)
-
-[node name="Spike80" parent="SpikeBlock" unique_id=918721859 instance=ExtResource("3_71baw")]
-position = Vector2(529, -371)
-
-[node name="SpikeBlock2" type="Node2D" parent="." unique_id=69358722]
-position = Vector2(12323, -3913)
-rotation = 3.1503086
-
-[node name="Platform10" parent="SpikeBlock2" unique_id=534277880 instance=ExtResource("2_nos0u")]
-position = Vector2(18, -5.000122)
-scale = Vector2(1.2182467, 0.7015063)
-
-[node name="Spike65" parent="SpikeBlock2" unique_id=736642380 instance=ExtResource("3_71baw")]
-position = Vector2(-244, 426)
-rotation = -3.1415925
-scale = Vector2(1, 1.7200024)
-
-[node name="Spike66" parent="SpikeBlock2" unique_id=809507284 instance=ExtResource("3_71baw")]
-position = Vector2(-158, 426)
-rotation = -3.1415925
-scale = Vector2(1, 1.7200024)
-
-[node name="Spike67" parent="SpikeBlock2" unique_id=902473813 instance=ExtResource("3_71baw")]
-position = Vector2(-81, 435)
-rotation = -3.1415925
-scale = Vector2(1, 1.7200024)
-
-[node name="Spike68" parent="SpikeBlock2" unique_id=201054898 instance=ExtResource("3_71baw")]
-position = Vector2(0, 435)
-rotation = -3.1415925
-scale = Vector2(1, 1.7200024)
-
-[node name="Spike69" parent="SpikeBlock2" unique_id=206020280 instance=ExtResource("3_71baw")]
-position = Vector2(75, 435)
-rotation = -3.1415925
-scale = Vector2(1, 1.7200024)
-
-[node name="Spike70" parent="SpikeBlock2" unique_id=1681671917 instance=ExtResource("3_71baw")]
-position = Vector2(141, 435)
-rotation = -3.1415925
-scale = Vector2(1, 1.7200024)
-
-[node name="Spike71" parent="SpikeBlock2" unique_id=66119467 instance=ExtResource("3_71baw")]
-position = Vector2(225, 435)
-rotation = -3.1415925
-scale = Vector2(1, 1.7200024)
-
-[node name="White3" type="Sprite2D" parent="SpikeBlock2" unique_id=98770341]
-modulate = Color(1, 0, 0, 1)
-z_index = 5
-position = Vector2(-362, -37)
-texture = ExtResource("5_d5djh")
-
-[node name="White4" type="Sprite2D" parent="SpikeBlock2" unique_id=1693464934]
-modulate = Color(1, 0, 0, 1)
-z_index = 5
-position = Vector2(351, -34)
-texture = ExtResource("5_d5djh")
-
-[node name="Spike72" parent="SpikeBlock2" unique_id=1892656839 instance=ExtResource("3_71baw")]
-position = Vector2(-522, -379)
-
-[node name="Spike73" parent="SpikeBlock2" unique_id=1244501037 instance=ExtResource("3_71baw")]
-position = Vector2(-405, -379)
-
-[node name="Spike74" parent="SpikeBlock2" unique_id=515132894 instance=ExtResource("3_71baw")]
-position = Vector2(-280, -379)
-
-[node name="Spike75" parent="SpikeBlock2" unique_id=1098733361 instance=ExtResource("3_71baw")]
-position = Vector2(-151, -371)
-
-[node name="Spike76" parent="SpikeBlock2" unique_id=392286119 instance=ExtResource("3_71baw")]
-position = Vector2(-22, -371)
-
-[node name="Spike77" parent="SpikeBlock2" unique_id=1002086307 instance=ExtResource("3_71baw")]
-position = Vector2(116, -371)
-
-[node name="Spike78" parent="SpikeBlock2" unique_id=965231704 instance=ExtResource("3_71baw")]
-position = Vector2(245, -371)
-
-[node name="Spike79" parent="SpikeBlock2" unique_id=377241157 instance=ExtResource("3_71baw")]
-position = Vector2(379, -371)
-
-[node name="Spike80" parent="SpikeBlock2" unique_id=1698575826 instance=ExtResource("3_71baw")]
-position = Vector2(529, -371)
 
 [node name="Trampoline6" parent="." unique_id=294816109 instance=ExtResource("4_niitk")]
 position = Vector2(11244, -3006)
@@ -581,131 +149,6 @@ rotation = -3.1415927
 [node name="Platform10" parent="." unique_id=873608284 instance=ExtResource("2_nos0u")]
 position = Vector2(12340, -5326)
 
-[node name="Spike65" parent="." unique_id=33788525 instance=ExtResource("3_71baw")]
-position = Vector2(11909, -5813)
-
-[node name="Spike66" parent="." unique_id=1246180070 instance=ExtResource("3_71baw")]
-position = Vector2(12035, -5809)
-
-[node name="Spike67" parent="." unique_id=1680870890 instance=ExtResource("3_71baw")]
-position = Vector2(12177, -5809)
-
-[node name="Spike68" parent="." unique_id=889006611 instance=ExtResource("3_71baw")]
-position = Vector2(12301, -5809)
-
-[node name="Spike69" parent="." unique_id=32056514 instance=ExtResource("3_71baw")]
-position = Vector2(12436, -5809)
-
-[node name="Spike70" parent="." unique_id=1885957828 instance=ExtResource("3_71baw")]
-position = Vector2(12571, -5809)
-
-[node name="Spike71" parent="." unique_id=959259977 instance=ExtResource("3_71baw")]
-position = Vector2(12737, -5816)
-
-[node name="Trampoline9" parent="." unique_id=1895326899 instance=ExtResource("4_niitk")]
-position = Vector2(13045, -4153)
-power = 750
-dampeningEnabled = false
-metadata/_edit_group_ = true
-
-[node name="Trampoline10" parent="." unique_id=2018034640 instance=ExtResource("4_niitk")]
-position = Vector2(13281, -4153)
-power = 750
-dampeningEnabled = false
-metadata/_edit_group_ = true
-
-[node name="Trampoline11" parent="." unique_id=2047561469 instance=ExtResource("4_niitk")]
-position = Vector2(13514, -4153)
-power = 750
-dampeningEnabled = false
-metadata/_edit_group_ = true
-
-[node name="Trampoline12" parent="." unique_id=1412642554 instance=ExtResource("4_niitk")]
-position = Vector2(13736, -4153)
-power = 750
-dampeningEnabled = false
-metadata/_edit_group_ = true
-
-[node name="Trampoline13" parent="." unique_id=671629698 instance=ExtResource("4_niitk")]
-position = Vector2(12969, -4931)
-rotation = 3.1142054
-power = 750
-dampeningEnabled = false
-metadata/_edit_group_ = true
-
-[node name="Trampoline14" parent="." unique_id=1315429537 instance=ExtResource("4_niitk")]
-position = Vector2(13205, -4931)
-rotation = 3.1142054
-power = 750
-dampeningEnabled = false
-metadata/_edit_group_ = true
-
-[node name="Trampoline15" parent="." unique_id=1007813522 instance=ExtResource("4_niitk")]
-position = Vector2(13438, -4931)
-rotation = 3.1142054
-power = 750
-dampeningEnabled = false
-metadata/_edit_group_ = true
-
-[node name="Trampoline16" parent="." unique_id=1877252194 instance=ExtResource("4_niitk")]
-position = Vector2(13660, -4931)
-rotation = 3.1142054
-power = 750
-dampeningEnabled = false
-metadata/_edit_group_ = true
-
-[node name="Trampoline17" parent="." unique_id=1735447229 instance=ExtResource("4_niitk")]
-position = Vector2(13960, -4158)
-power = 750
-dampeningEnabled = false
-metadata/_edit_group_ = true
-
-[node name="Trampoline18" parent="." unique_id=1808354807 instance=ExtResource("4_niitk")]
-position = Vector2(14196, -4158)
-power = 750
-dampeningEnabled = false
-metadata/_edit_group_ = true
-
-[node name="Trampoline19" parent="." unique_id=1826909570 instance=ExtResource("4_niitk")]
-position = Vector2(14429, -4158)
-power = 750
-dampeningEnabled = false
-metadata/_edit_group_ = true
-
-[node name="Trampoline20" parent="." unique_id=1517933995 instance=ExtResource("4_niitk")]
-position = Vector2(14651, -4158)
-power = 750
-dampeningEnabled = false
-metadata/_edit_group_ = true
-
-[node name="Trampoline21" parent="." unique_id=814651858 instance=ExtResource("4_niitk")]
-position = Vector2(13884, -4936)
-rotation = 3.1142054
-power = 750
-dampeningEnabled = false
-metadata/_edit_group_ = true
-
-[node name="Trampoline22" parent="." unique_id=317074741 instance=ExtResource("4_niitk")]
-position = Vector2(14120, -4936)
-rotation = 3.1142054
-power = 750
-dampeningEnabled = false
-metadata/_edit_group_ = true
-
-[node name="Trampoline23" parent="." unique_id=300698597 instance=ExtResource("4_niitk")]
-position = Vector2(14353, -4936)
-rotation = 3.1142054
-power = 750
-dampeningEnabled = false
-metadata/_edit_group_ = true
-
-[node name="Trampoline24" parent="." unique_id=1651741938 instance=ExtResource("4_niitk")]
-position = Vector2(14575, -4936)
-rotation = 3.1142054
-power = 750
-dampeningEnabled = false
-metadata/_edit_group_ = true
-
 [node name="Checkpoint" parent="." unique_id=1399950714 instance=ExtResource("8_k0mew")]
 position = Vector2(11240, -3182)
 
@@ -713,31 +156,17 @@ position = Vector2(11240, -3182)
 z_index = -1
 
 [node name="Platform11" parent="." unique_id=1247981847 instance=ExtResource("2_nos0u")]
-position = Vector2(13380, -5108.0005)
-scale = Vector2(2.9345424, 0.30072796)
+position = Vector2(13723.999, -5286)
+scale = Vector2(-1.9395458, 0.74711746)
 
 [node name="Platform12" parent="." unique_id=2091976706 instance=ExtResource("2_nos0u")]
 position = Vector2(13900, -3995)
 scale = Vector2(2.1128993, 0.30072796)
 
-[node name="TeleportObject" parent="." unique_id=517882663 instance=ExtResource("7_b0vvs")]
-position = Vector2(14938, -5297)
-rotation = -3.1415927
-point = Vector2(125, -137)
-
-[node name="Sprite" parent="TeleportObject" index="0" unique_id=857375274]
-modulate = Color(0.8382691, 0.6081522, 1, 1)
-
-[node name="TeleportObject2" parent="." unique_id=869037489 instance=ExtResource("7_b0vvs")]
-position = Vector2(14953, -3935)
-point = Vector2(125, -137)
-
-[node name="Sprite" parent="TeleportObject2" index="0" unique_id=857375274]
-modulate = Color(0.8392157, 0.60784316, 1, 1)
-
-[node name="TeleportObject3" parent="." unique_id=697418972 instance=ExtResource("7_b0vvs")]
+[node name="TeleportObject3" parent="." unique_id=697418972 node_paths=PackedStringArray("targetNode") instance=ExtResource("7_b0vvs")]
 position = Vector2(744, -2658)
 point = Vector2(742, -3617)
+targetNode = NodePath("../TeleportObject11/ExitPoint")
 
 [node name="Sprite" parent="TeleportObject3" index="0" unique_id=857375274]
 modulate = Color(0.3328917, 0.77183235, 0.99999994, 1)
@@ -748,16 +177,8 @@ position = Vector2(748, -4248)
 [node name="Sprite2D" parent="Platform13" index="0" unique_id=321989865]
 z_index = 5
 
-[node name="Pipe2" type="Sprite2D" parent="." unique_id=527229014]
-modulate = Color(0.33333334, 0.77254903, 1, 1)
-z_index = 4
-position = Vector2(742, -3915)
-rotation = -3.1415925
-texture = ExtResource("6_ok6xr")
-offset = Vector2(74, -251)
-
 [node name="Node2D" type="Node2D" parent="." unique_id=1399424713]
-position = Vector2(752, -3617)
+position = Vector2(1947, -3280)
 rotation = -3.1415925
 
 [node name="Sky" type="Parallax2D" parent="." unique_id=1225732435]
@@ -765,7 +186,7 @@ scale = Vector2(1.31, 1.31)
 scroll_scale = Vector2(0.6, 0.6)
 repeat_size = Vector2(4096, 2048)
 autoscroll = Vector2(-50, 0)
-repeat_times = 10
+repeat_times = 50
 follow_viewport = false
 
 [node name="Sprite" type="Sprite2D" parent="Sky" unique_id=920761256]
@@ -803,30 +224,1622 @@ z_index = -101
 scale = Vector2(4, 4)
 texture = ExtResource("11_8i1lk")
 
+[node name="TeleportObject4" parent="." unique_id=1094348264 instance=ExtResource("7_b0vvs")]
+position = Vector2(1951, -1795)
+rotation = 3.1415927
+point = Vector2(1947, -3280)
+velocity = Vector2(0, 300)
+
+[node name="TeleportObject" parent="." unique_id=517882663 instance=ExtResource("7_b0vvs")]
+position = Vector2(14561, -3942)
+
+[node name="Sprite" parent="TeleportObject" index="0" unique_id=857375274]
+modulate = Color(0.38145626, 0.2673788, 0.88023007, 1)
+
+[node name="TeleportObject2" parent="." unique_id=660252447 instance=ExtResource("7_b0vvs")]
+position = Vector2(14553.999, -5080)
+rotation = -3.1401062
+point = Vector2(30430, -20998)
+metadata/_edit_group_ = true
+
+[node name="Sprite" parent="TeleportObject2" index="0" unique_id=857375274]
+modulate = Color(0.72491324, 4.47616e-06, 0.46736687, 1)
+
+[node name="Platform14" parent="." unique_id=1896390125 instance=ExtResource("2_nos0u")]
+position = Vector2(30418.402, -18777.24)
+
+[node name="ExitPipe" parent="." unique_id=1993872764 instance=ExtResource("12_8i1lk")]
+modulate = Color(0.7254902, 0, 0.46666667, 1)
+position = Vector2(30425.4, -19178.24)
+scale = Vector2(2.5999994, 3.44)
+
+[node name="Platform16" parent="." unique_id=670616115 instance=ExtResource("2_nos0u")]
+position = Vector2(31937, -19423)
+
+[node name="Checkpoint2" parent="." unique_id=1906504822 instance=ExtResource("8_k0mew")]
+position = Vector2(31517, -19930)
+
+[node name="Trampoline25" parent="." unique_id=1748997807 instance=ExtResource("4_niitk")]
+position = Vector2(31895, -19878)
+power = 1000
+dampeningEnabled = false
+
+[node name="TeleportObject5" parent="." unique_id=182344637 instance=ExtResource("7_b0vvs")]
+position = Vector2(31900, -21311)
+rotation = 3.1415927
+point = Vector2(31901, -18584)
+
+[node name="Sprite" parent="TeleportObject5" index="0" unique_id=857375274]
+modulate = Color(0.827451, 0, 0, 1)
+metadata/_edit_group_ = true
+
+[node name="Platform17" parent="." unique_id=887684824 instance=ExtResource("2_nos0u")]
+position = Vector2(31896, -21663)
+
+[node name="ExitPipe2" parent="." unique_id=928254450 instance=ExtResource("12_8i1lk")]
+modulate = Color(0.827451, 0, 0, 1)
+position = Vector2(31895, -19038)
+rotation = 3.1415927
+
+[node name="Trampoline26" parent="." unique_id=787803359 instance=ExtResource("4_niitk")]
+position = Vector2(32693, -20338)
+power = 400
+dampeningEnabled = false
+
+[node name="Trampoline27" parent="." unique_id=1541330023 instance=ExtResource("4_niitk")]
+position = Vector2(32687, -20220)
+rotation = 3.1415927
+power = 400
+dampeningEnabled = false
+
+[node name="Trampoline28" parent="." unique_id=1487955086 instance=ExtResource("4_niitk")]
+position = Vector2(33432, -20827)
+power = 400
+dampeningEnabled = false
+
+[node name="Trampoline29" parent="." unique_id=583313436 instance=ExtResource("4_niitk")]
+position = Vector2(33426, -20709)
+rotation = 3.1415927
+power = 400
+dampeningEnabled = false
+
+[node name="Trampoline32" parent="." unique_id=672959633 instance=ExtResource("4_niitk")]
+position = Vector2(34255, -21439)
+power = 400
+dampeningEnabled = false
+
+[node name="Trampoline33" parent="." unique_id=1964286767 instance=ExtResource("4_niitk")]
+position = Vector2(34249, -21321)
+rotation = 3.1415927
+power = 400
+dampeningEnabled = false
+
+[node name="Trampoline30" parent="." unique_id=608359574 instance=ExtResource("4_niitk")]
+position = Vector2(34226, -20330)
+power = 400
+dampeningEnabled = false
+
+[node name="Trampoline31" parent="." unique_id=1253186931 instance=ExtResource("4_niitk")]
+position = Vector2(34220, -20212)
+rotation = 3.1415927
+power = 400
+dampeningEnabled = false
+
+[node name="Trampoline34" parent="." unique_id=1009116101 instance=ExtResource("4_niitk")]
+position = Vector2(31482, -22107)
+power = 450
+
+[node name="Platform18" parent="." unique_id=1811660704 instance=ExtResource("2_nos0u")]
+position = Vector2(31883.998, -24460)
+rotation = 0.7001588
+
+[node name="Trampoline35" parent="." unique_id=561452181 instance=ExtResource("4_niitk")]
+position = Vector2(31618, -24127)
+rotation = -2.4883227
+power = 450
+
+[node name="Trampoline36" parent="." unique_id=464437178 instance=ExtResource("4_niitk")]
+position = Vector2(31856, -23909.998)
+rotation = -2.4883227
+power = 450
+
+[node name="Trampoline37" parent="." unique_id=1793778892 instance=ExtResource("4_niitk")]
+position = Vector2(31376, -24335.002)
+rotation = -2.4883227
+power = 450
+
+[node name="Platform19" parent="." unique_id=1337269991 instance=ExtResource("2_nos0u")]
+position = Vector2(26456, -17035)
+scale = Vector2(4.826539, 0.94478416)
+
+[node name="Platform20" parent="." unique_id=1043926303 instance=ExtResource("2_nos0u")]
+position = Vector2(24363, -17661)
+scale = Vector2(0.07999998, 1)
+
+[node name="Trampoline38" parent="." unique_id=2071326518 instance=ExtResource("4_niitk")]
+position = Vector2(24460, -17956)
+rotation = 1.5707964
+power = 500
+dampeningEnabled = false
+
+[node name="Trampoline39" parent="." unique_id=492546487 instance=ExtResource("4_niitk")]
+position = Vector2(24460, -17716)
+rotation = 1.5707964
+power = 500
+dampeningEnabled = false
+
+[node name="Trampoline40" parent="." unique_id=355100256 instance=ExtResource("4_niitk")]
+position = Vector2(24463, -17488)
+rotation = 1.5707964
+power = 500
+dampeningEnabled = false
+
+[node name="Platform21" parent="." unique_id=1750867004 instance=ExtResource("2_nos0u")]
+position = Vector2(28107, -17792)
+
+[node name="Platform24" parent="." unique_id=1461685927 instance=ExtResource("2_nos0u")]
+position = Vector2(28095, -18251)
+scale = Vector2(0.35395986, 0.9054136)
+
+[node name="Trampoline41" parent="." unique_id=1067436233 instance=ExtResource("4_niitk")]
+position = Vector2(27553, -17549)
+rotation = -1.5707964
+power = 500
+dampeningEnabled = false
+
+[node name="Trampoline42" parent="." unique_id=1476583181 instance=ExtResource("4_niitk")]
+position = Vector2(27553, -17789)
+rotation = -1.5707964
+power = 500
+dampeningEnabled = false
+
+[node name="Trampoline43" parent="." unique_id=89648956 instance=ExtResource("4_niitk")]
+position = Vector2(27547, -18037)
+rotation = -1.5707964
+power = 500
+dampeningEnabled = false
+
+[node name="Platform22" parent="." unique_id=495691208 instance=ExtResource("2_nos0u")]
+position = Vector2(24341, -18409)
+
+[node name="Platform23" parent="." unique_id=299879669 instance=ExtResource("2_nos0u")]
+position = Vector2(26341, -18537)
+scale = Vector2(3.3003845, -0.2075465)
+
+[node name="Sprite2D" parent="Platform23" index="0" unique_id=321989865]
+modulate = Color(0.33660764, 0.3366076, 0.3366076, 1)
+position = Vector2(11.816877, 0)
+scale = Vector2(3.5536177, 2.83636)
+
+[node name="CollisionShape2D" parent="Platform23" index="1" unique_id=665209329]
+position = Vector2(21.390137, -0.5)
+one_way_collision = true
+
+[node name="TeleportObject6" parent="." unique_id=835449567 instance=ExtResource("7_b0vvs")]
+position = Vector2(24987, -18496)
+rotation = 3.147942
+point = Vector2(24062, -19399)
+
+[node name="Sprite" parent="TeleportObject6" index="0" unique_id=857375274]
+modulate = Color(0, 0.85882354, 0.49411765, 0.9843137)
+
+[node name="ExitPipe3" parent="." unique_id=2115055722 instance=ExtResource("12_8i1lk")]
+modulate = Color(0, 0.85882354, 0.49411765, 0.9843137)
+position = Vector2(24062, -18799)
+
+[node name="Chamber" type="Node2D" parent="." unique_id=1467906885]
+position = Vector2(21762, -17238)
+rotation = -3.1439214
+scale = Vector2(2.5999994, 3.44)
+
+[node name="Platform26" parent="Chamber" unique_id=894774321 instance=ExtResource("2_nos0u")]
+position = Vector2(920.76855, 687.209)
+scale = Vector2(1.8563615, 0.27464655)
+
+[node name="Platform27" parent="Chamber" unique_id=859603952 instance=ExtResource("2_nos0u")]
+position = Vector2(115.76807, 505.23242)
+scale = Vector2(0.030769229, 0.29069766)
+
+[node name="Trampoline44" parent="Chamber" unique_id=1312786067 instance=ExtResource("4_niitk")]
+position = Vector2(153.07617, 419.47656)
+rotation = 1.5707964
+scale = Vector2(0.29069766, 0.38461545)
+power = 500
+dampeningEnabled = false
+
+[node name="Trampoline45" parent="Chamber" unique_id=2033232804 instance=ExtResource("4_niitk")]
+position = Vector2(153.07617, 489.24414)
+rotation = 1.5707964
+scale = Vector2(0.29069766, 0.38461545)
+power = 500
+dampeningEnabled = false
+
+[node name="Trampoline46" parent="Chamber" unique_id=1015582308 instance=ExtResource("4_niitk")]
+position = Vector2(154.22998, 555.52295)
+rotation = 1.5707964
+scale = Vector2(0.29069766, 0.38461545)
+power = 500
+dampeningEnabled = false
+
+[node name="Platform28" parent="Chamber" unique_id=971901189 instance=ExtResource("2_nos0u")]
+position = Vector2(1555.7686, 467.15088)
+scale = Vector2(0.38461545, 0.29069766)
+
+[node name="Platform29" parent="Chamber" unique_id=1861483525 instance=ExtResource("2_nos0u")]
+position = Vector2(1551.1533, 333.7207)
+scale = Vector2(0.13613842, 0.26320162)
+
+[node name="Trampoline47" parent="Chamber" unique_id=55828247 instance=ExtResource("4_niitk")]
+position = Vector2(1342.6914, 537.7905)
+rotation = -1.5707964
+scale = Vector2(0.29069766, 0.38461545)
+power = 500
+dampeningEnabled = false
+
+[node name="Trampoline48" parent="Chamber" unique_id=1662248664 instance=ExtResource("4_niitk")]
+position = Vector2(1342.6914, 468.02295)
+rotation = -1.5707964
+scale = Vector2(0.29069766, 0.38461545)
+power = 500
+dampeningEnabled = false
+
+[node name="Trampoline49" parent="Chamber" unique_id=1885798276 instance=ExtResource("4_niitk")]
+position = Vector2(1340.3838, 395.93018)
+rotation = -1.5707964
+scale = Vector2(0.29069766, 0.38461545)
+power = 500
+dampeningEnabled = false
+
+[node name="Platform30" parent="Chamber" unique_id=1032787134 instance=ExtResource("2_nos0u")]
+position = Vector2(107.30664, 287.79053)
+scale = Vector2(0.38461545, 0.29069766)
+
+[node name="Platform31" parent="Chamber" unique_id=1139709119 instance=ExtResource("2_nos0u")]
+position = Vector2(876.5376, 250.58105)
+scale = Vector2(1.2693789, -0.06033328)
+
+[node name="Sprite2D" parent="Chamber/Platform31" index="0" unique_id=321989865]
+position = Vector2(11.816877, 0)
+scale = Vector2(3.5536177, 2.83636)
+
+[node name="CollisionShape2D" parent="Chamber/Platform31" index="1" unique_id=665209329]
+position = Vector2(21.390137, -0.5)
+
+[node name="TeleportObject8" parent="Chamber" unique_id=1596671858 instance=ExtResource("7_b0vvs")]
+position = Vector2(390.7075, 270.16507)
+rotation = -3.1367936
+scale = Vector2(0.73828554, 0.29070204)
+skew = 0.0036016703
+point = Vector2(17261, -20465)
+metadata/_edit_group_ = true
+
+[node name="Sprite" parent="Chamber/TeleportObject8" index="0" unique_id=857375274]
+modulate = Color(1, 0.5453062, 0.81263644, 0.9843137)
+
+[node name="PlayerDetector" parent="Chamber/TeleportObject8" index="2" unique_id=1295552835]
+metadata/_edit_group_ = true
+
+[node name="ExitPipe4" parent="Chamber" unique_id=1780674897 instance=ExtResource("12_8i1lk")]
+modulate = Color(0, 0.85882354, 0.49411765, 0.9843137)
+position = Vector2(1229.7153, 592.8637)
+scale = Vector2(0.38461545, 0.29069766)
+
+[node name="Platform2" parent="Chamber" unique_id=1346910666 instance=ExtResource("2_nos0u")]
+position = Vector2(620.725, 1263.3054)
+scale = Vector2(1.3063756, 0.37114158)
+
+[node name="TeleportObject7" parent="." unique_id=1893192042 instance=ExtResource("7_b0vvs")]
+position = Vector2(24056, -20142)
+rotation = 3.1415927
+point = Vector2(18583, -18679)
+
+[node name="Sprite" parent="TeleportObject7" index="0" unique_id=857375274]
+modulate = Color(0, 0.82149047, 0.83725005, 1)
+
+[node name="Cloud1" type="Parallax2D" parent="." unique_id=940737462]
+scroll_scale = Vector2(0.175, 0.175)
+scroll_offset = Vector2(3711, -11548)
+repeat_size = Vector2(1240, 0)
+autoscroll = Vector2(240, 0)
+repeat_times = 65
+follow_viewport = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Cloud1" unique_id=894655215]
+z_index = 3
+texture_repeat = 2
+scale = Vector2(2.89, 2.89)
+texture = ExtResource("13_hgky1")
+centered = false
+
+[node name="Cloud2" type="Parallax2D" parent="." unique_id=2031932610]
+texture_filter = 2
+scroll_scale = Vector2(0.2, 0.2)
+scroll_offset = Vector2(3711, -11757)
+repeat_size = Vector2(1240, 0)
+autoscroll = Vector2(240, 0)
+repeat_times = 65
+follow_viewport = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Cloud2" unique_id=878598234]
+modulate = Color(0.89492244, 0.89492244, 0.8949224, 1)
+z_index = 3
+texture_repeat = 2
+scale = Vector2(2.89, 2.89)
+texture = ExtResource("13_hgky1")
+centered = false
+
+[node name="Cloud3" type="Parallax2D" parent="." unique_id=239469671]
+scroll_scale = Vector2(0.25, 0.25)
+scroll_offset = Vector2(3711, -11949)
+repeat_size = Vector2(1240, 0)
+autoscroll = Vector2(240, 0)
+repeat_times = 65
+follow_viewport = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Cloud3" unique_id=66652102]
+modulate = Color(0.77083945, 0.7708395, 0.7708391, 1)
+z_index = 3
+texture_repeat = 2
+scale = Vector2(2.89, 2.89)
+texture = ExtResource("13_hgky1")
+centered = false
+
+[node name="Cloud4" type="Parallax2D" parent="." unique_id=249553335]
+scroll_scale = Vector2(0.3, 0.3)
+scroll_offset = Vector2(3711, -12246)
+repeat_size = Vector2(1240, 0)
+autoscroll = Vector2(240, 0)
+repeat_times = 65
+follow_viewport = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Cloud4" unique_id=1671055357]
+modulate = Color(0.678944, 0.67894363, 0.67894346, 1)
+z_index = 3
+texture_repeat = 2
+scale = Vector2(2.89, 2.89)
+texture = ExtResource("13_hgky1")
+centered = false
+
+[node name="Cloud5" type="Parallax2D" parent="." unique_id=2124606190]
+scroll_scale = Vector2(0.175, 0.175)
+scroll_offset = Vector2(93, -11072)
+repeat_size = Vector2(1240, 0)
+autoscroll = Vector2(240, 0)
+repeat_times = 65
+follow_viewport = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Cloud5" unique_id=956904166]
+z_index = 3
+texture_repeat = 2
+scale = Vector2(2.89, 2.89)
+texture = ExtResource("13_hgky1")
+centered = false
+
+[node name="Cloud6" type="Parallax2D" parent="." unique_id=1115788905]
+texture_filter = 2
+scroll_scale = Vector2(0.2, 0.2)
+scroll_offset = Vector2(93, -11281)
+repeat_size = Vector2(1240, 0)
+autoscroll = Vector2(240, 0)
+repeat_times = 65
+follow_viewport = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Cloud6" unique_id=1405959480]
+modulate = Color(0.89492244, 0.89492244, 0.8949224, 1)
+z_index = 3
+texture_repeat = 2
+scale = Vector2(2.89, 2.89)
+texture = ExtResource("13_hgky1")
+centered = false
+
+[node name="Cloud7" type="Parallax2D" parent="." unique_id=973008987]
+scroll_scale = Vector2(0.25, 0.25)
+scroll_offset = Vector2(93, -11473)
+repeat_size = Vector2(1240, 0)
+autoscroll = Vector2(240, 0)
+repeat_times = 65
+follow_viewport = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Cloud7" unique_id=1913609254]
+modulate = Color(0.77083945, 0.7708395, 0.7708391, 1)
+z_index = 3
+texture_repeat = 2
+scale = Vector2(2.89, 2.89)
+texture = ExtResource("13_hgky1")
+centered = false
+
+[node name="Cloud8" type="Parallax2D" parent="." unique_id=210211269]
+scroll_scale = Vector2(0.3, 0.3)
+scroll_offset = Vector2(93, -11770)
+repeat_size = Vector2(1240, 0)
+autoscroll = Vector2(240, 0)
+repeat_times = 65
+follow_viewport = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Cloud8" unique_id=1564499271]
+modulate = Color(0.678944, 0.67894363, 0.67894346, 1)
+z_index = 3
+texture_repeat = 2
+scale = Vector2(2.89, 2.89)
+texture = ExtResource("13_hgky1")
+centered = false
+
+[node name="Cloud9" type="Parallax2D" parent="." unique_id=1827063718]
+scroll_scale = Vector2(0.175, 0.175)
+scroll_offset = Vector2(-1045, -10528)
+repeat_size = Vector2(1240, 0)
+autoscroll = Vector2(240, 0)
+repeat_times = 65
+follow_viewport = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Cloud9" unique_id=472573882]
+z_index = 3
+texture_repeat = 2
+scale = Vector2(2.89, 2.89)
+texture = ExtResource("13_hgky1")
+centered = false
+
+[node name="Cloud10" type="Parallax2D" parent="." unique_id=224674917]
+texture_filter = 2
+scroll_scale = Vector2(0.2, 0.2)
+scroll_offset = Vector2(-1045, -10737)
+repeat_size = Vector2(1240, 0)
+autoscroll = Vector2(240, 0)
+repeat_times = 65
+follow_viewport = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Cloud10" unique_id=1261037750]
+modulate = Color(0.89492244, 0.89492244, 0.8949224, 1)
+z_index = 3
+texture_repeat = 2
+scale = Vector2(2.89, 2.89)
+texture = ExtResource("13_hgky1")
+centered = false
+
+[node name="Cloud11" type="Parallax2D" parent="." unique_id=1480811488]
+scroll_scale = Vector2(0.25, 0.25)
+scroll_offset = Vector2(-1045, -10929)
+repeat_size = Vector2(1240, 0)
+autoscroll = Vector2(240, 0)
+repeat_times = 65
+follow_viewport = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Cloud11" unique_id=1215628975]
+modulate = Color(0.77083945, 0.7708395, 0.7708391, 1)
+z_index = 3
+texture_repeat = 2
+scale = Vector2(2.89, 2.89)
+texture = ExtResource("13_hgky1")
+centered = false
+
+[node name="Cloud12" type="Parallax2D" parent="." unique_id=336965395]
+scroll_scale = Vector2(0.3, 0.3)
+scroll_offset = Vector2(-1045, -11226)
+repeat_size = Vector2(1240, 0)
+autoscroll = Vector2(240, 0)
+repeat_times = 65
+follow_viewport = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Cloud12" unique_id=339400977]
+modulate = Color(0.678944, 0.67894363, 0.67894346, 1)
+z_index = 3
+texture_repeat = 2
+scale = Vector2(2.89, 2.89)
+texture = ExtResource("13_hgky1")
+centered = false
+
+[node name="Cloud13" type="Parallax2D" parent="." unique_id=53113523]
+scroll_scale = Vector2(0.175, 0.175)
+scroll_offset = Vector2(-1011, -9916)
+repeat_size = Vector2(1240, 0)
+autoscroll = Vector2(240, 0)
+repeat_times = 65
+follow_viewport = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Cloud13" unique_id=1993877192]
+z_index = 3
+texture_repeat = 2
+scale = Vector2(2.89, 2.89)
+texture = ExtResource("13_hgky1")
+centered = false
+
+[node name="Cloud14" type="Parallax2D" parent="." unique_id=1975562873]
+texture_filter = 2
+scroll_scale = Vector2(0.2, 0.2)
+scroll_offset = Vector2(-1011, -10125)
+repeat_size = Vector2(1240, 0)
+autoscroll = Vector2(240, 0)
+repeat_times = 65
+follow_viewport = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Cloud14" unique_id=266872943]
+modulate = Color(0.89492244, 0.89492244, 0.8949224, 1)
+z_index = 3
+texture_repeat = 2
+scale = Vector2(2.89, 2.89)
+texture = ExtResource("13_hgky1")
+centered = false
+
+[node name="Cloud15" type="Parallax2D" parent="." unique_id=1075386452]
+scroll_scale = Vector2(0.25, 0.25)
+scroll_offset = Vector2(-1011, -10317)
+repeat_size = Vector2(1240, 0)
+autoscroll = Vector2(240, 0)
+repeat_times = 65
+follow_viewport = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Cloud15" unique_id=1371222891]
+modulate = Color(0.77083945, 0.7708395, 0.7708391, 1)
+z_index = 3
+texture_repeat = 2
+scale = Vector2(2.89, 2.89)
+texture = ExtResource("13_hgky1")
+centered = false
+
+[node name="Cloud16" type="Parallax2D" parent="." unique_id=2097934433]
+scroll_scale = Vector2(0.3, 0.3)
+scroll_offset = Vector2(-1011, -10614)
+repeat_size = Vector2(1240, 0)
+autoscroll = Vector2(240, 0)
+repeat_times = 65
+follow_viewport = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Cloud16" unique_id=225659054]
+modulate = Color(0.678944, 0.67894363, 0.67894346, 1)
+z_index = 3
+texture_repeat = 2
+scale = Vector2(2.89, 2.89)
+texture = ExtResource("13_hgky1")
+centered = false
+
+[node name="Cloud17" type="Parallax2D" parent="." unique_id=94017122]
+scroll_scale = Vector2(0.175, 0.175)
+scroll_offset = Vector2(-1045, -9304)
+repeat_size = Vector2(1240, 0)
+autoscroll = Vector2(240, 0)
+repeat_times = 65
+follow_viewport = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Cloud17" unique_id=1339844578]
+z_index = 3
+texture_repeat = 2
+scale = Vector2(2.89, 2.89)
+texture = ExtResource("13_hgky1")
+centered = false
+
+[node name="Cloud18" type="Parallax2D" parent="." unique_id=1274482717]
+texture_filter = 2
+scroll_scale = Vector2(0.2, 0.2)
+scroll_offset = Vector2(-1045, -9513)
+repeat_size = Vector2(1240, 0)
+autoscroll = Vector2(240, 0)
+repeat_times = 65
+follow_viewport = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Cloud18" unique_id=920514191]
+modulate = Color(0.89492244, 0.89492244, 0.8949224, 1)
+z_index = 3
+texture_repeat = 2
+scale = Vector2(2.89, 2.89)
+texture = ExtResource("13_hgky1")
+centered = false
+
+[node name="Cloud19" type="Parallax2D" parent="." unique_id=1220362839]
+scroll_scale = Vector2(0.25, 0.25)
+scroll_offset = Vector2(-1045, -9705)
+repeat_size = Vector2(1240, 0)
+autoscroll = Vector2(240, 0)
+repeat_times = 65
+follow_viewport = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Cloud19" unique_id=2043562767]
+modulate = Color(0.77083945, 0.7708395, 0.7708391, 1)
+z_index = 3
+texture_repeat = 2
+scale = Vector2(2.89, 2.89)
+texture = ExtResource("13_hgky1")
+centered = false
+
+[node name="Cloud20" type="Parallax2D" parent="." unique_id=1044480561]
+scroll_scale = Vector2(0.3, 0.3)
+scroll_offset = Vector2(-1045, -10002)
+repeat_size = Vector2(1240, 0)
+autoscroll = Vector2(240, 0)
+repeat_times = 65
+follow_viewport = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Cloud20" unique_id=414810703]
+modulate = Color(0.678944, 0.67894363, 0.67894346, 1)
+z_index = 3
+texture_repeat = 2
+scale = Vector2(2.89, 2.89)
+texture = ExtResource("13_hgky1")
+centered = false
+
+[node name="Platform25" parent="." unique_id=2020428688 instance=ExtResource("2_nos0u")]
+position = Vector2(24028, -20520)
+rotation = -3.1415925
+
+[node name="Trampoline44" parent="." unique_id=1817275435 instance=ExtResource("4_niitk")]
+position = Vector2(18477, -18235.002)
+rotation = 0.004020742
+scale = Vector2(1.0000001, 0.9999999)
+power = 450
+dampeningEnabled = false
+
+[node name="Trampoline45" parent="." unique_id=2099597274 instance=ExtResource("4_niitk")]
+position = Vector2(18744, -18234)
+rotation = 0.004020742
+scale = Vector2(1.0000001, 0.9999999)
+power = 450
+dampeningEnabled = false
+
+[node name="Trampoline46" parent="." unique_id=1037643773 instance=ExtResource("4_niitk")]
+position = Vector2(19003, -18238)
+rotation = 0.004020742
+scale = Vector2(1.0000001, 0.9999999)
+power = 450
+dampeningEnabled = false
+
+[node name="Trampoline47" parent="." unique_id=702785328 instance=ExtResource("4_niitk")]
+position = Vector2(19283, -18237)
+rotation = 0.004020742
+scale = Vector2(1.0000001, 0.9999999)
+power = 450
+dampeningEnabled = false
+
+[node name="Trampoline48" parent="." unique_id=143370895 instance=ExtResource("4_niitk")]
+position = Vector2(19575, -18236)
+rotation = 0.004020742
+scale = Vector2(1.0000001, 0.9999999)
+power = 450
+dampeningEnabled = false
+
+[node name="Trampoline49" parent="." unique_id=111871210 instance=ExtResource("4_niitk")]
+position = Vector2(19830, -18235)
+rotation = 0.004020742
+scale = Vector2(1.0000001, 0.9999999)
+power = 450
+dampeningEnabled = false
+
+[node name="Trampoline50" parent="." unique_id=2102061433 instance=ExtResource("4_niitk")]
+position = Vector2(20127, -18234)
+rotation = 0.004020742
+scale = Vector2(1.0000001, 0.9999999)
+power = 450
+dampeningEnabled = false
+
+[node name="Trampoline51" parent="." unique_id=1580500345 instance=ExtResource("4_niitk")]
+position = Vector2(20419, -18233)
+rotation = 0.004020742
+scale = Vector2(1.0000001, 0.9999999)
+power = 450
+dampeningEnabled = false
+
+[node name="Trampoline52" parent="." unique_id=1570271469 instance=ExtResource("4_niitk")]
+position = Vector2(19007, -19180)
+rotation = -3.139773
+scale = Vector2(1, 0.9999999)
+power = 450
+dampeningEnabled = false
+
+[node name="Trampoline53" parent="." unique_id=1881833706 instance=ExtResource("4_niitk")]
+position = Vector2(19287, -19179)
+rotation = -3.139773
+scale = Vector2(1, 0.9999999)
+power = 450
+dampeningEnabled = false
+
+[node name="Trampoline54" parent="." unique_id=1960469036 instance=ExtResource("4_niitk")]
+position = Vector2(19579, -19178)
+rotation = -3.139773
+scale = Vector2(1, 0.9999999)
+power = 450
+dampeningEnabled = false
+
+[node name="Trampoline55" parent="." unique_id=893910193 instance=ExtResource("4_niitk")]
+position = Vector2(19834, -19177)
+rotation = -3.139773
+scale = Vector2(1, 0.9999999)
+power = 450
+dampeningEnabled = false
+
+[node name="Trampoline56" parent="." unique_id=442919250 instance=ExtResource("4_niitk")]
+position = Vector2(20131, -19176)
+rotation = -3.139773
+scale = Vector2(1, 0.9999999)
+power = 450
+dampeningEnabled = false
+
+[node name="Trampoline57" parent="." unique_id=1178776471 instance=ExtResource("4_niitk")]
+position = Vector2(20423, -19175)
+rotation = -3.139773
+scale = Vector2(1, 0.9999999)
+power = 450
+dampeningEnabled = false
+
+[node name="Trampoline58" parent="." unique_id=1333113835 instance=ExtResource("4_niitk")]
+position = Vector2(20680, -19175)
+rotation = -3.139773
+scale = Vector2(1, 0.9999999)
+power = 450
+dampeningEnabled = false
+
+[node name="Trampoline59" parent="." unique_id=1576821472 instance=ExtResource("4_niitk")]
+position = Vector2(20900, -19175)
+rotation = -3.139773
+scale = Vector2(1, 0.9999999)
+power = 450
+dampeningEnabled = false
+
+[node name="Trampoline60" parent="." unique_id=328036843 instance=ExtResource("4_niitk")]
+position = Vector2(21175, -19267)
+rotation = -3.139773
+scale = Vector2(1, 0.9999999)
+
+[node name="ExitPipe4" parent="." unique_id=1528098957 instance=ExtResource("12_8i1lk")]
+modulate = Color(1, 0.5453062, 0.81263644, 0.9843137)
+position = Vector2(17261, -19960)
+
+[node name="Platform15" parent="." unique_id=81013241 instance=ExtResource("2_nos0u")]
+position = Vector2(22563.002, -20835.002)
+scale = Vector2(0.325, 0.325)
+
+[node name="Trampoline9" parent="." unique_id=1735447229 instance=ExtResource("4_niitk")]
+position = Vector2(22556, -20995)
+dampeningEnabled = false
+
+[node name="Trampoline10" parent="." unique_id=353563 instance=ExtResource("4_niitk")]
+position = Vector2(19939, -22638)
+rotation = 3.1415927
+dampeningEnabled = false
+
+[node name="Platform26" parent="." unique_id=1084398732 instance=ExtResource("2_nos0u")]
+position = Vector2(19942.002, -22818.002)
+scale = Vector2(0.325, 0.325)
+
+[node name="Trampoline11" parent="." unique_id=1375711125 instance=ExtResource("4_niitk")]
+position = Vector2(20499, -22646)
+rotation = 3.1415927
+dampeningEnabled = false
+
+[node name="Platform27" parent="." unique_id=138379423 instance=ExtResource("2_nos0u")]
+position = Vector2(20502.002, -22826.002)
+scale = Vector2(0.325, 0.325)
+
+[node name="Platform28" parent="." unique_id=1027998839 instance=ExtResource("2_nos0u")]
+position = Vector2(21098, -22327)
+scale = Vector2(0.175, 0.654)
+
+[node name="Platform29" parent="." unique_id=339743916 instance=ExtResource("2_nos0u")]
+position = Vector2(21107, -23577)
+rotation = 3.1415927
+scale = Vector2(0.175, 0.654)
+
+[node name="Platform30" parent="." unique_id=1721178028 instance=ExtResource("2_nos0u")]
+position = Vector2(19167, -22283)
+scale = Vector2(0.175, 0.654)
+
+[node name="Platform31" parent="." unique_id=1557258759 instance=ExtResource("2_nos0u")]
+position = Vector2(19176, -23533)
+rotation = 3.1415927
+scale = Vector2(0.175, 0.654)
+
+[node name="TeleportObject8" parent="." unique_id=1503169389 instance=ExtResource("7_b0vvs")]
+position = Vector2(17706, -22315)
+rotation = 1.5707964
+scale = Vector2(1.64, 1.64)
+
+[node name="Sprite" parent="TeleportObject8" index="0" unique_id=857375274]
+modulate = Color(0.30410212, 0.85707283, 0, 1)
+
+[node name="TeleportObject9" parent="." unique_id=1850177065 instance=ExtResource("7_b0vvs")]
+position = Vector2(17717.002, -22776)
+rotation = 1.5707964
+scale = Vector2(1.64, 1.64)
+point = Vector2(31901, -18584)
+
+[node name="Sprite" parent="TeleportObject9" index="0" unique_id=857375274]
+modulate = Color(0.827451, 0, 0, 1)
+
+[node name="Platform2" parent="TeleportObject9" unique_id=254157566 instance=ExtResource("2_nos0u")]
+position = Vector2(-3.048809, 79.267845)
+scale = Vector2(0.845, 0.21)
+
+[node name="TeleportObject10" parent="." unique_id=1788548801 instance=ExtResource("7_b0vvs")]
+position = Vector2(17717.002, -23227)
+rotation = 1.5707964
+scale = Vector2(1.64, 1.64)
+
+[node name="Sprite" parent="TeleportObject10" index="0" unique_id=857375274]
+modulate = Color(0.30410212, 0.85707283, 0, 1)
+
+[node name="Platform32" parent="." unique_id=645694048 instance=ExtResource("2_nos0u")]
+position = Vector2(18328.004, -23646)
+rotation = -0.20420352
+scale = Vector2(1.865, 0.265)
+skew = 0.89360857
+
+[node name="ExitPipe5" parent="." unique_id=828772506 instance=ExtResource("12_8i1lk")]
+position = Vector2(1951, -2652)
+
+[node name="TeleportObject11" parent="." unique_id=411638098 node_paths=PackedStringArray("targetNode") instance=ExtResource("7_b0vvs")]
+position = Vector2(731, -3866)
+rotation = 3.1415927
+targetNode = NodePath("../TeleportObject3/ExitPoint")
+
+[node name="Sprite" parent="TeleportObject11" index="0" unique_id=857375274]
+modulate = Color(0.33333334, 0.77254903, 1, 1)
+
+[node name="Spikes" type="Node" parent="." unique_id=1436908072]
+
+[node name="Spike" parent="Spikes" unique_id=1467808966 instance=ExtResource("3_71baw")]
+position = Vector2(892, -94)
+
+[node name="Spike2" parent="Spikes" unique_id=1340128619 instance=ExtResource("3_71baw")]
+position = Vector2(1238, -712)
+
+[node name="Spike3" parent="Spikes" unique_id=865341963 instance=ExtResource("3_71baw")]
+position = Vector2(1368, -716)
+
+[node name="Spike5" parent="Spikes" unique_id=1137291276 instance=ExtResource("3_71baw")]
+position = Vector2(1508, -716)
+metadata/_edit_group_ = true
+
+[node name="Spike6" parent="Spikes" unique_id=196579777 instance=ExtResource("3_71baw")]
+position = Vector2(1640, -712)
+metadata/_edit_group_ = true
+
+[node name="Spike4" parent="Spikes" unique_id=563426702 instance=ExtResource("3_71baw")]
+position = Vector2(759, -92)
+
+[node name="Spike7" parent="Spikes" unique_id=1036549511 instance=ExtResource("3_71baw")]
+position = Vector2(10125, -2922)
+rotation = 3.1415925
+
+[node name="Spike8" parent="Spikes" unique_id=1751378645 instance=ExtResource("3_71baw")]
+position = Vector2(10249, -2922)
+rotation = 3.1415925
+
+[node name="Spike9" parent="Spikes" unique_id=222385192 instance=ExtResource("3_71baw")]
+position = Vector2(10372, -2922)
+rotation = 3.1415925
+
+[node name="Spike10" parent="Spikes" unique_id=2023489938 instance=ExtResource("3_71baw")]
+position = Vector2(9530, -2922)
+rotation = 3.1415925
+
+[node name="Spike11" parent="Spikes" unique_id=261074295 instance=ExtResource("3_71baw")]
+position = Vector2(9654, -2922)
+rotation = 3.1415925
+
+[node name="Spike12" parent="Spikes" unique_id=1849394660 instance=ExtResource("3_71baw")]
+position = Vector2(9777, -2922)
+rotation = 3.1415925
+
+[node name="Spike13" parent="Spikes" unique_id=1628276663 instance=ExtResource("3_71baw")]
+position = Vector2(4938, -3133)
+
+[node name="Spike14" parent="Spikes" unique_id=1443129024 instance=ExtResource("3_71baw")]
+position = Vector2(5558, -2006)
+
+[node name="Spike15" parent="Spikes" unique_id=1019793598 instance=ExtResource("3_71baw")]
+position = Vector2(6090, -3260)
+
+[node name="Spike16" parent="Spikes" unique_id=779623113 instance=ExtResource("3_71baw")]
+position = Vector2(6211, -3260)
+
+[node name="Spike17" parent="Spikes" unique_id=967861932 instance=ExtResource("3_71baw")]
+position = Vector2(6342, -3260)
+
+[node name="Spike18" parent="Spikes" unique_id=1120270751 instance=ExtResource("3_71baw")]
+position = Vector2(6467, -3250)
+
+[node name="Spike19" parent="Spikes" unique_id=1682035285 instance=ExtResource("3_71baw")]
+position = Vector2(6584, -3253)
+
+[node name="Spike20" parent="Spikes" unique_id=403733873 instance=ExtResource("3_71baw")]
+position = Vector2(6708, -3253)
+
+[node name="Spike21" parent="Spikes" unique_id=638473506 instance=ExtResource("3_71baw")]
+position = Vector2(6832, -3253)
+
+[node name="Spike22" parent="Spikes" unique_id=1562269979 instance=ExtResource("3_71baw")]
+position = Vector2(6960, -3250)
+
+[node name="Spike23" parent="Spikes" unique_id=1312505509 instance=ExtResource("3_71baw")]
+position = Vector2(6056, -2346)
+rotation = -3.1415925
+scale = Vector2(0.5, 0.5)
+
+[node name="Spike24" parent="Spikes" unique_id=39131411 instance=ExtResource("3_71baw")]
+position = Vector2(6114, -2346)
+rotation = -3.1415925
+scale = Vector2(0.5, 0.5)
+
+[node name="Spike25" parent="Spikes" unique_id=2117563353 instance=ExtResource("3_71baw")]
+position = Vector2(6172, -2346)
+rotation = -3.1415925
+scale = Vector2(0.5, 0.5)
+
+[node name="Spike26" parent="Spikes" unique_id=1390640735 instance=ExtResource("3_71baw")]
+position = Vector2(6234, -2346)
+rotation = -3.1415925
+scale = Vector2(0.5, 0.5)
+
+[node name="Spike27" parent="Spikes" unique_id=2142386273 instance=ExtResource("3_71baw")]
+position = Vector2(6300, -2346)
+rotation = -3.1415925
+scale = Vector2(0.5, 0.5)
+
+[node name="Spike28" parent="Spikes" unique_id=1321909743 instance=ExtResource("3_71baw")]
+position = Vector2(6362, -2346)
+rotation = -3.1415925
+scale = Vector2(0.5, 0.5)
+
+[node name="Spike29" parent="Spikes" unique_id=754894047 instance=ExtResource("3_71baw")]
+position = Vector2(6422, -2344)
+rotation = -3.1415925
+scale = Vector2(0.5, 0.5)
+
+[node name="Spike30" parent="Spikes" unique_id=695794911 instance=ExtResource("3_71baw")]
+position = Vector2(6480, -2344)
+rotation = -3.1415925
+scale = Vector2(0.5, 0.5)
+
+[node name="Spike31" parent="Spikes" unique_id=422503563 instance=ExtResource("3_71baw")]
+position = Vector2(6542, -2344)
+rotation = -3.1415925
+scale = Vector2(0.5, 0.5)
+
+[node name="Spike32" parent="Spikes" unique_id=841357402 instance=ExtResource("3_71baw")]
+position = Vector2(6602, -2344)
+rotation = -3.1415925
+scale = Vector2(0.5, 0.5)
+
+[node name="Spike33" parent="Spikes" unique_id=769602490 instance=ExtResource("3_71baw")]
+position = Vector2(6662, -2344)
+rotation = -3.1415925
+scale = Vector2(0.5, 0.5)
+
+[node name="Spike34" parent="Spikes" unique_id=750318955 instance=ExtResource("3_71baw")]
+position = Vector2(6724, -2344)
+rotation = -3.1415925
+scale = Vector2(0.5, 0.5)
+
+[node name="Spike35" parent="Spikes" unique_id=1320188611 instance=ExtResource("3_71baw")]
+position = Vector2(6778, -2344)
+rotation = -3.1415925
+scale = Vector2(0.5, 0.5)
+
+[node name="Spike36" parent="Spikes" unique_id=22167302 instance=ExtResource("3_71baw")]
+position = Vector2(5180, -2972)
+rotation = 1.5707964
+
+[node name="Spike37" parent="Spikes" unique_id=348638599 instance=ExtResource("3_71baw")]
+position = Vector2(5180, -2854)
+rotation = 1.5707964
+
+[node name="Spike38" parent="Spikes" unique_id=823736420 instance=ExtResource("3_71baw")]
+position = Vector2(5166, -2741)
+rotation = 1.5707964
+
+[node name="Spike39" parent="Spikes" unique_id=1735073097 instance=ExtResource("3_71baw")]
+position = Vector2(9541, -1920)
+
+[node name="Spike40" parent="Spikes" unique_id=246132961 instance=ExtResource("3_71baw")]
+position = Vector2(9410, -1921)
+
+[node name="Spike41" parent="Spikes" unique_id=1227459451 instance=ExtResource("3_71baw")]
+position = Vector2(9280, -1923)
+
+[node name="Spike42" parent="Spikes" unique_id=658722254 instance=ExtResource("3_71baw")]
+position = Vector2(8020, -1962.0001)
+scale = Vector2(1, 1.7200024)
+
+[node name="Spike43" parent="Spikes" unique_id=1685374792 instance=ExtResource("3_71baw")]
+position = Vector2(8106, -1962.0001)
+scale = Vector2(1, 1.7200024)
+
+[node name="Spike44" parent="Spikes" unique_id=301851994 instance=ExtResource("3_71baw")]
+position = Vector2(8183, -1953.0001)
+scale = Vector2(1, 1.7200024)
+
+[node name="Spike45" parent="Spikes" unique_id=1063850625 instance=ExtResource("3_71baw")]
+position = Vector2(8264, -1953.0001)
+scale = Vector2(1, 1.7200024)
+
+[node name="Spike46" parent="Spikes" unique_id=1295825726 instance=ExtResource("3_71baw")]
+position = Vector2(8339, -1953.0001)
+scale = Vector2(1, 1.7200024)
+
+[node name="Spike47" parent="Spikes" unique_id=1570050347 instance=ExtResource("3_71baw")]
+position = Vector2(8405, -1953.0001)
+scale = Vector2(1, 1.7200024)
+
+[node name="Spike48" parent="Spikes" unique_id=1980779787 instance=ExtResource("3_71baw")]
+position = Vector2(8489, -1953.0001)
+scale = Vector2(1, 1.7200024)
+
+[node name="Spike49" parent="Spikes" unique_id=1512267875 instance=ExtResource("3_71baw")]
+position = Vector2(8004, -2798)
+rotation = -3.1415925
+scale = Vector2(1, 1.7200024)
+
+[node name="Spike50" parent="Spikes" unique_id=2092629653 instance=ExtResource("3_71baw")]
+position = Vector2(8090, -2798)
+rotation = -3.1415925
+scale = Vector2(1, 1.7200024)
+
+[node name="Spike51" parent="Spikes" unique_id=1299183429 instance=ExtResource("3_71baw")]
+position = Vector2(8167, -2789)
+rotation = -3.1415925
+scale = Vector2(1, 1.7200024)
+
+[node name="Spike52" parent="Spikes" unique_id=964506614 instance=ExtResource("3_71baw")]
+position = Vector2(8248, -2789)
+rotation = -3.1415925
+scale = Vector2(1, 1.7200024)
+
+[node name="Spike53" parent="Spikes" unique_id=1154935996 instance=ExtResource("3_71baw")]
+position = Vector2(8323, -2789)
+rotation = -3.1415925
+scale = Vector2(1, 1.7200024)
+
+[node name="Spike54" parent="Spikes" unique_id=14739835 instance=ExtResource("3_71baw")]
+position = Vector2(8389, -2789)
+rotation = -3.1415925
+scale = Vector2(1, 1.7200024)
+
+[node name="Spike55" parent="Spikes" unique_id=1459674071 instance=ExtResource("3_71baw")]
+position = Vector2(8473, -2789)
+rotation = -3.1415925
+scale = Vector2(1, 1.7200024)
+
+[node name="Spike56" parent="Spikes" unique_id=602738746 instance=ExtResource("3_71baw")]
+position = Vector2(7726, -3603)
+
+[node name="Spike57" parent="Spikes" unique_id=678901683 instance=ExtResource("3_71baw")]
+position = Vector2(7843, -3603)
+
+[node name="Spike58" parent="Spikes" unique_id=986471669 instance=ExtResource("3_71baw")]
+position = Vector2(7968, -3603)
+
+[node name="Spike59" parent="Spikes" unique_id=1511201566 instance=ExtResource("3_71baw")]
+position = Vector2(8097, -3595)
+
+[node name="Spike60" parent="Spikes" unique_id=209556425 instance=ExtResource("3_71baw")]
+position = Vector2(8226, -3595)
+
+[node name="Spike61" parent="Spikes" unique_id=74192240 instance=ExtResource("3_71baw")]
+position = Vector2(8364, -3595)
+
+[node name="Spike62" parent="Spikes" unique_id=1763697857 instance=ExtResource("3_71baw")]
+position = Vector2(8493, -3595)
+
+[node name="Spike63" parent="Spikes" unique_id=688907511 instance=ExtResource("3_71baw")]
+position = Vector2(8627, -3595)
+
+[node name="Spike64" parent="Spikes" unique_id=2081974114 instance=ExtResource("3_71baw")]
+position = Vector2(8777, -3595)
+
+[node name="SpikeBlock" type="Node2D" parent="Spikes" unique_id=371760092]
+position = Vector2(11229, -2370)
+rotation = 1.5676537
+
+[node name="Platform10" parent="Spikes/SpikeBlock" unique_id=1142065396 instance=ExtResource("2_nos0u")]
+position = Vector2(18, -5.000122)
+scale = Vector2(1.2182467, 0.7015063)
+
+[node name="Spike65" parent="Spikes/SpikeBlock" unique_id=1901421065 instance=ExtResource("3_71baw")]
+position = Vector2(-244, 426)
+rotation = -3.1415925
+scale = Vector2(1, 1.7200024)
+
+[node name="Spike66" parent="Spikes/SpikeBlock" unique_id=784491001 instance=ExtResource("3_71baw")]
+position = Vector2(-158, 426)
+rotation = -3.1415925
+scale = Vector2(1, 1.7200024)
+
+[node name="Spike67" parent="Spikes/SpikeBlock" unique_id=705358908 instance=ExtResource("3_71baw")]
+position = Vector2(-81, 435)
+rotation = -3.1415925
+scale = Vector2(1, 1.7200024)
+
+[node name="Spike68" parent="Spikes/SpikeBlock" unique_id=2111860509 instance=ExtResource("3_71baw")]
+position = Vector2(0, 435)
+rotation = -3.1415925
+scale = Vector2(1, 1.7200024)
+
+[node name="Spike69" parent="Spikes/SpikeBlock" unique_id=1454528860 instance=ExtResource("3_71baw")]
+position = Vector2(75, 435)
+rotation = -3.1415925
+scale = Vector2(1, 1.7200024)
+
+[node name="Spike70" parent="Spikes/SpikeBlock" unique_id=1762162192 instance=ExtResource("3_71baw")]
+position = Vector2(141, 435)
+rotation = -3.1415925
+scale = Vector2(1, 1.7200024)
+
+[node name="Spike71" parent="Spikes/SpikeBlock" unique_id=1194854870 instance=ExtResource("3_71baw")]
+position = Vector2(225, 435)
+rotation = -3.1415925
+scale = Vector2(1, 1.7200024)
+
+[node name="White3" type="Sprite2D" parent="Spikes/SpikeBlock" unique_id=547710377]
+modulate = Color(1, 0, 0, 1)
+z_index = 5
+position = Vector2(-362, -37)
+texture = ExtResource("5_d5djh")
+
+[node name="White4" type="Sprite2D" parent="Spikes/SpikeBlock" unique_id=1036744373]
+modulate = Color(1, 0, 0, 1)
+z_index = 5
+position = Vector2(351, -34)
+texture = ExtResource("5_d5djh")
+
+[node name="Spike72" parent="Spikes/SpikeBlock" unique_id=422274026 instance=ExtResource("3_71baw")]
+position = Vector2(-522, -379)
+
+[node name="Spike73" parent="Spikes/SpikeBlock" unique_id=1861834459 instance=ExtResource("3_71baw")]
+position = Vector2(-405, -379)
+
+[node name="Spike74" parent="Spikes/SpikeBlock" unique_id=789516001 instance=ExtResource("3_71baw")]
+position = Vector2(-280, -379)
+
+[node name="Spike75" parent="Spikes/SpikeBlock" unique_id=1946690755 instance=ExtResource("3_71baw")]
+position = Vector2(-151, -371)
+
+[node name="Spike76" parent="Spikes/SpikeBlock" unique_id=615989642 instance=ExtResource("3_71baw")]
+position = Vector2(-22, -371)
+
+[node name="Spike77" parent="Spikes/SpikeBlock" unique_id=1943283298 instance=ExtResource("3_71baw")]
+position = Vector2(116, -371)
+
+[node name="Spike78" parent="Spikes/SpikeBlock" unique_id=227846415 instance=ExtResource("3_71baw")]
+position = Vector2(245, -371)
+
+[node name="Spike79" parent="Spikes/SpikeBlock" unique_id=348402906 instance=ExtResource("3_71baw")]
+position = Vector2(379, -371)
+
+[node name="Spike80" parent="Spikes/SpikeBlock" unique_id=918721859 instance=ExtResource("3_71baw")]
+position = Vector2(529, -371)
+
+[node name="SpikeBlock2" type="Node2D" parent="Spikes" unique_id=69358722]
+position = Vector2(12323, -3929)
+rotation = -3.1328766
+
+[node name="Platform10" parent="Spikes/SpikeBlock2" unique_id=534277880 instance=ExtResource("2_nos0u")]
+position = Vector2(18, -5.000122)
+scale = Vector2(1.2182467, 0.7015063)
+
+[node name="Spike65" parent="Spikes/SpikeBlock2" unique_id=736642380 instance=ExtResource("3_71baw")]
+position = Vector2(-244, 426)
+rotation = -3.1415925
+scale = Vector2(1, 1.7200024)
+
+[node name="Spike66" parent="Spikes/SpikeBlock2" unique_id=809507284 instance=ExtResource("3_71baw")]
+position = Vector2(-158, 426)
+rotation = -3.1415925
+scale = Vector2(1, 1.7200024)
+
+[node name="Spike67" parent="Spikes/SpikeBlock2" unique_id=902473813 instance=ExtResource("3_71baw")]
+position = Vector2(-81, 435)
+rotation = -3.1415925
+scale = Vector2(1, 1.7200024)
+
+[node name="Spike68" parent="Spikes/SpikeBlock2" unique_id=201054898 instance=ExtResource("3_71baw")]
+position = Vector2(0, 435)
+rotation = -3.1415925
+scale = Vector2(1, 1.7200024)
+
+[node name="Spike69" parent="Spikes/SpikeBlock2" unique_id=206020280 instance=ExtResource("3_71baw")]
+position = Vector2(75, 435)
+rotation = -3.1415925
+scale = Vector2(1, 1.7200024)
+
+[node name="Spike70" parent="Spikes/SpikeBlock2" unique_id=1681671917 instance=ExtResource("3_71baw")]
+position = Vector2(141, 435)
+rotation = -3.1415925
+scale = Vector2(1, 1.7200024)
+
+[node name="Spike71" parent="Spikes/SpikeBlock2" unique_id=66119467 instance=ExtResource("3_71baw")]
+position = Vector2(225, 435)
+rotation = -3.1415925
+scale = Vector2(1, 1.7200024)
+
+[node name="White3" type="Sprite2D" parent="Spikes/SpikeBlock2" unique_id=98770341]
+modulate = Color(1, 0, 0, 1)
+z_index = 5
+position = Vector2(-362, -37)
+texture = ExtResource("5_d5djh")
+
+[node name="White4" type="Sprite2D" parent="Spikes/SpikeBlock2" unique_id=1693464934]
+modulate = Color(1, 0, 0, 1)
+z_index = 5
+position = Vector2(351, -34)
+texture = ExtResource("5_d5djh")
+
+[node name="Spike72" parent="Spikes/SpikeBlock2" unique_id=1892656839 instance=ExtResource("3_71baw")]
+position = Vector2(-522, -379)
+
+[node name="Spike73" parent="Spikes/SpikeBlock2" unique_id=1244501037 instance=ExtResource("3_71baw")]
+position = Vector2(-405, -379)
+
+[node name="Spike74" parent="Spikes/SpikeBlock2" unique_id=515132894 instance=ExtResource("3_71baw")]
+position = Vector2(-280, -379)
+
+[node name="Spike75" parent="Spikes/SpikeBlock2" unique_id=1098733361 instance=ExtResource("3_71baw")]
+position = Vector2(-151, -371)
+
+[node name="Spike76" parent="Spikes/SpikeBlock2" unique_id=392286119 instance=ExtResource("3_71baw")]
+position = Vector2(-22, -371)
+
+[node name="Spike77" parent="Spikes/SpikeBlock2" unique_id=1002086307 instance=ExtResource("3_71baw")]
+position = Vector2(116, -371)
+
+[node name="Spike78" parent="Spikes/SpikeBlock2" unique_id=965231704 instance=ExtResource("3_71baw")]
+position = Vector2(245, -371)
+
+[node name="Spike79" parent="Spikes/SpikeBlock2" unique_id=377241157 instance=ExtResource("3_71baw")]
+position = Vector2(379, -371)
+
+[node name="Spike80" parent="Spikes/SpikeBlock2" unique_id=1698575826 instance=ExtResource("3_71baw")]
+position = Vector2(529, -371)
+
+[node name="Spike65" parent="Spikes" unique_id=33788525 instance=ExtResource("3_71baw")]
+position = Vector2(11909, -5829)
+
+[node name="Spike66" parent="Spikes" unique_id=1246180070 instance=ExtResource("3_71baw")]
+position = Vector2(12035, -5825)
+
+[node name="Spike67" parent="Spikes" unique_id=1680870890 instance=ExtResource("3_71baw")]
+position = Vector2(12177, -5825)
+
+[node name="Spike68" parent="Spikes" unique_id=889006611 instance=ExtResource("3_71baw")]
+position = Vector2(12301, -5825)
+
+[node name="Spike69" parent="Spikes" unique_id=32056514 instance=ExtResource("3_71baw")]
+position = Vector2(12436, -5825)
+
+[node name="Spike70" parent="Spikes" unique_id=1885957828 instance=ExtResource("3_71baw")]
+position = Vector2(12571, -5825)
+
+[node name="Spike71" parent="Spikes" unique_id=959259977 instance=ExtResource("3_71baw")]
+position = Vector2(12737, -5832)
+
+[node name="Spike72" parent="Spikes" unique_id=1181223554 instance=ExtResource("3_71baw")]
+position = Vector2(32284, -19931)
+
+[node name="Spike73" parent="Spikes" unique_id=260520020 instance=ExtResource("3_71baw")]
+position = Vector2(32121, -19927)
+
+[node name="Spike74" parent="Spikes" unique_id=885692386 instance=ExtResource("3_71baw")]
+position = Vector2(34225, -20460)
+
+[node name="Spike75" parent="Spikes" unique_id=1969422162 instance=ExtResource("3_71baw")]
+position = Vector2(34253, -21564)
+
+[node name="Spike76" parent="Spikes" unique_id=547394711 instance=ExtResource("3_71baw")]
+position = Vector2(32313, -22165)
+
+[node name="Spike77" parent="Spikes" unique_id=24293840 instance=ExtResource("3_71baw")]
+position = Vector2(32170, -22165)
+
+[node name="Spike78" parent="Spikes" unique_id=1137840594 instance=ExtResource("3_71baw")]
+position = Vector2(32027, -22165)
+
+[node name="Spike79" parent="Spikes" unique_id=1196217243 instance=ExtResource("3_71baw")]
+position = Vector2(31298, -22005)
+rotation = -1.5707964
+
+[node name="Spike80" parent="Spikes" unique_id=2059846077 instance=ExtResource("3_71baw")]
+position = Vector2(31300, -21887)
+rotation = -1.5707964
+
+[node name="Spike81" parent="Spikes" unique_id=1139238065 instance=ExtResource("3_71baw")]
+position = Vector2(31305, -21762)
+rotation = -1.5707964
+
+[node name="Spike82" parent="Spikes" unique_id=725178300 instance=ExtResource("3_71baw")]
+position = Vector2(24099, -17511)
+
+[node name="Spike83" parent="Spikes" unique_id=1954146349 instance=ExtResource("3_71baw")]
+position = Vector2(28808, -17517)
+
+[node name="Spike84" parent="Spikes" unique_id=659341930 instance=ExtResource("3_71baw")]
+position = Vector2(24240, -17847)
+rotation = -1.6514591
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="Spike85" parent="Spikes" unique_id=2101250545 instance=ExtResource("3_71baw")]
+position = Vector2(24243, -17967)
+rotation = -1.6514591
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="Spike86" parent="Spikes" unique_id=1878550300 instance=ExtResource("3_71baw")]
+position = Vector2(24234, -17727)
+rotation = -1.6514591
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="Spike87" parent="Spikes" unique_id=88570401 instance=ExtResource("3_71baw")]
+position = Vector2(24251.002, -17621)
+rotation = -1.6514591
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="Spike88" parent="Spikes" unique_id=224370716 instance=ExtResource("3_71baw")]
+position = Vector2(24251.002, -17515)
+rotation = -1.6514591
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="Spike89" parent="Spikes" unique_id=1817065302 instance=ExtResource("3_71baw")]
+position = Vector2(21720.568, -19157.908)
+rotation = 3.1392639
+scale = Vector2(1, 0.99999994)
+
+[node name="Spike90" parent="Spikes" unique_id=968893858 instance=ExtResource("3_71baw")]
+position = Vector2(17011.596, -19140.943)
+rotation = 3.1392639
+scale = Vector2(1, 0.99999994)
+
+[node name="Spike91" parent="Spikes" unique_id=200905046 instance=ExtResource("3_71baw")]
+position = Vector2(21580.352, -18821.582)
+rotation = 1.4878048
+
+[node name="Spike92" parent="Spikes" unique_id=692255109 instance=ExtResource("3_71baw")]
+position = Vector2(21577.63, -18701.574)
+rotation = 1.4878048
+
+[node name="Spike93" parent="Spikes" unique_id=250648254 instance=ExtResource("3_71baw")]
+position = Vector2(21586.072, -18941.594)
+rotation = 1.4878048
+
+[node name="Spike94" parent="Spikes" unique_id=1361045863 instance=ExtResource("3_71baw")]
+position = Vector2(21568.824, -19047.553)
+rotation = 1.4878048
+
+[node name="Spike95" parent="Spikes" unique_id=1062730977 instance=ExtResource("3_71baw")]
+position = Vector2(21568.576, -19153.553)
+rotation = 1.4878048
+
+[node name="Spike96" parent="Spikes" unique_id=108830046 instance=ExtResource("3_71baw")]
+position = Vector2(18917, -20210)
+rotation = -0.002328837
+scale = Vector2(1.8849998, 2.4940002)
+
+[node name="Spike97" parent="Spikes" unique_id=1467901255 instance=ExtResource("3_71baw")]
+position = Vector2(19168, -20210)
+rotation = -0.002328837
+scale = Vector2(1.8849998, 2.4940002)
+
+[node name="Spike98" parent="Spikes" unique_id=1496335700 instance=ExtResource("3_71baw")]
+position = Vector2(19431, -20211)
+rotation = -0.002328837
+scale = Vector2(1.8849998, 2.4940002)
+
+[node name="Spike99" parent="Spikes" unique_id=1069900490 instance=ExtResource("3_71baw")]
+position = Vector2(21141, -20221)
+rotation = -0.002328837
+scale = Vector2(1.8849998, 2.4940002)
+
+[node name="Spike100" parent="Spikes" unique_id=902279010 instance=ExtResource("3_71baw")]
+position = Vector2(21392, -20221)
+rotation = -0.002328837
+scale = Vector2(1.8849998, 2.4940002)
+
+[node name="Spike101" parent="Spikes" unique_id=1389522167 instance=ExtResource("3_71baw")]
+position = Vector2(21655, -20222)
+rotation = -0.002328837
+scale = Vector2(1.8849998, 2.4940002)
+
+[node name="Spike102" parent="Spikes" unique_id=1089888585 instance=ExtResource("3_71baw")]
+position = Vector2(18915, -20919)
+rotation = 3.1392639
+scale = Vector2(1.8849998, 2.4940002)
+
+[node name="Spike103" parent="Spikes" unique_id=1522970278 instance=ExtResource("3_71baw")]
+position = Vector2(19166, -20919)
+rotation = 3.1392639
+scale = Vector2(1.8849998, 2.4940002)
+
+[node name="Spike104" parent="Spikes" unique_id=836889937 instance=ExtResource("3_71baw")]
+position = Vector2(19429, -20920)
+rotation = 3.1392639
+scale = Vector2(1.8849998, 2.4940002)
+
+[node name="Spike105" parent="Spikes" unique_id=388653022 instance=ExtResource("3_71baw")]
+position = Vector2(19429, -20920)
+rotation = 3.1392639
+scale = Vector2(1.8849998, 2.4940002)
+
+[node name="Spike106" parent="Spikes" unique_id=1655533267 instance=ExtResource("3_71baw")]
+position = Vector2(19694, -20217)
+rotation = -0.002328837
+scale = Vector2(1.8849998, 2.4940002)
+
+[node name="Spike107" parent="Spikes" unique_id=596089041 instance=ExtResource("3_71baw")]
+position = Vector2(19945, -20217)
+rotation = -0.002328837
+scale = Vector2(1.8849998, 2.4940002)
+
+[node name="Spike108" parent="Spikes" unique_id=1228217391 instance=ExtResource("3_71baw")]
+position = Vector2(20208, -20218)
+rotation = -0.002328837
+scale = Vector2(1.8849998, 2.4940002)
+
+[node name="Spike109" parent="Spikes" unique_id=393481671 instance=ExtResource("3_71baw")]
+position = Vector2(19692, -20926)
+rotation = 3.1392639
+scale = Vector2(1.8849998, 2.4940002)
+
+[node name="Spike110" parent="Spikes" unique_id=2005601870 instance=ExtResource("3_71baw")]
+position = Vector2(19943, -20926)
+rotation = 3.1392639
+scale = Vector2(1.8849998, 2.4940002)
+
+[node name="Spike111" parent="Spikes" unique_id=1073215576 instance=ExtResource("3_71baw")]
+position = Vector2(20206, -20927)
+rotation = 3.1392639
+scale = Vector2(1.8849998, 2.4940002)
+
+[node name="Spike112" parent="Spikes" unique_id=1354219544 instance=ExtResource("3_71baw")]
+position = Vector2(20206, -20927)
+rotation = 3.1392639
+scale = Vector2(1.8849998, 2.4940002)
+
+[node name="Spike113" parent="Spikes" unique_id=1575948427 instance=ExtResource("3_71baw")]
+position = Vector2(21139, -20930)
+rotation = 3.1392639
+scale = Vector2(1.8849998, 2.4940002)
+
+[node name="Spike114" parent="Spikes" unique_id=949048945 instance=ExtResource("3_71baw")]
+position = Vector2(21390, -20930)
+rotation = 3.1392639
+scale = Vector2(1.8849998, 2.4940002)
+
+[node name="Spike115" parent="Spikes" unique_id=132226524 instance=ExtResource("3_71baw")]
+position = Vector2(21653, -20931)
+rotation = 3.1392639
+scale = Vector2(1.8849998, 2.4940002)
+
+[node name="Spike116" parent="Spikes" unique_id=2055675362 instance=ExtResource("3_71baw")]
+position = Vector2(21774, -22194)
+
+[node name="Spike117" parent="Spikes" unique_id=1906266188 instance=ExtResource("3_71baw")]
+position = Vector2(20277, -22185)
+
+[node name="Spike118" parent="Spikes" unique_id=1904578121 instance=ExtResource("3_71baw")]
+position = Vector2(20409, -22188)
+
+[node name="Spike119" parent="Spikes" unique_id=1244383639 instance=ExtResource("3_71baw")]
+position = Vector2(20541, -22191)
+
+[node name="Spike120" parent="Spikes" unique_id=1635832877 instance=ExtResource("3_71baw")]
+position = Vector2(19879, -22185)
+
+[node name="Spike121" parent="Spikes" unique_id=572863747 instance=ExtResource("3_71baw")]
+position = Vector2(20011, -22188)
+
+[node name="Spike122" parent="Spikes" unique_id=889832458 instance=ExtResource("3_71baw")]
+position = Vector2(20143, -22191)
+
+[node name="Spike123" parent="Spikes" unique_id=1826719420 instance=ExtResource("3_71baw")]
+position = Vector2(19879, -22185)
+
+[node name="Spike124" parent="Spikes" unique_id=1344726649 instance=ExtResource("3_71baw")]
+position = Vector2(20011, -22188)
+
+[node name="Spike125" parent="Spikes" unique_id=632902086 instance=ExtResource("3_71baw")]
+position = Vector2(20143, -22191)
+
+[node name="Spike126" parent="Spikes" unique_id=466965090 instance=ExtResource("3_71baw")]
+position = Vector2(21644, -22169.002)
+scale = Vector2(0.74, 0.74)
+
+[node name="Spike127" parent="Spikes" unique_id=250484097 instance=ExtResource("3_71baw")]
+position = Vector2(21560, -22132)
+scale = Vector2(0.8, 0.8)
+
+[node name="Spike128" parent="Spikes" unique_id=788322097 instance=ExtResource("3_71baw")]
+position = Vector2(19854, -23053)
+
+[node name="Spike129" parent="Spikes" unique_id=1141970393 instance=ExtResource("3_71baw")]
+position = Vector2(20023, -23059)
+
+[node name="Spike130" parent="Spikes" unique_id=172465404 instance=ExtResource("3_71baw")]
+position = Vector2(20190, -22889)
+rotation = 1.5059718
+
+[node name="Spike131" parent="Spikes" unique_id=1977871641 instance=ExtResource("3_71baw")]
+position = Vector2(19692, -22877.002)
+rotation = -1.5062191
+
+[node name="Spike132" parent="Spikes" unique_id=1416411374 instance=ExtResource("3_71baw")]
+position = Vector2(20414, -23061)
+
+[node name="Spike133" parent="Spikes" unique_id=404589357 instance=ExtResource("3_71baw")]
+position = Vector2(20583, -23067)
+
+[node name="Spike134" parent="Spikes" unique_id=1506278376 instance=ExtResource("3_71baw")]
+position = Vector2(20750, -22897)
+rotation = 1.5059718
+
+[node name="Spike135" parent="Spikes" unique_id=1160922791 instance=ExtResource("3_71baw")]
+position = Vector2(20252, -22885.002)
+rotation = -1.5062191
+
+[node name="Spike136" parent="Spikes" unique_id=2062033355 instance=ExtResource("3_71baw")]
+position = Vector2(21101, -22694)
+
+[node name="Spike137" parent="Spikes" unique_id=1701457275 instance=ExtResource("3_71baw")]
+position = Vector2(21115, -23241)
+rotation = -3.1415925
+
+[node name="Spike138" parent="Spikes" unique_id=2013968531 instance=ExtResource("3_71baw")]
+position = Vector2(19170, -22650)
+
+[node name="Spike139" parent="Spikes" unique_id=1398461724 instance=ExtResource("3_71baw")]
+position = Vector2(19184, -23197)
+rotation = -3.1415925
+
+[node name="Spike140" parent="Spikes" unique_id=234001235 instance=ExtResource("3_71baw")]
+position = Vector2(19325, -22185)
+
+[node name="Spike141" parent="Spikes" unique_id=78142374 instance=ExtResource("3_71baw")]
+position = Vector2(20961, -22185)
+
+[node name="Spike142" parent="Spikes" unique_id=1578731379 instance=ExtResource("3_71baw")]
+position = Vector2(17572, -23650)
+
+[node name="Spike143" parent="Spikes" unique_id=1754249162 instance=ExtResource("3_71baw")]
+position = Vector2(17706, -23683)
+
+[node name="Spike144" parent="Spikes" unique_id=1178210994 instance=ExtResource("3_71baw")]
+position = Vector2(17852, -23716)
+
+[node name="Spike145" parent="Spikes" unique_id=1663634516 instance=ExtResource("3_71baw")]
+position = Vector2(18002, -23733)
+
+[node name="Spike146" parent="Spikes" unique_id=1053136212 instance=ExtResource("3_71baw")]
+position = Vector2(18144, -23754)
+
+[node name="Spike147" parent="Spikes" unique_id=454505684 instance=ExtResource("3_71baw")]
+position = Vector2(18282, -23792)
+
+[node name="Spike148" parent="Spikes" unique_id=408046815 instance=ExtResource("3_71baw")]
+position = Vector2(18411, -23800)
+
+[node name="Spike149" parent="Spikes" unique_id=92786797 instance=ExtResource("3_71baw")]
+position = Vector2(18557, -23846)
+
+[node name="Spike150" parent="Spikes" unique_id=1894406858 instance=ExtResource("3_71baw")]
+position = Vector2(18720, -23888)
+
+[node name="Spike151" parent="Spikes" unique_id=1672333329 instance=ExtResource("3_71baw")]
+position = Vector2(18908, -23926)
+
+[node name="Spike152" parent="Spikes" unique_id=335134875 instance=ExtResource("3_71baw")]
+position = Vector2(19113, -23964)
+
 [editable path="Trampoline"]
 [editable path="Trampoline2"]
 [editable path="Trampoline3"]
+[editable path="Platform8"]
 [editable path="Trampoline4"]
 [editable path="Trampoline5"]
 [editable path="Trampoline6"]
-[editable path="Trampoline9"]
-[editable path="Trampoline10"]
-[editable path="Trampoline11"]
-[editable path="Trampoline12"]
-[editable path="Trampoline13"]
-[editable path="Trampoline14"]
-[editable path="Trampoline15"]
-[editable path="Trampoline16"]
-[editable path="Trampoline17"]
-[editable path="Trampoline18"]
-[editable path="Trampoline19"]
-[editable path="Trampoline20"]
-[editable path="Trampoline21"]
-[editable path="Trampoline22"]
-[editable path="Trampoline23"]
-[editable path="Trampoline24"]
 [editable path="Checkpoint"]
-[editable path="TeleportObject"]
-[editable path="TeleportObject2"]
 [editable path="TeleportObject3"]
 [editable path="Platform13"]
+[editable path="TeleportObject"]
+[editable path="TeleportObject2"]
+[editable path="TeleportObject5"]
+[editable path="Platform23"]
+[editable path="TeleportObject6"]
+[editable path="Chamber/Platform31"]
+[editable path="Chamber/TeleportObject8"]
+[editable path="TeleportObject7"]
+[editable path="TeleportObject8"]
+[editable path="TeleportObject9"]
+[editable path="TeleportObject10"]
+[editable path="TeleportObject11"]

@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://yrlqn1mct2b"]
+
+[ext_resource type="Texture2D" uid="uid://bdq7e4gqu082h" path="res://assets/sprites/Pipe.png" id="2_oiwhp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8x3ej"]
+size = Vector2(242, 293)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_twfb4"]
+size = Vector2(283, 131)
+
+[node name="ExitPipe" type="Sprite2D" unique_id=857375274]
+modulate = Color(0.8274021, 0.7210065, 3.85046e-07, 1)
+z_index = 4
+texture = ExtResource("2_oiwhp")
+centered = false
+offset = Vector2(-269.81, -504.81)
+
+[node name="StaticBody" type="StaticBody2D" parent="." unique_id=1752724082]
+
+[node name="Collision" type="CollisionShape2D" parent="StaticBody" unique_id=1805400306]
+position = Vector2(2, -138.5)
+shape = SubResource("RectangleShape2D_8x3ej")
+
+[node name="Collision2" type="CollisionShape2D" parent="StaticBody" unique_id=1072664049]
+position = Vector2(-2.5, -349.5)
+shape = SubResource("RectangleShape2D_twfb4")

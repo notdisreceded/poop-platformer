@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmfgy7quinbbq"
-path="res://.godot/imported/Checkpoint.png-7970e83312d27be0fd319988947ab8f0.ctex"
+uid="uid://v3d0yonnixhw"
+path="res://.godot/imported/trampoline_bounce_00003.png-c07504be43d6824297d7cb1e9e585b90.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Checkpoint.png"
-dest_files=["res://.godot/imported/Checkpoint.png-7970e83312d27be0fd319988947ab8f0.ctex"]
+source_file="res://assets/sprites/trampoline/Trampoline/trampoline_bounce_00003.png"
+dest_files=["res://.godot/imported/trampoline_bounce_00003.png-c07504be43d6824297d7cb1e9e585b90.ctex"]
 
 [params]
 

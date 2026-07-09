@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://buajeyxn22dxa"]
 
-[ext_resource type="Texture2D" uid="uid://dobe56kpb3qb2" path="res://assets/sprites/Spike.png" id="1_ljd5v"]
+[ext_resource type="Texture2D" uid="uid://cf0gm40owdswn" path="res://assets/sprites/SpikeNew.png" id="1_7a7y0"]
 [ext_resource type="Script" uid="uid://qm5o1a74k2r6" path="res://scripts/hazard.gd" id="2_7a7y0"]
 
 [sub_resource type="Gradient" id="Gradient_7a7y0"]
@@ -11,7 +11,8 @@ colors = PackedColorArray(0.21770248, 0.23947468, 0.272597, 1, 1, 0, 0, 1)
 [node name="Sprite" type="Sprite2D" parent="." unique_id=180893183]
 self_modulate = Color(1, 0, 0, 1)
 scale = Vector2(0.575, 0.575)
-texture = ExtResource("1_ljd5v")
+texture = ExtResource("1_7a7y0")
+offset = Vector2(0, 54)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=8492258]
 position = Vector2(-1, 0)

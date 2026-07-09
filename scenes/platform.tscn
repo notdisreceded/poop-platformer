@@ -3,13 +3,13 @@
 [ext_resource type="Texture2D" uid="uid://bulk6srumsqlj" path="res://assets/sprites/White.png" id="1_k3bbv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_icy5c"]
-size = Vector2(1001, 783)
+size = Vector2(957.21924, 783)
 
 [node name="Platform2" type="StaticBody2D" unique_id=184911203]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=321989865]
 modulate = Color(0, 0, 0, 1)
-z_index = 4
+z_index = 6
 scale = Vector2(3.79057, 2.83636)
 texture = ExtResource("1_k3bbv")
 

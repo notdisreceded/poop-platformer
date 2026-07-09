@@ -3,41 +3,46 @@
 [ext_resource type="Script" uid="uid://utem281br28v" path="res://scripts/teleport.gd" id="1_8p0di"]
 [ext_resource type="Texture2D" uid="uid://bdq7e4gqu082h" path="res://assets/sprites/Pipe.png" id="1_8x3ej"]
 [ext_resource type="Script" uid="uid://dwxmroai05gar" path="res://scripts/playerDetector.gd" id="2_arpqm"]
+[ext_resource type="Texture2D" uid="uid://brpjhlh1tk0qd" path="res://assets/sprites/PipeGlow.png" id="4_ejsh2"]
+[ext_resource type="Texture2D" uid="uid://bulk6srumsqlj" path="res://assets/sprites/White.png" id="5_4ybk5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8x3ej"]
-size = Vector2(45, 304)
+size = Vector2(20.5, 304)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ybk5"]
-size = Vector2(148, 57)
+size = Vector2(202, 25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ejsh2"]
 size = Vector2(40, 120)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8p0di"]
-size = Vector2(148, 92)
+size = Vector2(205, 121)
 
 [node name="TeleportObject" type="Node2D" unique_id=517882663]
 script = ExtResource("1_8p0di")
+point = Vector2(300, 300)
+velocity = Vector2(0, -75)
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=857375274]
 modulate = Color(0.8274021, 0.7210065, 3.85046e-07, 1)
 z_index = 4
+texture_filter = 1
 texture = ExtResource("1_8x3ej")
 centered = false
-offset = Vector2(-179, -504)
+offset = Vector2(-268.35, -504)
 
 [node name="StaticBody" type="StaticBody2D" parent="." unique_id=1752724082]
 
 [node name="Collision" type="CollisionShape2D" parent="StaticBody" unique_id=1805400306]
-position = Vector2(-95.5, -144)
+position = Vector2(-108, -142)
 shape = SubResource("RectangleShape2D_8x3ej")
 
 [node name="Collision2" type="CollisionShape2D" parent="StaticBody" unique_id=1072664049]
-position = Vector2(95, -144)
+position = Vector2(112, -141)
 shape = SubResource("RectangleShape2D_8x3ej")
 
 [node name="Collision5" type="CollisionShape2D" parent="StaticBody" unique_id=1384009179]
-position = Vector2(0, -20.5)
+position = Vector2(3, -4.5)
 shape = SubResource("RectangleShape2D_4ybk5")
 
 [node name="Collision3" type="CollisionShape2D" parent="StaticBody" unique_id=301468388]
@@ -48,12 +53,46 @@ shape = SubResource("RectangleShape2D_ejsh2")
 position = Vector2(119, -354)
 shape = SubResource("RectangleShape2D_ejsh2")
 
+[node name="Gate" type="CollisionShape2D" parent="StaticBody" unique_id=1050943518]
+
 [node name="PlayerDetector" type="Area2D" parent="." unique_id=1295552835]
 script = ExtResource("2_arpqm")
 metadata/_custom_type_script = "uid://dwxmroai05gar"
 
 [node name="Trigger" type="CollisionShape2D" parent="PlayerDetector" unique_id=1968072020]
-position = Vector2(1, -93)
+position = Vector2(-0.5, -78.5)
 shape = SubResource("RectangleShape2D_8p0di")
+
+[node name="ExitPoint" type="Node2D" parent="." unique_id=841702744]
+position = Vector2(0, -190)
+
+[node name="Glow" type="Sprite2D" parent="." unique_id=1802553334]
+modulate = Color(1, 1, 1, 0.16078432)
+texture_filter = 1
+position = Vector2(-9, -669)
+texture = ExtResource("4_ejsh2")
+
+[node name="Particles" type="CPUParticles2D" parent="." unique_id=1759983799]
+position = Vector2(0, -410)
+amount = 75
+texture = ExtResource("5_4ybk5")
+lifetime = 0.26
+preprocess = 1.0
+speed_scale = 0.25
+lifetime_randomness = 1.0
+local_coords = true
+emission_shape = 3
+emission_rect_extents = Vector2(141.17, 9.48)
+direction = Vector2(0, -1000)
+spread = 0.0
+gravity = Vector2(0, -1080)
+initial_velocity_min = 500.0
+initial_velocity_max = 1000.0
+scale_amount_min = 0.0
+scale_amount_max = 0.03
+color = Color(0, 0.7529412, 0.23921569, 0.8039216)
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+anim_speed_max = 128.0
 
 [connection signal="touchedPlayer" from="PlayerDetector" to="." method="teleport"]
