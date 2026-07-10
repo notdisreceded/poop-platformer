@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dhcoqjfg367wn" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://bfbp1l1hpb334" path="res://assets/sprites/Player.png" id="2_qhqgy"]
 [ext_resource type="PackedScene" uid="uid://dwvpmqqyane44" path="res://scenes/poop_splatter.tscn" id="3_qhqgy"]
+[ext_resource type="PackedScene" uid="uid://bivypunjt22wb" path="res://scenes/poopray.tscn" id="4_3v2ag"]
 [ext_resource type="Script" uid="uid://bi3bf6c87aqst" path="res://scripts/void_behavior.gd" id="4_dqkch"]
 [ext_resource type="AudioStream" uid="uid://cgru4dtj132oo" path="res://assets/audio/sfx/bowserfart.wav" id="5_qlg0r"]
 [ext_resource type="AudioStream" uid="uid://c66r8pop0we2g" path="res://assets/audio/sfx/Shit.wav" id="6_tuyoq"]
@@ -65,23 +66,8 @@ position = Vector2(0, 42)
 target_position = Vector2(3, -447)
 hit_from_inside = true
 
-[node name="PoopRay" type="CPUParticles2D" parent="." unique_id=615364422]
-z_index = -1
+[node name="PoopRay" parent="." unique_id=743606126 instance=ExtResource("4_3v2ag")]
 position = Vector2(1, 97)
-emitting = false
-amount = 400
-speed_scale = 2.0
-explosiveness = 0.24
-randomness = 0.23
-local_coords = true
-emission_shape = 3
-emission_rect_extents = Vector2(2.655, 1.305)
-gravity = Vector2(0, 1281.46)
-angle_min = -580.3
-angle_max = 720.0
-scale_amount_min = 6.0
-scale_amount_max = 67.39
-color = Color(0.359542, 0.112756, 0.0357044, 1)
 
 [node name="PoopParticles" type="CPUParticles2D" parent="." unique_id=278801120]
 z_index = -1

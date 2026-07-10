@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cliyqri474rg8" path="res://assets/sprites/SeamlessSky3.png" id="10_gycjm"]
 [ext_resource type="Texture2D" uid="uid://co0tdkysbaqwv" path="res://assets/sprites/SpikyHills.png" id="11_8i1lk"]
 [ext_resource type="PackedScene" uid="uid://yrlqn1mct2b" path="res://scenes/exit_pipe.tscn" id="12_8i1lk"]
+[ext_resource type="Script" uid="uid://cmb6cqsseisqp" path="res://scripts/finish_line.gd" id="13_b4tpv"]
 [ext_resource type="Texture2D" uid="uid://ddsyedeqj842b" path="res://assets/sprites/Cloud1.png" id="13_hgky1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_icy5c"]
@@ -23,7 +24,7 @@ size = Vector2(979.5642, 783)
 position = Vector2(0, -16)
 script = ExtResource("1_e0cvd")
 voidHeight = 150.0
-playerSpawnPoint = Vector2(125, -137)
+playerSpawnPoint = Vector2(31517, -19930)
 destroyVoidedObjects = false
 teleportVoidedObjects = true
 voidedObjectTeleportPoint = Vector2(125, -137)
@@ -37,8 +38,11 @@ position = Vector2(461, 97.00001)
 scale = Vector2(1, 0.19999957)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1129463335]
+position = Vector2(10, 288)
 zoom = Vector2(0.245, 0.245)
-limit_left = 0
+limit_left = 3
+limit_top = -24960
+limit_right = 10000003
 limit_bottom = 151
 limit_smoothed = true
 position_smoothing_enabled = true
@@ -229,12 +233,6 @@ position = Vector2(1951, -1795)
 rotation = 3.1415927
 point = Vector2(1947, -3280)
 velocity = Vector2(0, 300)
-
-[node name="TeleportObject" parent="." unique_id=517882663 instance=ExtResource("7_b0vvs")]
-position = Vector2(14561, -3942)
-
-[node name="Sprite" parent="TeleportObject" index="0" unique_id=857375274]
-modulate = Color(0.38145626, 0.2673788, 0.88023007, 1)
 
 [node name="TeleportObject2" parent="." unique_id=660252447 instance=ExtResource("7_b0vvs")]
 position = Vector2(14553.999, -5080)
@@ -527,6 +525,34 @@ scale = Vector2(0.38461545, 0.29069766)
 [node name="Platform2" parent="Chamber" unique_id=1346910666 instance=ExtResource("2_nos0u")]
 position = Vector2(620.725, 1263.3054)
 scale = Vector2(1.3063756, 0.37114158)
+
+[node name="Platform3" parent="Chamber" unique_id=656681633 instance=ExtResource("2_nos0u")]
+position = Vector2(613.4199, 1886.55)
+scale = Vector2(0.71785074, -0.06524337)
+
+[node name="Spike" parent="Chamber" unique_id=1467808966 instance=ExtResource("3_71baw")]
+position = Vector2(902.81195, 1834.4426)
+scale = Vector2(0.37, 0.37)
+
+[node name="Spike2" parent="Chamber" unique_id=1013706250 instance=ExtResource("3_71baw")]
+position = Vector2(817.0376, 1836.0359)
+scale = Vector2(0.37, 0.37)
+
+[node name="Spike3" parent="Chamber" unique_id=1434574649 instance=ExtResource("3_71baw")]
+position = Vector2(696.7608, 1800.9403)
+scale = Vector2(0.965, 0.965)
+
+[node name="Spike4" parent="Chamber" unique_id=1031726041 instance=ExtResource("3_71baw")]
+position = Vector2(521.2181, 1852.085)
+scale = Vector2(0.335, 0.335)
+
+[node name="Spike5" parent="Chamber" unique_id=136770465 instance=ExtResource("3_71baw")]
+position = Vector2(458.52863, 1851.1025)
+scale = Vector2(0.335, 0.335)
+
+[node name="Spike6" parent="Chamber" unique_id=1732450841 instance=ExtResource("3_71baw")]
+position = Vector2(335.4547, 1850.0138)
+scale = Vector2(0.335, 0.335)
 
 [node name="TeleportObject7" parent="." unique_id=1893192042 instance=ExtResource("7_b0vvs")]
 position = Vector2(24056, -20142)
@@ -1025,41 +1051,6 @@ position = Vector2(19176, -23533)
 rotation = 3.1415927
 scale = Vector2(0.175, 0.654)
 
-[node name="TeleportObject8" parent="." unique_id=1503169389 instance=ExtResource("7_b0vvs")]
-position = Vector2(17706, -22315)
-rotation = 1.5707964
-scale = Vector2(1.64, 1.64)
-
-[node name="Sprite" parent="TeleportObject8" index="0" unique_id=857375274]
-modulate = Color(0.30410212, 0.85707283, 0, 1)
-
-[node name="TeleportObject9" parent="." unique_id=1850177065 instance=ExtResource("7_b0vvs")]
-position = Vector2(17717.002, -22776)
-rotation = 1.5707964
-scale = Vector2(1.64, 1.64)
-point = Vector2(31901, -18584)
-
-[node name="Sprite" parent="TeleportObject9" index="0" unique_id=857375274]
-modulate = Color(0.827451, 0, 0, 1)
-
-[node name="Platform2" parent="TeleportObject9" unique_id=254157566 instance=ExtResource("2_nos0u")]
-position = Vector2(-3.048809, 79.267845)
-scale = Vector2(0.845, 0.21)
-
-[node name="TeleportObject10" parent="." unique_id=1788548801 instance=ExtResource("7_b0vvs")]
-position = Vector2(17717.002, -23227)
-rotation = 1.5707964
-scale = Vector2(1.64, 1.64)
-
-[node name="Sprite" parent="TeleportObject10" index="0" unique_id=857375274]
-modulate = Color(0.30410212, 0.85707283, 0, 1)
-
-[node name="Platform32" parent="." unique_id=645694048 instance=ExtResource("2_nos0u")]
-position = Vector2(18328.004, -23646)
-rotation = -0.20420352
-scale = Vector2(1.865, 0.265)
-skew = 0.89360857
-
 [node name="ExitPipe5" parent="." unique_id=828772506 instance=ExtResource("12_8i1lk")]
 position = Vector2(1951, -2652)
 
@@ -1073,7 +1064,7 @@ modulate = Color(0.33333334, 0.77254903, 1, 1)
 
 [node name="Spikes" type="Node" parent="." unique_id=1436908072]
 
-[node name="Spike" parent="Spikes" unique_id=1467808966 instance=ExtResource("3_71baw")]
+[node name="Spike" parent="Spikes" unique_id=597273027 instance=ExtResource("3_71baw")]
 position = Vector2(892, -94)
 
 [node name="Spike2" parent="Spikes" unique_id=1340128619 instance=ExtResource("3_71baw")]
@@ -1788,38 +1779,118 @@ position = Vector2(19325, -22185)
 [node name="Spike141" parent="Spikes" unique_id=78142374 instance=ExtResource("3_71baw")]
 position = Vector2(20961, -22185)
 
-[node name="Spike142" parent="Spikes" unique_id=1578731379 instance=ExtResource("3_71baw")]
-position = Vector2(17572, -23650)
+[node name="ExitPipe6" parent="." unique_id=62624023 instance=ExtResource("12_8i1lk")]
+modulate = Color(0, 0.34740466, 0.30313936, 1)
+position = Vector2(20408, -19817.002)
+rotation = 0.8019028
+scale = Vector2(1.62, 1.62)
 
-[node name="Spike143" parent="Spikes" unique_id=1754249162 instance=ExtResource("3_71baw")]
-position = Vector2(17706, -23683)
+[node name="Platform32" parent="." unique_id=1257452157 instance=ExtResource("2_nos0u")]
+position = Vector2(18552, -22314)
+scale = Vector2(0.187, 4.025)
 
-[node name="Spike144" parent="Spikes" unique_id=1178210994 instance=ExtResource("3_71baw")]
-position = Vector2(17852, -23716)
+[node name="Platform33" parent="." unique_id=16715695 instance=ExtResource("2_nos0u")]
+position = Vector2(18913, -23745)
+scale = Vector2(0.697, 0.3)
 
-[node name="Spike145" parent="Spikes" unique_id=1663634516 instance=ExtResource("3_71baw")]
-position = Vector2(18002, -23733)
+[node name="TeleportObject8" parent="." unique_id=1715723778 node_paths=PackedStringArray("targetNode") instance=ExtResource("7_b0vvs")]
+position = Vector2(18863, -22082)
+targetNode = NodePath("../ExitPipe7/ExitPoint")
 
-[node name="Spike146" parent="Spikes" unique_id=1053136212 instance=ExtResource("3_71baw")]
-position = Vector2(18144, -23754)
+[node name="Sprite" parent="TeleportObject8" index="0" unique_id=857375274]
+modulate = Color(0.7565853, 0.65136117, 1, 1)
 
-[node name="Spike147" parent="Spikes" unique_id=454505684 instance=ExtResource("3_71baw")]
-position = Vector2(18282, -23792)
+[node name="Platform2" parent="TeleportObject8" unique_id=1729540583 instance=ExtResource("2_nos0u")]
+position = Vector2(2243, -1865)
+scale = Vector2(0.1, 0.32)
 
-[node name="Spike148" parent="Spikes" unique_id=408046815 instance=ExtResource("3_71baw")]
-position = Vector2(18411, -23800)
+[node name="Spike" parent="TeleportObject8" unique_id=1089770625 instance=ExtResource("3_71baw")]
+position = Vector2(166, -1926)
+rotation = 1.5707964
+scale = Vector2(0.56, 0.56)
 
-[node name="Spike149" parent="Spikes" unique_id=92786797 instance=ExtResource("3_71baw")]
-position = Vector2(18557, -23846)
+[node name="Spike2" parent="TeleportObject8" unique_id=650386432 instance=ExtResource("3_71baw")]
+position = Vector2(162, -2006)
+rotation = 1.5707964
+scale = Vector2(0.56, 0.56)
 
-[node name="Spike150" parent="Spikes" unique_id=1894406858 instance=ExtResource("3_71baw")]
-position = Vector2(18720, -23888)
+[node name="Spike3" parent="TeleportObject8" unique_id=1812890430 instance=ExtResource("3_71baw")]
+position = Vector2(165, -1830)
+rotation = 1.5707964
+scale = Vector2(0.56, 0.56)
 
-[node name="Spike151" parent="Spikes" unique_id=1672333329 instance=ExtResource("3_71baw")]
-position = Vector2(18908, -23926)
+[node name="Spike4" parent="TeleportObject8" unique_id=182074629 instance=ExtResource("3_71baw")]
+position = Vector2(426, -1753)
+rotation = 1.5707964
+scale = Vector2(0.315, 0.315)
 
-[node name="Spike152" parent="Spikes" unique_id=335134875 instance=ExtResource("3_71baw")]
-position = Vector2(19113, -23964)
+[node name="Trampoline12" parent="." unique_id=1724539 instance=ExtResource("4_niitk")]
+position = Vector2(18694, -22996)
+rotation = 1.5707964
+dampeningEnabled = false
+
+[node name="ExitPipe7" parent="." unique_id=314740295 instance=ExtResource("12_8i1lk")]
+modulate = Color(0.7565853, 0.65136117, 1, 1)
+position = Vector2(18856, -23847)
+
+[node name="Trampoline13" parent="." unique_id=1395449786 instance=ExtResource("4_niitk")]
+position = Vector2(21011, -23954)
+rotation = -1.5707964
+power = 500
+dampeningEnabled = false
+
+[node name="Trampoline14" parent="." unique_id=1309345799 instance=ExtResource("4_niitk")]
+position = Vector2(21104.998, -24091)
+scale = Vector2(0.38, 0.38)
+power = 1000
+dampeningEnabled = false
+
+[node name="ExitPipe8" parent="." unique_id=783185121 instance=ExtResource("12_8i1lk")]
+modulate = Color(0, 0.8666667, 0.039215688, 1)
+position = Vector2(21149.002, -23658.998)
+rotation = 1.5671715
+
+[node name="ExitPipe9" parent="." unique_id=179368484 instance=ExtResource("12_8i1lk")]
+modulate = Color(0, 0.8666667, 0.039215688, 1)
+position = Vector2(18528.998, -23731.002)
+rotation = 4.7144365
+
+[node name="TeleportObject9" parent="." unique_id=1425906965 instance=ExtResource("7_b0vvs")]
+position = Vector2(21084, -25399)
+rotation = 3.1415927
+scale = Vector2(1.75, 1.75)
+point = Vector2(21099, -59955)
+
+[node name="Trigger" parent="TeleportObject9/PlayerDetector" parent_id_path=PackedInt32Array(1425906965, 1295552835) index="0" unique_id=1968072020]
+position = Vector2(-0.5, -188.71484)
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="FinishPoint" type="Node2D" parent="TeleportObject9" unique_id=1651809654]
+script = ExtResource("13_b4tpv")
+nextLevelPath = "res://scenes/levels/level3.tscn"
+metadata/_custom_type_script = "uid://cmb6cqsseisqp"
+
+[node name="Platform34" parent="." unique_id=237700794 instance=ExtResource("2_nos0u")]
+position = Vector2(21502, -25215)
+scale = Vector2(0.133, 3.63)
+
+[node name="Platform35" parent="." unique_id=1599877747 instance=ExtResource("2_nos0u")]
+position = Vector2(22872.002, -26671.998)
+rotation = 1.5459543
+scale = Vector2(0.133, 3.63)
+
+[node name="Spike" parent="." unique_id=2109966141 instance=ExtResource("3_71baw")]
+position = Vector2(14892, -4201)
+
+[node name="Spike2" parent="." unique_id=1215148280 instance=ExtResource("3_71baw")]
+position = Vector2(14287.999, -4938)
+rotation = 3.1303482
+
+[node name="Spike3" parent="." unique_id=1134325907 instance=ExtResource("3_71baw")]
+position = Vector2(14116.998, -4946)
+rotation = 3.1303482
+
+[connection signal="touchedPlayer" from="TeleportObject9/PlayerDetector" to="TeleportObject9/FinishPoint" method="moveToNextStage"]
 
 [editable path="Trampoline"]
 [editable path="Trampoline2"]
@@ -1831,7 +1902,6 @@ position = Vector2(19113, -23964)
 [editable path="Checkpoint"]
 [editable path="TeleportObject3"]
 [editable path="Platform13"]
-[editable path="TeleportObject"]
 [editable path="TeleportObject2"]
 [editable path="TeleportObject5"]
 [editable path="Platform23"]
@@ -1839,7 +1909,7 @@ position = Vector2(19113, -23964)
 [editable path="Chamber/Platform31"]
 [editable path="Chamber/TeleportObject8"]
 [editable path="TeleportObject7"]
-[editable path="TeleportObject8"]
-[editable path="TeleportObject9"]
-[editable path="TeleportObject10"]
 [editable path="TeleportObject11"]
+[editable path="TeleportObject8"]
+[editable path="ExitPipe7"]
+[editable path="TeleportObject9"]

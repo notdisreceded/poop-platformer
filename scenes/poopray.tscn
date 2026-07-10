@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bivypunjt22wb"]
+
+[node name="PoopRay" type="CPUParticles2D" unique_id=743606126]
+z_index = -1
+emitting = false
+amount = 400
+speed_scale = 2.0
+explosiveness = 0.24
+randomness = 0.23
+local_coords = true
+emission_shape = 3
+emission_rect_extents = Vector2(2.655, 1.305)
+gravity = Vector2(0, 1281.46)
+angle_min = -580.3
+angle_max = 720.0
+scale_amount_min = 6.0
+scale_amount_max = 67.39
+color = Color(0.359542, 0.112756, 0.0357044, 1)

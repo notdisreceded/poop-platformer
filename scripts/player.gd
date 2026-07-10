@@ -17,6 +17,7 @@ class_name Player
 @export var poopUsageRate := 27.5
 @export var poopRegenRate := 13.5
 @export var poopPowerCurve : Curve
+@export var pushForce := 50.0
 
 @export var health : float = 3:
 	set (value):
@@ -295,6 +296,7 @@ func _physics_process (_delta : float):
 
 	if isRaycastColliding:
 		raycast2d.target_position.y = raycast2d.to_local (raycast2d.get_collision_point ()).y
+
 	else:
 		# positive y is down and negative y is up
 
@@ -338,4 +340,26 @@ func _physics_process (_delta : float):
 		visible = true
 
 	move_and_slide ()
+
+	# Push rigidbodies that are in our way
+
+	for index in get_slide_collision_count ():
+		var collision := get_slide_collision (index)
+		var collider := collision.get_collider ()
+
+		if collider is RigidBody2D:
+			# we are being pushed by a rigidbody
+
+			if collider.linear_velocity.length > velocity.length ():
+				print ("pushed")
+
+				self.setKnockbackForce (collision.get_normal () * collider.mass * pushForce / 2, 0.1)
+
+			# we are pushing a rigidbody
+			else:
+				var impulse = -collision.get_normal () * pushForce * velocity.length () / speed
+				collider.apply_central_impulse (impulse)
+			
+				print ("pushing")
+			
 	

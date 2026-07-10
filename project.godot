@@ -17,7 +17,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 config/name="Poop Platformer"
 run/main_scene="uid://bfh4a8puxv57p"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-run/max_fps=120
+run/max_fps=60
 config/icon="uid://dbiukkypso2ps"
 
 [display]

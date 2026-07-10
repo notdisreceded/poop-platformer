@@ -90,6 +90,8 @@ func teleport (object : Node2D):
 				
 				object.canBeTeleported = true
 				parent.disabled = false
+			else:
+				object.global_position = point 
 		else:
 			object.global_position = point 
 	else:
